@@ -1,0 +1,47 @@
+[0.017s] Invoking command in '/home/kemaltml/moria_ws/build/moria_gazebo': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --build /home/kemaltml/moria_ws/build/moria_gazebo -- -j8 -l8
+[0.066s] [35m[1mConsolidate compiler generated dependencies of target moria_drive[0m
+[0.089s] [100%] Built target moria_drive
+[0.105s] Invoked command in '/home/kemaltml/moria_ws/build/moria_gazebo' returned '0': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --build /home/kemaltml/moria_ws/build/moria_gazebo -- -j8 -l8
+[0.150s] Invoking command in '/home/kemaltml/moria_ws/build/moria_gazebo': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --install /home/kemaltml/moria_ws/build/moria_gazebo
+[0.157s] -- Install configuration: ""
+[0.158s] -- Execute custom install script
+[0.159s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/lib/moria_gazebo/moria_drive
+[0.160s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo//launch/empty_world.launch.py
+[0.160s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo//launch/robot_state_publisher.launch.py
+[0.160s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo//launch/spawn_moria.launch.py
+[0.161s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo//model/meshes/base_link.STL
+[0.161s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo//model/meshes/body.STL
+[0.161s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo//model/meshes/camera.STL
+[0.161s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo//model/meshes/fuzzy_wheel.STL
+[0.161s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo//model/meshes/left_wheel.STL
+[0.161s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo//model/meshes/legs.STL
+[0.162s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo//model/meshes/lidar.stl
+[0.162s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo//model/meshes/right_wheel.STL
+[0.162s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo//model/meshes/tekerlek.STL
+[0.162s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo//model/moria.urdf
+[0.162s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo//rviz/model.rviz
+[0.163s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo//urdf/camera.xacro
+[0.163s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo//urdf/inertial_macros.xacro
+[0.163s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo//urdf/moria.urdf.xacro
+[0.164s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo//urdf/sensors.xacro
+[0.164s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo//urdf/temp.urdf
+[0.164s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo//worlds/empty_world.world
+[0.164s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/include//moria_gazebo/moria_drive.hpp
+[0.164s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/ament_index/resource_index/package_run_dependencies/moria_gazebo
+[0.165s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/ament_index/resource_index/parent_prefix_path/moria_gazebo
+[0.165s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo/environment/ament_prefix_path.sh
+[0.165s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo/environment/ament_prefix_path.dsv
+[0.165s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo/environment/path.sh
+[0.165s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo/environment/path.dsv
+[0.166s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo/local_setup.bash
+[0.166s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo/local_setup.sh
+[0.166s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo/local_setup.zsh
+[0.166s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo/local_setup.dsv
+[0.167s] -- Symlinking: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo/package.dsv
+[0.180s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/ament_index/resource_index/packages/moria_gazebo
+[0.181s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.181s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.181s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo/cmake/moria_gazeboConfig.cmake
+[0.181s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo/cmake/moria_gazeboConfig-version.cmake
+[0.181s] -- Up-to-date symlink: /home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo/package.xml
+[0.195s] Invoked command in '/home/kemaltml/moria_ws/build/moria_gazebo' returned '0': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --install /home/kemaltml/moria_ws/build/moria_gazebo

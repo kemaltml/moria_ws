@@ -1,0 +1,4 @@
+Invoking command in '/home/kemaltml/moria_ws/build/moria_gazebo': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --build /home/kemaltml/moria_ws/build/moria_gazebo -- -j8 -l8
+Invoked command in '/home/kemaltml/moria_ws/build/moria_gazebo' returned '0': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --build /home/kemaltml/moria_ws/build/moria_gazebo -- -j8 -l8
+Invoking command in '/home/kemaltml/moria_ws/build/moria_gazebo': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --install /home/kemaltml/moria_ws/build/moria_gazebo
+Invoked command in '/home/kemaltml/moria_ws/build/moria_gazebo' returned '0': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --install /home/kemaltml/moria_ws/build/moria_gazebo

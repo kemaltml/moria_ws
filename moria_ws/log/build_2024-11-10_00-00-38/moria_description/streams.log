@@ -1,0 +1,57 @@
+[0.083s] Invoking command in '/home/kemaltml/moria_ws/build/moria_description': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake /home/kemaltml/moria_ws/src/moria/moria_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/kemaltml/moria_ws/install/moria_description
+[1.322s] -- The C compiler identification is GNU 11.4.0
+[2.003s] -- The CXX compiler identification is GNU 11.4.0
+[2.069s] -- Detecting C compiler ABI info
+[2.646s] -- Detecting C compiler ABI info - done
+[2.657s] -- Check for working C compiler: /usr/bin/cc - skipped
+[2.670s] -- Detecting C compile features
+[2.684s] -- Detecting C compile features - done
+[2.689s] -- Detecting CXX compiler ABI info
+[4.032s] -- Detecting CXX compiler ABI info - done
+[4.042s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[4.043s] -- Detecting CXX compile features
+[4.044s] -- Detecting CXX compile features - done
+[4.093s] -- Found ament_cmake: 2.0.6 (/opt/ros/iron/share/ament_cmake/cmake)
+[4.469s] -- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+[4.759s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[4.956s] -- Found urdf: 2.8.2 (/opt/ros/iron/share/urdf/cmake)
+[5.365s] -- Configuring done
+[5.369s] -- Generating done
+[5.370s] -- Build files have been written to: /home/kemaltml/moria_ws/build/moria_description
+[5.378s] Invoked command in '/home/kemaltml/moria_ws/build/moria_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake /home/kemaltml/moria_ws/src/moria/moria_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/kemaltml/moria_ws/install/moria_description
+[5.381s] Invoking command in '/home/kemaltml/moria_ws/build/moria_description': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --build /home/kemaltml/moria_ws/build/moria_description -- -j8 -l8
+[5.428s] Invoked command in '/home/kemaltml/moria_ws/build/moria_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --build /home/kemaltml/moria_ws/build/moria_description -- -j8 -l8
+[5.464s] Invoking command in '/home/kemaltml/moria_ws/build/moria_description': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --install /home/kemaltml/moria_ws/build/moria_description
+[5.473s] -- Install configuration: ""
+[5.474s] -- Execute custom install script
+[5.474s] -- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/meshes/base_link.STL
+[5.484s] -- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/meshes/body.STL
+[5.493s] -- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/meshes/camera.STL
+[5.504s] -- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/meshes/fuzzy_wheel.STL
+[5.515s] -- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/meshes/left_wheel.STL
+[5.523s] -- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/meshes/legs.STL
+[5.532s] -- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/meshes/lidar.stl
+[5.541s] -- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/meshes/right_wheel.STL
+[5.557s] -- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/meshes/tekerlek.STL
+[5.567s] -- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/rviz/model.rviz
+[5.577s] -- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/urdf/camera.xacro
+[5.586s] -- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/urdf/inertial_macros.xacro
+[5.594s] -- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/urdf/moria.urdf.xacro
+[5.603s] -- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/urdf/sensors.xacro
+[5.611s] -- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/urdf/temp.urdf
+[5.620s] -- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/ament_index/resource_index/package_run_dependencies/moria_description
+[5.628s] -- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/ament_index/resource_index/parent_prefix_path/moria_description
+[5.637s] -- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/environment/ament_prefix_path.sh
+[5.646s] -- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/environment/ament_prefix_path.dsv
+[5.659s] -- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/environment/path.sh
+[5.668s] -- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/environment/path.dsv
+[5.677s] -- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/local_setup.bash
+[5.685s] -- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/local_setup.sh
+[5.694s] -- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/local_setup.zsh
+[5.703s] -- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/local_setup.dsv
+[5.712s] -- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/package.dsv
+[5.721s] -- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/ament_index/resource_index/packages/moria_description
+[5.730s] -- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/cmake/moria_descriptionConfig.cmake
+[5.738s] -- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/cmake/moria_descriptionConfig-version.cmake
+[5.746s] -- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/package.xml
+[5.759s] Invoked command in '/home/kemaltml/moria_ws/build/moria_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --install /home/kemaltml/moria_ws/build/moria_description

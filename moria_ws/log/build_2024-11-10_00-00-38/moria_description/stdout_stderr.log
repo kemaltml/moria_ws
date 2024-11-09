@@ -1,0 +1,51 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.0.6 (/opt/ros/iron/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found urdf: 2.8.2 (/opt/ros/iron/share/urdf/cmake)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/kemaltml/moria_ws/build/moria_description
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/meshes/base_link.STL
+-- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/meshes/body.STL
+-- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/meshes/camera.STL
+-- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/meshes/fuzzy_wheel.STL
+-- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/meshes/left_wheel.STL
+-- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/meshes/legs.STL
+-- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/meshes/lidar.stl
+-- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/meshes/right_wheel.STL
+-- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/meshes/tekerlek.STL
+-- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/rviz/model.rviz
+-- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/urdf/camera.xacro
+-- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/urdf/inertial_macros.xacro
+-- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/urdf/moria.urdf.xacro
+-- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/urdf/sensors.xacro
+-- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/urdf/temp.urdf
+-- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/ament_index/resource_index/package_run_dependencies/moria_description
+-- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/ament_index/resource_index/parent_prefix_path/moria_description
+-- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/environment/ament_prefix_path.sh
+-- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/environment/ament_prefix_path.dsv
+-- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/environment/path.sh
+-- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/environment/path.dsv
+-- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/local_setup.bash
+-- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/local_setup.sh
+-- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/local_setup.zsh
+-- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/local_setup.dsv
+-- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/package.dsv
+-- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/ament_index/resource_index/packages/moria_description
+-- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/cmake/moria_descriptionConfig.cmake
+-- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/cmake/moria_descriptionConfig-version.cmake
+-- Symlinking: /home/kemaltml/moria_ws/install/moria_description/share/moria_description/package.xml

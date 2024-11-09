@@ -1,0 +1,284 @@
+[0.130s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--symlink-install']
+[0.130s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=8, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x7c483154ebf0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7c483154e620>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7c483154e620>>, mixin_verb=('build',))
+[0.340s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.340s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.340s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.340s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.340s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.340s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.340s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/kemaltml/moria_ws'
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.340s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.341s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.352s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria) by extensions ['ignore', 'ignore_ament_install']
+[0.353s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria) by extension 'ignore'
+[0.354s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria) by extension 'ignore_ament_install'
+[0.354s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria) by extensions ['colcon_pkg']
+[0.354s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria) by extension 'colcon_pkg'
+[0.354s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria) by extensions ['colcon_meta']
+[0.354s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria) by extension 'colcon_meta'
+[0.354s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria) by extensions ['ros']
+[0.354s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria) by extension 'ros'
+[0.354s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria) by extensions ['cmake', 'python']
+[0.354s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria) by extension 'cmake'
+[0.354s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria) by extension 'python'
+[0.354s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria) by extensions ['python_setup_py']
+[0.354s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria) by extension 'python_setup_py'
+[0.354s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria/moria_bringup) by extensions ['ignore', 'ignore_ament_install']
+[0.354s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria/moria_bringup) by extension 'ignore'
+[0.354s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria/moria_bringup) by extension 'ignore_ament_install'
+[0.354s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria/moria_bringup) by extensions ['colcon_pkg']
+[0.354s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria/moria_bringup) by extension 'colcon_pkg'
+[0.354s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria/moria_bringup) by extensions ['colcon_meta']
+[0.354s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria/moria_bringup) by extension 'colcon_meta'
+[0.354s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria/moria_bringup) by extensions ['ros']
+[0.354s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria/moria_bringup) by extension 'ros'
+[0.357s] DEBUG:colcon.colcon_core.package_identification:Package 'src/moria/moria_bringup' with type 'ros.ament_cmake' and name 'moria_bringup'
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria/moria_description) by extensions ['ignore', 'ignore_ament_install']
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria/moria_description) by extension 'ignore'
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria/moria_description) by extension 'ignore_ament_install'
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria/moria_description) by extensions ['colcon_pkg']
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria/moria_description) by extension 'colcon_pkg'
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria/moria_description) by extensions ['colcon_meta']
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria/moria_description) by extension 'colcon_meta'
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria/moria_description) by extensions ['ros']
+[0.357s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria/moria_description) by extension 'ros'
+[0.359s] DEBUG:colcon.colcon_core.package_identification:Package 'src/moria/moria_description' with type 'ros.ament_cmake' and name 'moria_description'
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria/moria_gazebo) by extensions ['ignore', 'ignore_ament_install']
+[0.359s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria/moria_gazebo) by extension 'ignore'
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria/moria_gazebo) by extension 'ignore_ament_install'
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria/moria_gazebo) by extensions ['colcon_pkg']
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria/moria_gazebo) by extension 'colcon_pkg'
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria/moria_gazebo) by extensions ['colcon_meta']
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria/moria_gazebo) by extension 'colcon_meta'
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria/moria_gazebo) by extensions ['ros']
+[0.360s] Level 1:colcon.colcon_core.package_identification:_identify(src/moria/moria_gazebo) by extension 'ros'
+[0.361s] DEBUG:colcon.colcon_core.package_identification:Package 'src/moria/moria_gazebo' with type 'ros.ament_cmake' and name 'moria_gazebo'
+[0.361s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.361s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.361s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.361s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.361s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.473s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.473s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.482s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 413 installed packages in /opt/ros/iron
+[0.485s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.563s] Level 5:colcon.colcon_core.verb:set package 'moria_description' build argument 'cmake_args' from command line to 'None'
+[0.563s] Level 5:colcon.colcon_core.verb:set package 'moria_description' build argument 'cmake_target' from command line to 'None'
+[0.563s] Level 5:colcon.colcon_core.verb:set package 'moria_description' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.563s] Level 5:colcon.colcon_core.verb:set package 'moria_description' build argument 'cmake_clean_cache' from command line to 'False'
+[0.563s] Level 5:colcon.colcon_core.verb:set package 'moria_description' build argument 'cmake_clean_first' from command line to 'False'
+[0.563s] Level 5:colcon.colcon_core.verb:set package 'moria_description' build argument 'cmake_force_configure' from command line to 'False'
+[0.564s] Level 5:colcon.colcon_core.verb:set package 'moria_description' build argument 'ament_cmake_args' from command line to 'None'
+[0.564s] Level 5:colcon.colcon_core.verb:set package 'moria_description' build argument 'catkin_cmake_args' from command line to 'None'
+[0.564s] Level 5:colcon.colcon_core.verb:set package 'moria_description' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.564s] DEBUG:colcon.colcon_core.verb:Building package 'moria_description' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/kemaltml/moria_ws/build/moria_description', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/kemaltml/moria_ws/install/moria_description', 'merge_install': False, 'path': '/home/kemaltml/moria_ws/src/moria/moria_description', 'symlink_install': True, 'test_result_base': None}
+[0.564s] Level 5:colcon.colcon_core.verb:set package 'moria_gazebo' build argument 'cmake_args' from command line to 'None'
+[0.564s] Level 5:colcon.colcon_core.verb:set package 'moria_gazebo' build argument 'cmake_target' from command line to 'None'
+[0.564s] Level 5:colcon.colcon_core.verb:set package 'moria_gazebo' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.564s] Level 5:colcon.colcon_core.verb:set package 'moria_gazebo' build argument 'cmake_clean_cache' from command line to 'False'
+[0.564s] Level 5:colcon.colcon_core.verb:set package 'moria_gazebo' build argument 'cmake_clean_first' from command line to 'False'
+[0.564s] Level 5:colcon.colcon_core.verb:set package 'moria_gazebo' build argument 'cmake_force_configure' from command line to 'False'
+[0.564s] Level 5:colcon.colcon_core.verb:set package 'moria_gazebo' build argument 'ament_cmake_args' from command line to 'None'
+[0.564s] Level 5:colcon.colcon_core.verb:set package 'moria_gazebo' build argument 'catkin_cmake_args' from command line to 'None'
+[0.564s] Level 5:colcon.colcon_core.verb:set package 'moria_gazebo' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.564s] DEBUG:colcon.colcon_core.verb:Building package 'moria_gazebo' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/kemaltml/moria_ws/build/moria_gazebo', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/kemaltml/moria_ws/install/moria_gazebo', 'merge_install': False, 'path': '/home/kemaltml/moria_ws/src/moria/moria_gazebo', 'symlink_install': True, 'test_result_base': None}
+[0.565s] Level 5:colcon.colcon_core.verb:set package 'moria_bringup' build argument 'cmake_args' from command line to 'None'
+[0.565s] Level 5:colcon.colcon_core.verb:set package 'moria_bringup' build argument 'cmake_target' from command line to 'None'
+[0.565s] Level 5:colcon.colcon_core.verb:set package 'moria_bringup' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.565s] Level 5:colcon.colcon_core.verb:set package 'moria_bringup' build argument 'cmake_clean_cache' from command line to 'False'
+[0.565s] Level 5:colcon.colcon_core.verb:set package 'moria_bringup' build argument 'cmake_clean_first' from command line to 'False'
+[0.565s] Level 5:colcon.colcon_core.verb:set package 'moria_bringup' build argument 'cmake_force_configure' from command line to 'False'
+[0.565s] Level 5:colcon.colcon_core.verb:set package 'moria_bringup' build argument 'ament_cmake_args' from command line to 'None'
+[0.565s] Level 5:colcon.colcon_core.verb:set package 'moria_bringup' build argument 'catkin_cmake_args' from command line to 'None'
+[0.565s] Level 5:colcon.colcon_core.verb:set package 'moria_bringup' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.565s] DEBUG:colcon.colcon_core.verb:Building package 'moria_bringup' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/kemaltml/moria_ws/build/moria_bringup', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/kemaltml/moria_ws/install/moria_bringup', 'merge_install': False, 'path': '/home/kemaltml/moria_ws/src/moria/moria_bringup', 'symlink_install': True, 'test_result_base': None}
+[0.565s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.566s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.567s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/kemaltml/moria_ws/src/moria/moria_description' with build type 'ament_cmake'
+[0.567s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/kemaltml/moria_ws/src/moria/moria_description'
+[0.629s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.630s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.630s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.638s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/kemaltml/moria_ws/src/moria/moria_gazebo' with build type 'ament_cmake'
+[0.638s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/kemaltml/moria_ws/src/moria/moria_gazebo'
+[0.639s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.639s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.651s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kemaltml/moria_ws/build/moria_description': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake /home/kemaltml/moria_ws/src/moria/moria_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/kemaltml/moria_ws/install/moria_description
+[0.660s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kemaltml/moria_ws/build/moria_gazebo': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake /home/kemaltml/moria_ws/src/moria/moria_gazebo -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/kemaltml/moria_ws/install/moria_gazebo
+[5.946s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kemaltml/moria_ws/build/moria_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake /home/kemaltml/moria_ws/src/moria/moria_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/kemaltml/moria_ws/install/moria_description
+[5.949s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kemaltml/moria_ws/build/moria_description': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --build /home/kemaltml/moria_ws/build/moria_description -- -j8 -l8
+[5.996s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kemaltml/moria_ws/build/moria_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --build /home/kemaltml/moria_ws/build/moria_description -- -j8 -l8
+[6.032s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kemaltml/moria_ws/build/moria_description': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --install /home/kemaltml/moria_ws/build/moria_description
+[6.326s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(moria_description)
+[6.327s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kemaltml/moria_ws/build/moria_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --install /home/kemaltml/moria_ws/build/moria_description
+[6.386s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_description' for CMake module files
+[6.387s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_description' for CMake config files
+[6.387s] Level 1:colcon.colcon_core.shell:create_environment_hook('moria_description', 'cmake_prefix_path')
+[6.388s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kemaltml/moria_ws/install/moria_description/share/moria_description/hook/cmake_prefix_path.ps1'
+[6.400s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kemaltml/moria_ws/install/moria_description/share/moria_description/hook/cmake_prefix_path.dsv'
+[6.411s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kemaltml/moria_ws/install/moria_description/share/moria_description/hook/cmake_prefix_path.sh'
+[6.414s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_description/bin'
+[6.414s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_description/lib/pkgconfig/moria_description.pc'
+[6.415s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_description/lib/python3.10/site-packages'
+[6.415s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_description/bin'
+[6.416s] INFO:colcon.colcon_core.shell:Creating package script '/home/kemaltml/moria_ws/install/moria_description/share/moria_description/package.ps1'
+[6.425s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kemaltml/moria_ws/install/moria_description/share/moria_description/package.dsv'
+[6.426s] INFO:colcon.colcon_core.shell:Creating package script '/home/kemaltml/moria_ws/install/moria_description/share/moria_description/package.sh'
+[6.428s] INFO:colcon.colcon_core.shell:Creating package script '/home/kemaltml/moria_ws/install/moria_description/share/moria_description/package.bash'
+[6.429s] INFO:colcon.colcon_core.shell:Creating package script '/home/kemaltml/moria_ws/install/moria_description/share/moria_description/package.zsh'
+[6.432s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kemaltml/moria_ws/install/moria_description/share/colcon-core/packages/moria_description)
+[6.454s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(moria_description)
+[6.454s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_description' for CMake module files
+[6.455s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_description' for CMake config files
+[6.455s] Level 1:colcon.colcon_core.shell:create_environment_hook('moria_description', 'cmake_prefix_path')
+[6.455s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kemaltml/moria_ws/install/moria_description/share/moria_description/hook/cmake_prefix_path.ps1'
+[6.456s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kemaltml/moria_ws/install/moria_description/share/moria_description/hook/cmake_prefix_path.dsv'
+[6.456s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kemaltml/moria_ws/install/moria_description/share/moria_description/hook/cmake_prefix_path.sh'
+[6.457s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_description/bin'
+[6.457s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_description/lib/pkgconfig/moria_description.pc'
+[6.457s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_description/lib/python3.10/site-packages'
+[6.458s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_description/bin'
+[6.458s] INFO:colcon.colcon_core.shell:Creating package script '/home/kemaltml/moria_ws/install/moria_description/share/moria_description/package.ps1'
+[6.458s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kemaltml/moria_ws/install/moria_description/share/moria_description/package.dsv'
+[6.459s] INFO:colcon.colcon_core.shell:Creating package script '/home/kemaltml/moria_ws/install/moria_description/share/moria_description/package.sh'
+[6.459s] INFO:colcon.colcon_core.shell:Creating package script '/home/kemaltml/moria_ws/install/moria_description/share/moria_description/package.bash'
+[6.460s] INFO:colcon.colcon_core.shell:Creating package script '/home/kemaltml/moria_ws/install/moria_description/share/moria_description/package.zsh'
+[6.460s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kemaltml/moria_ws/install/moria_description/share/colcon-core/packages/moria_description)
+[6.461s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/kemaltml/moria_ws/src/moria/moria_bringup' with build type 'ament_cmake'
+[6.461s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/kemaltml/moria_ws/src/moria/moria_bringup'
+[6.461s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[6.461s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[6.473s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kemaltml/moria_ws/build/moria_bringup': AMENT_PREFIX_PATH=/home/kemaltml/moria_ws/install/moria_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kemaltml/moria_ws/install/moria_description:/opt/ros/iron /usr/bin/cmake /home/kemaltml/moria_ws/src/moria/moria_bringup -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/kemaltml/moria_ws/install/moria_bringup
+[7.394s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kemaltml/moria_ws/build/moria_bringup' returned '0': AMENT_PREFIX_PATH=/home/kemaltml/moria_ws/install/moria_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kemaltml/moria_ws/install/moria_description:/opt/ros/iron /usr/bin/cmake /home/kemaltml/moria_ws/src/moria/moria_bringup -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/kemaltml/moria_ws/install/moria_bringup
+[7.395s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kemaltml/moria_ws/build/moria_bringup': AMENT_PREFIX_PATH=/home/kemaltml/moria_ws/install/moria_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kemaltml/moria_ws/install/moria_description:/opt/ros/iron /usr/bin/cmake --build /home/kemaltml/moria_ws/build/moria_bringup -- -j8 -l8
+[7.439s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kemaltml/moria_ws/build/moria_bringup' returned '0': AMENT_PREFIX_PATH=/home/kemaltml/moria_ws/install/moria_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kemaltml/moria_ws/install/moria_description:/opt/ros/iron /usr/bin/cmake --build /home/kemaltml/moria_ws/build/moria_bringup -- -j8 -l8
+[7.465s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kemaltml/moria_ws/build/moria_bringup': AMENT_PREFIX_PATH=/home/kemaltml/moria_ws/install/moria_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kemaltml/moria_ws/install/moria_description:/opt/ros/iron /usr/bin/cmake --install /home/kemaltml/moria_ws/build/moria_bringup
+[7.674s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(moria_bringup)
+[7.675s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_bringup' for CMake module files
+[7.676s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kemaltml/moria_ws/build/moria_bringup' returned '0': AMENT_PREFIX_PATH=/home/kemaltml/moria_ws/install/moria_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/kemaltml/moria_ws/install/moria_description:/opt/ros/iron /usr/bin/cmake --install /home/kemaltml/moria_ws/build/moria_bringup
+[7.676s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_bringup' for CMake config files
+[7.676s] Level 1:colcon.colcon_core.shell:create_environment_hook('moria_bringup', 'cmake_prefix_path')
+[7.677s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kemaltml/moria_ws/install/moria_bringup/share/moria_bringup/hook/cmake_prefix_path.ps1'
+[7.677s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kemaltml/moria_ws/install/moria_bringup/share/moria_bringup/hook/cmake_prefix_path.dsv'
+[7.678s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kemaltml/moria_ws/install/moria_bringup/share/moria_bringup/hook/cmake_prefix_path.sh'
+[7.678s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_bringup/bin'
+[7.678s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_bringup/lib/pkgconfig/moria_bringup.pc'
+[7.679s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_bringup/lib/python3.10/site-packages'
+[7.679s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_bringup/bin'
+[7.679s] INFO:colcon.colcon_core.shell:Creating package script '/home/kemaltml/moria_ws/install/moria_bringup/share/moria_bringup/package.ps1'
+[7.680s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kemaltml/moria_ws/install/moria_bringup/share/moria_bringup/package.dsv'
+[7.680s] INFO:colcon.colcon_core.shell:Creating package script '/home/kemaltml/moria_ws/install/moria_bringup/share/moria_bringup/package.sh'
+[7.681s] INFO:colcon.colcon_core.shell:Creating package script '/home/kemaltml/moria_ws/install/moria_bringup/share/moria_bringup/package.bash'
+[7.681s] INFO:colcon.colcon_core.shell:Creating package script '/home/kemaltml/moria_ws/install/moria_bringup/share/moria_bringup/package.zsh'
+[7.682s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kemaltml/moria_ws/install/moria_bringup/share/colcon-core/packages/moria_bringup)
+[7.706s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(moria_bringup)
+[7.706s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_bringup' for CMake module files
+[7.707s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_bringup' for CMake config files
+[7.707s] Level 1:colcon.colcon_core.shell:create_environment_hook('moria_bringup', 'cmake_prefix_path')
+[7.707s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kemaltml/moria_ws/install/moria_bringup/share/moria_bringup/hook/cmake_prefix_path.ps1'
+[7.708s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kemaltml/moria_ws/install/moria_bringup/share/moria_bringup/hook/cmake_prefix_path.dsv'
+[7.709s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kemaltml/moria_ws/install/moria_bringup/share/moria_bringup/hook/cmake_prefix_path.sh'
+[7.709s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_bringup/bin'
+[7.709s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_bringup/lib/pkgconfig/moria_bringup.pc'
+[7.710s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_bringup/lib/python3.10/site-packages'
+[7.710s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_bringup/bin'
+[7.711s] INFO:colcon.colcon_core.shell:Creating package script '/home/kemaltml/moria_ws/install/moria_bringup/share/moria_bringup/package.ps1'
+[7.711s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kemaltml/moria_ws/install/moria_bringup/share/moria_bringup/package.dsv'
+[7.712s] INFO:colcon.colcon_core.shell:Creating package script '/home/kemaltml/moria_ws/install/moria_bringup/share/moria_bringup/package.sh'
+[7.713s] INFO:colcon.colcon_core.shell:Creating package script '/home/kemaltml/moria_ws/install/moria_bringup/share/moria_bringup/package.bash'
+[7.713s] INFO:colcon.colcon_core.shell:Creating package script '/home/kemaltml/moria_ws/install/moria_bringup/share/moria_bringup/package.zsh'
+[7.714s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kemaltml/moria_ws/install/moria_bringup/share/colcon-core/packages/moria_bringup)
+[10.911s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kemaltml/moria_ws/build/moria_gazebo' returned '0': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake /home/kemaltml/moria_ws/src/moria/moria_gazebo -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/kemaltml/moria_ws/install/moria_gazebo
+[10.913s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kemaltml/moria_ws/build/moria_gazebo': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --build /home/kemaltml/moria_ws/build/moria_gazebo -- -j8 -l8
+[27.344s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kemaltml/moria_ws/build/moria_gazebo' returned '0': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --build /home/kemaltml/moria_ws/build/moria_gazebo -- -j8 -l8
+[27.371s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/kemaltml/moria_ws/build/moria_gazebo': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --install /home/kemaltml/moria_ws/build/moria_gazebo
+[27.742s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(moria_gazebo)
+[27.742s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_gazebo' for CMake module files
+[27.743s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/kemaltml/moria_ws/build/moria_gazebo' returned '0': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --install /home/kemaltml/moria_ws/build/moria_gazebo
+[27.743s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_gazebo' for CMake config files
+[27.744s] Level 1:colcon.colcon_core.shell:create_environment_hook('moria_gazebo', 'cmake_prefix_path')
+[27.744s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo/hook/cmake_prefix_path.ps1'
+[27.745s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo/hook/cmake_prefix_path.dsv'
+[27.745s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo/hook/cmake_prefix_path.sh'
+[27.746s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_gazebo/lib'
+[27.746s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_gazebo/bin'
+[27.746s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_gazebo/lib/pkgconfig/moria_gazebo.pc'
+[27.747s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_gazebo/lib/python3.10/site-packages'
+[27.747s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_gazebo/bin'
+[27.747s] INFO:colcon.colcon_core.shell:Creating package script '/home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo/package.ps1'
+[27.748s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo/package.dsv'
+[27.748s] INFO:colcon.colcon_core.shell:Creating package script '/home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo/package.sh'
+[27.749s] INFO:colcon.colcon_core.shell:Creating package script '/home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo/package.bash'
+[27.749s] INFO:colcon.colcon_core.shell:Creating package script '/home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo/package.zsh'
+[27.750s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kemaltml/moria_ws/install/moria_gazebo/share/colcon-core/packages/moria_gazebo)
+[27.779s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(moria_gazebo)
+[27.779s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_gazebo' for CMake module files
+[27.780s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_gazebo' for CMake config files
+[27.780s] Level 1:colcon.colcon_core.shell:create_environment_hook('moria_gazebo', 'cmake_prefix_path')
+[27.781s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo/hook/cmake_prefix_path.ps1'
+[27.781s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo/hook/cmake_prefix_path.dsv'
+[27.782s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo/hook/cmake_prefix_path.sh'
+[27.782s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_gazebo/lib'
+[27.782s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_gazebo/bin'
+[27.783s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_gazebo/lib/pkgconfig/moria_gazebo.pc'
+[27.783s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_gazebo/lib/python3.10/site-packages'
+[27.783s] Level 1:colcon.colcon_core.environment:checking '/home/kemaltml/moria_ws/install/moria_gazebo/bin'
+[27.784s] INFO:colcon.colcon_core.shell:Creating package script '/home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo/package.ps1'
+[27.784s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo/package.dsv'
+[27.785s] INFO:colcon.colcon_core.shell:Creating package script '/home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo/package.sh'
+[27.785s] INFO:colcon.colcon_core.shell:Creating package script '/home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo/package.bash'
+[27.786s] INFO:colcon.colcon_core.shell:Creating package script '/home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo/package.zsh'
+[27.787s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/kemaltml/moria_ws/install/moria_gazebo/share/colcon-core/packages/moria_gazebo)
+[27.787s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[27.788s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[27.788s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[27.788s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[27.800s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[27.800s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[27.800s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[27.848s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[27.849s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/kemaltml/moria_ws/install/local_setup.ps1'
+[27.851s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/kemaltml/moria_ws/install/_local_setup_util_ps1.py'
+[27.857s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/kemaltml/moria_ws/install/setup.ps1'
+[27.859s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/kemaltml/moria_ws/install/local_setup.sh'
+[27.861s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/kemaltml/moria_ws/install/_local_setup_util_sh.py'
+[27.862s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/kemaltml/moria_ws/install/setup.sh'
+[27.864s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/kemaltml/moria_ws/install/local_setup.bash'
+[27.865s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/kemaltml/moria_ws/install/setup.bash'
+[27.867s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/kemaltml/moria_ws/install/local_setup.zsh'
+[27.868s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/kemaltml/moria_ws/install/setup.zsh'

@@ -1,0 +1,1 @@
+/home/kemaltml/moria_ws/src/moria/moria_bringup/launch/robot.launch.py
