@@ -1,1 +1,0 @@
-/home/kemaltml/moria_ws/src/moria/moria_gazebo/launch/robot_state_publisher.launch.py

@@ -1,1 +1,0 @@
-/home/kemaltml/moria_ws/build/moria_description/ament_cmake_environment_hooks/local_setup.sh

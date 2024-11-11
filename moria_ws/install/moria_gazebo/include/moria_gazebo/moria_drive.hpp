@@ -1,1 +1,0 @@
-/home/kemaltml/moria_ws/src/moria/moria_gazebo/include/moria_gazebo/moria_drive.hpp

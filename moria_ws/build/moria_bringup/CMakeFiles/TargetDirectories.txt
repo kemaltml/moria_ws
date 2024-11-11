@@ -1,9 +1,0 @@
-/home/kemaltml/moria_ws/build/moria_bringup/CMakeFiles/uninstall.dir
-/home/kemaltml/moria_ws/build/moria_bringup/CMakeFiles/moria_bringup_uninstall.dir
-/home/kemaltml/moria_ws/build/moria_bringup/CMakeFiles/test.dir
-/home/kemaltml/moria_ws/build/moria_bringup/CMakeFiles/edit_cache.dir
-/home/kemaltml/moria_ws/build/moria_bringup/CMakeFiles/rebuild_cache.dir
-/home/kemaltml/moria_ws/build/moria_bringup/CMakeFiles/list_install_components.dir
-/home/kemaltml/moria_ws/build/moria_bringup/CMakeFiles/install.dir
-/home/kemaltml/moria_ws/build/moria_bringup/CMakeFiles/install/local.dir
-/home/kemaltml/moria_ws/build/moria_bringup/CMakeFiles/install/strip.dir

@@ -1,1 +1,0 @@
-/home/kemaltml/moria_ws/src/moria/moria_gazebo/launch/spawn_moria.launch.py

@@ -1,1 +1,0 @@
-/home/kemaltml/moria_ws/build/moria_bringup/ament_cmake_core/moria_bringupConfig.cmake
