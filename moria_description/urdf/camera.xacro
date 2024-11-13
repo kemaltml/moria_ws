@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+    <!--CAMERA DEFINITIONS-->
+    <joint name="camera_joint" type="fixed">
+        <origin xyz="0.11656 0.00021246 0.40556" rpy="1.9635 0.014384 1.5807"/>
+        <parent link="body"/>
+        <child link="camera"/>
+    </joint>
+
+    <link name="camera">
+        <inertial>
+            <origin
+                xyz="0.00111197944610194 -2.78407664494607E-05 -0.0125996882830277"
+                rpy="0 0 0" />
+                <mass value="1.26688289972681" />
+                <inertia
+                    ixx="0.000114531950081501"
+                    ixy="-4.04797053674309E-08"
+                    ixz="1.13413908500607E-05"
+                    iyy="0.000771596398566531"
+                    iyz="2.05523327802103E-07"
+                    izz="0.000763733428436124" />
+        </inertial>
+    
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://moria_description/meshes/camera.STL" />
+            </geometry>
+        </visual>
+    
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://moria_description/meshes/camera.STL" />
+            </geometry>
+        </collision>
+    </link>
+
+    <!-- CAMERA RGB AND DEPTH DEFINITIONS -->
+    <joint name="camera_rgb_joint" type="fixed">
+        <parent link="camera"/>
+        <child link="camera_rgb_frame"/>
+        <origin xyz="0.005 0.018 0.013" rpy="0 0 0"/>
+    </joint>
+    <link name="camera_rgb_frame"/>
+
+    <joint name="camera_rgb_optical_joint" type="fixed">
+        <parent link="camera_rgb_frame"/>
+        <child link="camera_rgb_optical_frame"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+    <link name="camera_rgb_optical_frame"/>
+
+    <joint name="camera_depth_joint" type="fixed">
+        <parent link="camera"/>
+        <child link="camera_depth_frame"/>
+        <origin xyz="0.005 0.028 0.013" rpy="0 0 0"/>
+    </joint>
+    <link name="camera_depth_frame"/>
+
+    <joint name="camera_depth_optical_joint" type="fixed">
+        <parent link="camera_depth_frame"/>
+        <child link="camera_depth_optical_frame"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+    <link name="camera_depth_optical_frame"/>
+
+</robot>
