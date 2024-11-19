@@ -684,13 +684,4 @@
       </plugin>
     </sensor>
   </gazebo>
-
-  <!--
-  <gazebo>
-    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
-      <parameters>/home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo/config/my_controllers.yaml</parameters>
-      <parameters>/home/kemaltml/moria_ws/install/moria_gazebo/share/moria_gazebo/config/gaz_ros2_ctl_use_sim.yaml</parameters>
-    </plugin>
-  </gazebo>
--->
 </robot>
