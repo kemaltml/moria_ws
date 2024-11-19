@@ -28,8 +28,8 @@
         </visual>
     
         <inertial>
-            <origin
-                xyz="-0.00044759 -0.044904 0.3116"/>
+		    <!--<origin xyz="-0.00044759 -0.044904 0.3116"/>-->
+            <origin xyz="0 0 -0.20"/>
             <mass 
                 value="3.027" />
             <inertia

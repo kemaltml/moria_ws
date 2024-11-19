@@ -12,6 +12,15 @@ from launch_ros.actions import Node
 def generate_launch_description():
     launch_file_dir = os.path.join(get_package_share_directory('moria_gazebo'), 'launch')
     pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
+    model_folder = 'model'
+    urdf_file_name = 'moria.urdf'
+    urdf_file_path = os.path.join(
+                        get_package_share_directory(
+                            'moria_gazebo'
+                        ),
+                        model_folder,
+                        urdf_file_name
+    )
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
     x_pose = LaunchConfiguration('x_pose', default='0.0')
@@ -23,34 +32,31 @@ def generate_launch_description():
     )
 
     gzserver_cmd = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([
+        PythonLaunchDescriptionSource(
             os.path.join(
                 pkg_gazebo_ros, 
                 'launch', 
-                'gzserver.launch.py'
-            ),
-        ]),
+                'gzserver.launch.py')
+        ),
         launch_arguments={'world': world}.items()
     )
 
     gzclient_cmd = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([
+        PythonLaunchDescriptionSource(
             os.path.join(
                 pkg_gazebo_ros, 
-                'launch',
-                'gzclient.launch.py'
-            )
-        ])
+                'launch', 
+                'gzclient.launch.py')
+        )
     )
 
     robot_state_publisher_cmd = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([
+        PythonLaunchDescriptionSource(
             os.path.join(
-                launch_file_dir,
-                'robot_state_publisher.launch.py'
-            )
-        ]),
-        launch_arguments={'use_sim_time': use_sim_time, 'use_ros2_control': 'true'}.items()
+                launch_file_dir, 
+                'robot_state_publisher.launch.py')
+        ),
+        launch_arguments={'use_sim_time': use_sim_time}.items()
     )
 
     joystick = IncludeLaunchDescription(
@@ -95,6 +101,11 @@ def generate_launch_description():
     controller_manager = Node(
         package="controller_manager",
         executable="ros2_control_node",
+        output="screen"
+    )
+    list_controller = Node(
+        package="controller_manager",
+        executable="list_controller",
         output="screen"
     )
 

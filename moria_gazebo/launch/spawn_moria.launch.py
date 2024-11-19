@@ -13,7 +13,7 @@ def generate_launch_description():
                         get_package_share_directory(
                             'moria_gazebo'
                         ),
-                        'model',
+                        model_folder,
                         urdf_file_name
     )
 
@@ -36,7 +36,7 @@ def generate_launch_description():
             '-file', urdf_file_path,
             '-x', x_pose,
             '-y', y_pose,
-            '-z', '0.4'
+            '-z', '0.1'
         ],
         output='screen',
     )
@@ -48,4 +48,3 @@ def generate_launch_description():
     ld.add_action(start_gazebo_ros_spawner)
 
     return ld
-
