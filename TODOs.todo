@@ -9,11 +9,12 @@
       [x] front_wheel 
       [x] sag_motor
       [x] sag_teker
-      [ ] sol_motor
-      [ ] sol_teker
-      [ ] leg
-      [ ] bel - body 
-      [ ] boyun
+      [x] sol_motor
+      [x] sol_teker
+      [x] leg
+      [x] bel - body 
+      [o] boyun
+        [ ] take a look for axis limit tag
       [ ] kafa
     [ ] right_arm.xacro
     [ ] left_arm.xacro

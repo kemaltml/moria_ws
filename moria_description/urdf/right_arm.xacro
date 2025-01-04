@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- RIGHT ARM-->
+
+    <!-- RIGHT HAND-->
+    <!-- RIGHT THUMB-->
+    <!-- RIGHT INDEX-->
+    <!-- RIGHT MIDDLE-->
+    <!-- RIGHT RING-->
+    <!-- RIGHT PINKY-->
+</robot>
