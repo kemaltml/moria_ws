@@ -1,0 +1,47 @@
+[ ] Moria Description
+  [x] Add Meshes
+  [x] Add rviz config
+  [ ] add URDF
+    [o] robot_base.xacro
+      [x] base_link
+      [x] sarhos_base 
+      [x] sarhos_radial
+      [x] front_wheel 
+      [x] sag_motor
+      [x] sag_teker
+      [ ] sol_motor
+      [ ] sol_teker
+      [ ] leg
+      [ ] bel - body 
+      [ ] boyun
+      [ ] kafa
+    [ ] right_arm.xacro
+    [ ] left_arm.xacro
+    [ ] sensors.xacro
+      [ ] camera
+      [ ] lidar
+    [-] inertial.xacro
+    [-] colors
+  [x] CMakeLists.txt
+  [x] package.xml
+  [ ] README.md
+
+[x] Moria Bringup
+  [x] Launch
+    [/] robot.launch.py  Real Time Robot Launching
+    [x] rviz2.launch.py  Rviz2 Launch
+    [x] robot_state_publisher.launch.py
+  [x] CMakeLists.txt
+  [x] package.xml
+  [ ] README.md
+
+[ ] Moria Gazebo 
+  [ ] look for turtlebot
+
+
+#113e68
+(0.0667, 0.2431, 0.4078, 1)
+
+#50b1c8
+(0.3137, 0.6941, 0.7843, 1)
+

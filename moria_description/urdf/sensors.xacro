@@ -1,76 +1,72 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <!--IMU SENSOR-->
-    <joint name="imu_joint" type="fixed">
-        <parent link="base"/>
-        <child link="imu"/>
-        <origin xyz="0 0 -0.33" rpy="0 0 0"/>
+    <!-- LIDAR-->
+    <joint name="lidar_joint" type="fixed">
+        <parent link="leg"/>
+        <child link="lidar"/>
+        <origin xyz="0.1335 0.0005 0.0156" rpy="0 0 0"/>
     </joint>
 
-    <link name="imu"/>
-
-    <!--FRONT LIDAR SENSOR-->
-    <joint name="scan_joint_f" type="fixed">
-        <parent link="base"/>
-        <child link="base_scan_f"/>
-        <origin xyz="0 0.12 -0.15" rpy="0 0 -1.57"/>
-    </joint>
-
-    <link name="base_scan_f">
+    <link name="lidar">
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/lidar.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://moria_description/meshes/lidar.STL"/>
             </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
         </visual>
-
         <collision>
-            <origin xyz="0.015 0 -0.0065" rpy="0 0 0"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <cylinder length="0.0315" radius="0.055"/>
+                <mesh filename="package://moria_description/meshes/lidar.STL"/>
             </geometry>
         </collision>
-
         <inertial>
-            <mass value="0.114" />
-            <origin xyz="0 0 0" />
-            <inertia ixx="0.001" ixy="0.0" ixz="0.0"
-                    iyy="0.001" iyz="0.0"
-                    izz="0.001" />
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="1.33"/>
+            <inertia 
+                ixx="0.00061" ixy="0.0" ixz="-0.00015"
+                iyy="0.00097" iyz="0.0"
+                izz="0.00110" />
         </inertial>
     </link>
 
 
-    <!--BACK LIDAR SENSOR-->
-    <joint name="scan_joint_b" type="fixed">
-        <parent link="base"/>
-        <child link="base_scan_b"/>
-        <origin xyz="0 -0.18 -0.15" rpy="0 0 1.57"/>
+
+
+    <!-- CAMERA-->
+    <joint name="camera_joint" type="fixed">
+        <parent link="body"/>
+        <child link="camera"/>
+        <origin xyz="0.0839 0.0004 0.507" rpy="0 0 0"/>
     </joint>
 
-    <link name="base_scan_b">
+    <link name="camera">
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/lidar.stl" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://moria_description/meshes/camera.STL"/>
             </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
         </visual>
-
         <collision>
-            <origin xyz="0.015 0 -0.0065" rpy="0 0 0"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <cylinder length="0.0315" radius="0.055"/>
+                <mesh filename="package://moria_description/meshes/camera.STL"/>
             </geometry>
         </collision>
-
         <inertial>
-            <mass value="0.114" />
-            <origin xyz="0 0 0" />
-            <inertia ixx="0.001" ixy="0.0" ixz="0.0"
-                    iyy="0.001" iyz="0.0"
-                    izz="0.001" />
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.10791"/>
+            <inertia 
+                ixx="0.00007" ixy="0.0" ixz="0.0"
+                iyy="0.000008" iyz="0.0"
+                izz="0.00007" />
         </inertial>
     </link>
-    
 </robot>

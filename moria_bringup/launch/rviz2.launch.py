@@ -19,13 +19,8 @@ def generate_launch_description():
         urdf_name
     )
 
-    robot_description_config = Command(['xacro ', urdf_file, ' use_ros2_control:=', use_ros2_control, ' sim_mode:=', use_sim_time])
+    robot_description_config = Command(['xacro ', urdf_file])
 
-
-    with open(urdf_file, 'r') as info:
-        moria_description = info.read()
-
-    #rsp_params = {'robot_description': moria_description}
     rsp_params = {'robot_description': robot_description_config}
 
     rviz_config_dir = os.path.join(
