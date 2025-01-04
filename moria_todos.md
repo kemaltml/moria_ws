@@ -1,3 +1,4 @@
+# Moria TODOs
 - [/] moria_description 
   - [x] URDF xacro files 
   - [x] Rviz files
@@ -19,10 +20,27 @@
   - [x] Add diff_drive, joint_state_publisher plugins
   - [x] add sensor references
   - [x] fix caster wheel friction problem
-  - [ ] fix error `waiting /controller_manager/list_controller`
+  - [x] fix error `waiting /controller_manager/list_controller` ✅ 2024-12-27
 
-- [ ] moria_slam
+- [x] moria_slam ✅ 2024-12-27
 	- [[050 moria_simulasyon_kodları#pseudocode]]
-  - [ ] generate algorithm for following wall
-  - [ ] generate algorithm for turn right when available
+  - [x] generate algorithm for following wall ✅ 2024-12-27
+  - [x] generate algorithm for turn right when available ✅ 2024-12-27
+
+# Current Errors and Bugs
+- [x] There is a dependency error. Add deps to package.xml and CMakeList.txt. 20241119 ✅ 2024-12-27
+- [ ] Ros-Iron made packages not works Ros-Foxy. OS depency problem fix it. 20241119
+- [x] Check python deps packages 20241119 ✅ 2024-12-27
+- [x] I cant open bringup and gazebo ✅ 2024-12-27
  
+# Project Ideas and Examples
+- turtlebot3_obstacle_detection
+  - Detects obstacles and stops
+- turtlebot3_position_control
+  - Robot moves one point to another with given position and angle
+- turtlebot3_nav2
+  - basic robot navigation algorithm of ROS
+- turtlebot3_node
+  - driver node that include diff drive controller, odometry and tf node
+- turtlebot3_teleop
+  - teleop node for keyboard control

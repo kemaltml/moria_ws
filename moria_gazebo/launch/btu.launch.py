@@ -103,11 +103,6 @@ def generate_launch_description():
         executable="ros2_control_node",
         output="screen"
     )
-    list_controller = Node(
-        package="controller_manager",
-        executable="list_controller",
-        output="screen"
-    )
 
     delayed_spawn_entity = RegisterEventHandler(
         event_handler=OnProcessStart(
@@ -122,9 +117,10 @@ def generate_launch_description():
     ld.add_action(twist_mux)
     ld.add_action(gzserver_cmd)
     ld.add_action(gzclient_cmd)
-    ld.add_action(controller_manager)
-    ld.add_action(delayed_spawn_entity)
-    ld.add_action(diff_drive_spawner)
-    ld.add_action(joint_broad_spawner)
+    ld.add_action(spawn_moria_cmd)
+    #ld.add_action(controller_manager)
+    #ld.add_action(delayed_spawn_entity)
+    #ld.add_action(diff_drive_spawner)
+    #ld.add_action(joint_broad_spawner)
 
     return ld
