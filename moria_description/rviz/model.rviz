@@ -81,6 +81,11 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        camera:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         front_base:
           Alpha: 1
           Show Axes: false
@@ -92,6 +97,11 @@ Visualization Manager:
           Show Trail: false
           Value: true
         front_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        head:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -111,7 +121,47 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        lidar:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        neck:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_00:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_elbow:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_lower_arm:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         right_motor:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_shoulder:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_shoulder_rad:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_upper_arm:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -277,25 +327,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 3.2044918537139893
+      Distance: 0.39981064200401306
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.0068684834986925125
-        Y: 0.12277986109256744
-        Z: 0.4390077590942383
+        X: 0.08050888031721115
+        Y: -0.20982873439788818
+        Z: 0.646685004234314
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.544797420501709
+      Pitch: -0.04020283743739128
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 5.894984722137451
+      Yaw: 5.92498254776001
     Saved: ~
 Window Geometry:
   Displays:

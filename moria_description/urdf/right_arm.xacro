@@ -2,11 +2,786 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
     <!-- RIGHT ARM-->
+    <joint name="right_shoulder_rad_joint" type="continuous">
+        <parent link="body"/>
+        <child link="right_shoulder_rad"/>
+        <origin xyz="0 -0.1556 0.505" rpy="-1.5708 0 3.1416"/>
+        <axis xyz="0 0 1"/>
+    </joint>
 
-    <!-- RIGHT HAND-->
+    <link name="right_shoulder_rad">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh 
+                    filename="package://moria_description/meshes/right_shoulder_rad.STL"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0.0667 0.2431 0.4078 1"/>
+            </material>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_shoulder_rad.STL"/>
+            </geometry>
+        </collision>
+
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.1128"/>
+            <inertia 
+                ixx="0.00007" ixy="0.0" ixz="0.0"
+                iyy="0.00006" iyz="0.0"
+                izz="0.00004"/>
+        </inertial>
+    </link>
+
+
+
+
+    <joint name="right_shoulder_joint" type="revolute">
+        <parent link="right_shoulder_rad"/>
+        <child link="right_shoulder"/>
+        <origin xyz="0.0258 0 0.0575" rpy="0 1.5708 0"/>
+        <axis xyz="0 0 1"/>
+        <limit 
+            lower="0"
+            upper="2.5"
+            effort="0"
+            velocity="0"/>
+    </joint>
+
+    <link name="right_shoulder">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_shoulder.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_shoulder.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.1576"/>
+            <inertia 
+                ixx="0.00010" ixy="0.0" ixz="0.0"
+                iyy="0.00007" iyz="0.0"
+                izz="0.00011" />
+        </inertial>
+    </link>
+
+
+
+
+    <!-- UPPER ARM-->
+    <joint name="right_upper_arm_joint" type="continuous">
+        <parent link="right_shoulder"/>
+        <child link="right_upper_arm"/>
+        <origin xyz="0 0.0875 -0.0255" rpy="-1.5708 0 0"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <link name="right_upper_arm">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_upper_arm.STL"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0.0667 0.2431 0.4078 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_upper_arm.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.1608"/>
+            <inertia 
+                ixx="0.00021" ixy="0.0" ixz="0.0"
+                iyy="0.00023" iyz="0.0"
+                izz="0.00005" />
+        </inertial>
+    </link>
+
+
+
+
+    <!-- RIGHT ELBOW-->
+    <joint name="right_elbow_joint" type="revolute">
+        <parent link="right_upper_arm"/>
+        <child link="right_elbow"/>
+        <origin xyz="-0.0226 0 0.1412" rpy="1.5708 0 -1.5708"/>
+        <axis xyz="0 0 1"/>
+        <limit 
+            lower="0"
+            upper="1.5"
+            effort="0"
+            velocity="0"/>
+    </joint>
+
+    <link name="right_elbow">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_elbow.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_elbow.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.1267"/>
+            <inertia 
+                ixx="0.00010" ixy="0.0" ixz="0.0"
+                iyy="0.00005" iyz="0.0"
+                izz="0.00008"/>
+        </inertial>
+    </link>
+
+
+
+
+    <!-- RIGHT LOWER ARM-->
+    <joint name="right_lower_arm_joint" type="continuous">
+        <parent link="right_elbow"/>
+        <child link="right_lower_arm"/>
+        <origin xyz="0 0.0866 -0.0222" rpy="-1.5708 1.5708 0"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <link name="right_lower_arm">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_lower_arm.STL"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0.0667 0.2431 0.4078 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_lower_arm.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.3515"/>
+            <inertia 
+                ixx="0.00033" ixy="0.0" ixz="0.0"
+                iyy="0.00033" iyz="0.0"
+                izz="0.00013" />
+        </inertial>
+    </link>
+
+
+
+
     <!-- RIGHT THUMB-->
-    <!-- RIGHT INDEX-->
-    <!-- RIGHT MIDDLE-->
-    <!-- RIGHT RING-->
+    <joint name="right_00_joint" type="revolute">
+        <parent link="right_lower_arm"/>
+        <child link="right_00"/>
+        <origin xyz="0.0063 0.0288 0.1857" rpy="2.7488 -0.0103 0.0043"/>
+        <axis xyz="0 0 1"/>
+        <limit 
+            lower="0"
+            upper="1.57"
+            effort="0"
+            velocity="0"/>
+    </joint>
+
+    <link name="right_00">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_00.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_00.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.005"/>
+            <inertia 
+                ixx="3E-07" ixy="0.0" ixz="0.0"
+                iyy="2E-07" iyz="0.0"
+                izz="2E-07" />
+        </inertial>
+    </link>
+
+    <joint name="right_01_joint" type="revolute">
+        <parent link="right_00"/>
+        <child link="right_01"/>
+        <origin xyz="-0.0005 -0.0254 -0.0026" rpy="0.5632 0.9741 0.4849"/>
+        <axis xyz="0 0 1"/>
+        <limit 
+            lower="0"
+            upper="1.57"
+            effort="0"
+            velocity="0"/>
+    </joint>
+
+    <link name="right_01">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_01.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_01.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="1E-07" ixy="0.0" ixz="0.0"
+                iyy="1E-07" iyz="0.0"
+                izz="8E-08" />
+        </inertial>
+    </link>
+
+    <joint name="right_02_joint" type="revolute">
+        <parent link="right_01"/>
+        <child link="right_02"/>
+        <origin xyz="0.0048 -0.0246 0" rpy="0 0 0.176"/>
+        <axis xyz="0 0 1"/>
+        <limit 
+            lower="0"
+            upper="1.57"
+            effort="0"
+            velocity="0"/>
+    </joint>
+
+    <link name="right_02">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_02.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_02.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="6E-08" ixy="0.0" ixz="0.0"
+                iyy="6E-08" iyz="0.0"
+                izz="7E-08" />
+        </inertial>
+    </link>
+
+
+
+
+    <!--RIGHT INDEX-->
+    <joint name="right_10_joint" type="revolute">
+        <parent link="right_lower_arm"/>
+        <child link="right_10"/>
+        <origin xyz="0.0063 0.0269 0.2457" rpy="-1.5708 0 0.0290"/>
+        <axis xyz="0 0 1"/>
+        <limit 
+            lower="0"
+            upper="1.57"
+            effort="0"
+            velocity="0"/>
+    </joint>
+
+    <link name="right_10">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_10.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_10.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="8E-08" ixy="0.0" ixz="0.0"
+                iyy="6E-08" iyz="0.0"
+                izz="6E-08" />
+        </inertial>
+    </link>
+
+    <joint name="right_11_joint" type="revolute">
+        <parent link="right_10"/>
+        <child link="right_11"/>
+        <origin xyz="0 -0.024 0" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+        <limit 
+            lower="0"
+            upper="1.57"
+            effort="0"
+            velocity="0"/>
+    </joint>
+
+    <link name="right_11">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_11.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_11.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="6E-08" ixy="0.0" ixz="0.0"
+                iyy="5E-08" iyz="0.0"
+                izz="6E-08" />
+        </inertial>
+    </link>
+
+    <joint name="right_12_joint" type="revolute">
+        <parent link="right_11"/>
+        <child link="right_12"/>
+        <origin xyz="0 -0.0210 0" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+        <limit 
+            lower="0"
+            upper="1.57"
+            effort="0"
+            velocity="0"/>
+    </joint>
+
+    <link name="right_12">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_12.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_12.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="4E-08" ixy="0.0" ixz="0.0"
+                iyy="3E-08" iyz="0.0"
+                izz="4E-08" />
+        </inertial>
+    </link>
+
+
+
+
+    <!--RIGHT MIDDLE-->
+    <joint name="right_20_joint" type="revolute">
+        <parent link="right_lower_arm"/>
+        <child link="right_20"/>
+        <origin xyz="0.0067 0.0095 0.2457" rpy="-1.5708 0 0.0290"/>
+        <axis xyz="0 0 1"/>
+        <limit 
+            lower="0"
+            upper="1.57"
+            effort="0"
+            velocity="0"/>
+    </joint>
+
+    <link name="right_20">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_20.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_20.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.003"/>
+            <inertia 
+                ixx="1E-07" ixy="0.0" ixz="0.0"
+                iyy="1E-07" iyz="0.0"
+                izz="1E-07" />
+        </inertial>
+    </link>
+
+    <joint name="right_21_joint" type="revolute">
+        <parent link="right_20"/>
+        <child link="right_21"/>
+        <origin xyz="0 -0.027 0" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+        <limit 
+            lower="0"
+            upper="1.57"
+            effort="0"
+            velocity="0"/>
+    </joint>
+
+    <link name="right_21">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_21.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_21.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="6E-08" ixy="0.0" ixz="0.0"
+                iyy="6E-08" iyz="0.0"
+                izz="8E-08" />
+        </inertial>
+    </link>
+
+    <joint name="right_22_joint" type="revolute">
+        <parent link="right_21"/>
+        <child link="right_22"/>
+        <origin xyz="0.0007 -0.0230 0.0002" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+        <limit 
+            lower="0"
+            upper="1.57"
+            effort="0"
+            velocity="0"/>
+    </joint>
+
+    <link name="right_22">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_22.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_22.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="6E-08" ixy="0.0" ixz="0.0"
+                iyy="6E-08" iyz="0.0"
+                izz="8E-08" />
+        </inertial>
+    </link>
+
+
+
+
+    <!--RIGHT RING-->
+    <joint name="right_30_joint" type="revolute">
+        <parent link="right_lower_arm"/>
+        <child link="right_30"/>
+        <origin xyz="0.0073 -0.0080 0.2457" rpy="-1.5708 0 0.0290"/>
+        <axis xyz="0 0 1"/>
+        <limit 
+            lower="0"
+            upper="1.57"
+            effort="0"
+            velocity="0"/>
+    </joint>
+
+    <link name="right_30">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_30.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_30.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="8E-08" ixy="0.0" ixz="0.0"
+                iyy="6E-08" iyz="0.0"
+                izz="7E-08" />
+        </inertial>
+    </link>
+
+    <joint name="right_31_joint" type="revolute">
+        <parent link="right_30"/>
+        <child link="right_31"/>
+        <origin xyz="0.0008 -0.0240 0" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+        <limit 
+            lower="0"
+            upper="1.57"
+            effort="0"
+            velocity="0"/>
+    </joint>
+
+    <link name="right_31">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_31.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_31.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="6E-08" ixy="0.0" ixz="0.0"
+                iyy="5E-08" iyz="0.0"
+                izz="6E-08" />
+        </inertial>
+    </link>
+
+    <joint name="right_32_joint" type="revolute">
+        <parent link="right_31"/>
+        <child link="right_32"/>
+        <origin xyz="0.0044 -0.0204 0.0048" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+        <limit 
+            lower="0"
+            upper="1.57"
+            effort="0"
+            velocity="0"/>
+    </joint>
+
+    <link name="right_32">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_32.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_32.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="4E-08" ixy="0.0" ixz="0.0"
+                iyy="3E-08" iyz="0.0"
+                izz="4E-08" />
+        </inertial>
+    </link>
+
+
+
+
     <!-- RIGHT PINKY-->
+    <joint name="right_40_joint" type="revolute">
+        <parent link="right_lower_arm"/>
+        <child link="right_40"/>
+        <origin xyz="0.0078 -0.0255 0.2457" rpy="-1.5708 0 0.0290"/>
+        <axis xyz="0 0 1"/>
+        <limit 
+            lower="0"
+            upper="1.57"
+            effort="0"
+            velocity="0"/>
+    </joint>
+
+    <link name="right_40">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_40.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_40.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="6E-08" ixy="0.0" ixz="0.0"
+                iyy="4E-08" iyz="0.0"
+                izz="4E-08" />
+        </inertial>
+    </link>
+
+    <joint name="right_41_joint" type="revolute">
+        <parent link="right_40"/>
+        <child link="right_41"/>
+        <origin xyz="0.0030 -0.0229 0" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+        <limit 
+            lower="0"
+            upper="1.57"
+            effort="0"
+            velocity="0"/>
+    </joint>
+
+    <link name="right_41">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_41.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_41.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="3E-08" ixy="0.0" ixz="0.0"
+                iyy="3E-08" iyz="0.0"
+                izz="3E-08" />
+        </inertial>
+    </link>
+
+    <joint name="right_42_joint" type="revolute">
+        <parent link="right_41"/>
+        <child link="right_42"/>
+        <origin xyz="0.0008 -0.0183 -0" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+        <limit 
+            lower="0"
+            upper="1.57"
+            effort="0"
+            velocity="0"/>
+    </joint>
+
+    <link name="right_42">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_42.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://moria_description/meshes/right_42.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="1E-08" ixy="0.0" ixz="0.0"
+                iyy="1E-08" iyz="0.0"
+                izz="1E-08" />
+        </inertial>
+    </link>
 </robot>

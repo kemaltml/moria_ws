@@ -13,14 +13,34 @@
       [x] sol_teker
       [x] leg
       [x] bel - body 
-      [o] boyun
-        [ ] take a look for axis limit tag
-      [ ] kafa
-    [ ] right_arm.xacro
+      [x] boyun
+        [x] take a look for axis limit tag
+      [x] kafa
+    [o] right_arm.xacro
+      [x] r shoulder rad 
+      [x] r shoulder 
+      [x] r upper arm 
+      [x] r elbow 
+      [ ] r lower arm 
+      [ ] r thumb 
+      [ ] r index 
+      [ ] r middle 
+      [ ] r ring 
+      [ ] r pinky
     [ ] left_arm.xacro
-    [ ] sensors.xacro
+      [ ] l shoulder rad 
+      [ ] l shoulder 
+      [ ] l upper arm 
+      [ ] l elbow 
+      [ ] l lower arm 
+      [ ] l thumb 
+      [ ] l index 
+      [ ] l middle 
+      [ ] l ring 
+      [ ] l pinky
+    [o] sensors.xacro
       [ ] camera
-      [ ] lidar
+      [x] lidar
     [-] inertial.xacro
     [-] colors
   [x] CMakeLists.txt
@@ -34,7 +54,7 @@
     [x] robot_state_publisher.launch.py
   [x] CMakeLists.txt
   [x] package.xml
-  [ ] README.md
+  [x] README.md
 
 [ ] Moria Gazebo 
   [ ] look for turtlebot
