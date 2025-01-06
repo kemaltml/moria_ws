@@ -69,4 +69,19 @@
                 izz="0.00007" />
         </inertial>
     </link>
+
+    <!-- CAMERA RGB FRAME-->
+    <joint name="camera_rgb_joint" type="fixed">
+        <parent link="camera"/>
+        <child link="camera_rgb_frame"/>
+        <origin xyz="0 0.02 0.015" rpy="0 0 0"/>
+    </joint>
+    <link name="camera_rgb_frame"/>
+
+    <joint name="camera_depth_joint" type="fixed">
+        <parent link="camera"/>
+        <child link="camera_depth_frame"/>
+        <origin xyz="0 -0.02 0.015" rpy="0 0 0"/>
+    </joint>
+    <link name="camera_depth_frame"/>
 </robot>

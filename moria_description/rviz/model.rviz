@@ -7,8 +7,10 @@ Panels:
         - /Global Options1
         - /RobotModel1
         - /RobotModel1/Description Topic1
+        - /RobotModel1/Links1
+        - /RobotModel1/Links1/camera_depth_frame1
         - /LaserScan2/Topic1
-      Splitter Ratio: 0.34563106298446655
+      Splitter Ratio: 0.651296854019165
     Tree Height: 666
   - Class: rviz_common/Selection
     Name: Selection
@@ -86,6 +88,14 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        camera_depth_frame:
+          Alpha: 1
+          Show Axes: true
+          Show Trail: false
+        camera_rgb_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         front_base:
           Alpha: 1
           Show Axes: false
@@ -106,7 +116,107 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        left_00:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_01:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_02:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_10:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_11:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_12:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_20:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_21:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_22:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_30:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_31:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_32:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_40:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_41:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_42:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_elbow:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_lower_arm:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         left_motor:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_shoulder:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_shoulder_rad:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_upper_arm:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -132,6 +242,76 @@ Visualization Manager:
           Show Trail: false
           Value: true
         right_00:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_01:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_02:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_10:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_11:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_12:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_20:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_21:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_22:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_30:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_31:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_32:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_40:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_41:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_42:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -327,25 +507,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 0.39981064200401306
+      Distance: 0.3484429121017456
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.08050888031721115
-        Y: -0.20982873439788818
-        Z: 0.646685004234314
+        X: 0.04304902255535126
+        Y: -0.05618937686085701
+        Z: 1.1015403270721436
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: -0.04020283743739128
+      Pitch: 0.309797078371048
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 5.92498254776001
+      Yaw: 0.4718034565448761
     Saved: ~
 Window Geometry:
   Displays:

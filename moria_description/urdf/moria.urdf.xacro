@@ -436,5 +436,6 @@
 
     <xacro:include filename="sensors.xacro"/>
     <xacro:include filename="right_arm.xacro"/>
+    <xacro:include filename="left_arm.xacro"/>
     
 </robot>
