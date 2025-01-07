@@ -10,6 +10,7 @@ from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 
 def generate_launch_description():
+    pkg_share=os.path.join(get_package_share_directory('moria_gazebo'))
     launch_file_dir = os.path.join(get_package_share_directory('moria_gazebo'), 'launch')
     rsp_file_dir = os.path.join(get_package_share_directory('moria_bringup'), 'launch')
     pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
@@ -22,6 +23,11 @@ def generate_launch_description():
                         'worlds',
                         'btu_real.world'
     )
+    
+    gazebo_models_path = os.path.join(pkg_share, 'models')
+    os.environ["GAZEBO_MODEL_PATH"] = gazebo_models_path
+
+    
 
     gzserver_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
