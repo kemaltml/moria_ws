@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+    <name>moria_cartographer</name>
+    <version>3.1.0</version>
+    <description>
+        ROS2 launch script for moria mapping
+    </description>
+    <maintainer email="kemaltml@outlook.com">Kemal Temel</maintainer>
+    <license>Apache 2.0</license>
+    <url type="repository">https://github.com/kemaltml/moria_ws</url>
+    <author email="kemaltml@outlook.com">Kemal Temel</author>
+    <buildtool_depend>ament_cmake</buildtool_depend>
+    <depend>slam_toolbox</depend>
+    <depend>nav2_bringup</depend>
+    <depend>moria_gazebo</depend>
+    <export>
+        <build_type>ament_cmake</build_type>
+    </export>
+</package>
