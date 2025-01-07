@@ -9,6 +9,7 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 
 def generate_launch_description():
     launch_file_dir = os.path.join(get_package_share_directory('moria_gazebo'), 'launch')
+    rsp_file_dir = os.path.join(get_package_share_directory('moria_bringup'), 'launch')
     pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
@@ -44,7 +45,7 @@ def generate_launch_description():
     robot_state_publisher_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(
-                launch_file_dir,
+                rsp_file_dir,
                 'state_publisher.launch.py'
             )
         ),

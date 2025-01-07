@@ -43,12 +43,11 @@
       </ode>
     </physics>
 
-    <model name="turtlebot3_house">
-      <static>1</static>
-      <include>
-        <uri>model://btu_real</uri>
-      </include>
-    </model>
+    <include>
+      <uri>model://btu_real</uri>
+      <name>btu_real</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
 
   </world>
 </sdf>

@@ -14,7 +14,7 @@
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
                 <mesh 
-                    filename="package://moria_description/meshes/right_shoulder_rad.STL"/>
+                    filename="file://$(find moria_description)/meshes/right_shoulder_rad.STL"/>
             </geometry>
             <material name="blue">
                 <color rgba="0.0667 0.2431 0.4078 1"/>
@@ -24,7 +24,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_shoulder_rad.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_shoulder_rad.STL"/>
             </geometry>
         </collision>
 
@@ -57,7 +57,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_shoulder.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_shoulder.STL"/>
             </geometry>
             <material name="cyan">
                 <color rgba="0.3137 0.6941 0.7843 1"/>
@@ -66,7 +66,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_shoulder.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_shoulder.STL"/>
             </geometry>
         </collision>
         <inertial>
@@ -94,7 +94,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_upper_arm.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_upper_arm.STL"/>
             </geometry>
             <material name="blue">
                 <color rgba="0.0667 0.2431 0.4078 1"/>
@@ -103,7 +103,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_upper_arm.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_upper_arm.STL"/>
             </geometry>
         </collision>
         <inertial>
@@ -136,7 +136,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_elbow.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_elbow.STL"/>
             </geometry>
             <material name="cyan">
                 <color rgba="0.3137 0.6941 0.7843 1"/>
@@ -145,7 +145,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_elbow.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_elbow.STL"/>
             </geometry>
         </collision>
         <inertial>
@@ -173,7 +173,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_lower_arm.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_lower_arm.STL"/>
             </geometry>
             <material name="blue">
                 <color rgba="0.0667 0.2431 0.4078 1"/>
@@ -182,7 +182,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_lower_arm.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_lower_arm.STL"/>
             </geometry>
         </collision>
         <inertial>
@@ -215,7 +215,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_00.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_00.STL"/>
             </geometry>
             <material name="cyan">
                 <color rgba="0.3137 0.6941 0.7843 1"/>
@@ -224,7 +224,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_00.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_00.STL"/>
             </geometry>
         </collision>
         <inertial>
@@ -253,7 +253,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_01.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_01.STL"/>
             </geometry>
             <material name="cyan">
                 <color rgba="0.3137 0.6941 0.7843 1"/>
@@ -262,7 +262,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_01.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_01.STL"/>
             </geometry>
         </collision>
         <inertial>
@@ -291,7 +291,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_02.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_02.STL"/>
             </geometry>
             <material name="cyan">
                 <color rgba="0.3137 0.6941 0.7843 1"/>
@@ -300,7 +300,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_02.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_02.STL"/>
             </geometry>
         </collision>
         <inertial>
@@ -333,7 +333,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_10.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_10.STL"/>
             </geometry>
             <material name="cyan">
                 <color rgba="0.3137 0.6941 0.7843 1"/>
@@ -342,7 +342,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_10.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_10.STL"/>
             </geometry>
         </collision>
         <inertial>
@@ -371,7 +371,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_11.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_11.STL"/>
             </geometry>
             <material name="cyan">
                 <color rgba="0.3137 0.6941 0.7843 1"/>
@@ -380,7 +380,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_11.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_11.STL"/>
             </geometry>
         </collision>
         <inertial>
@@ -409,7 +409,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_12.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_12.STL"/>
             </geometry>
             <material name="cyan">
                 <color rgba="0.3137 0.6941 0.7843 1"/>
@@ -418,7 +418,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_12.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_12.STL"/>
             </geometry>
         </collision>
         <inertial>
@@ -451,7 +451,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_20.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_20.STL"/>
             </geometry>
             <material name="cyan">
                 <color rgba="0.3137 0.6941 0.7843 1"/>
@@ -460,7 +460,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_20.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_20.STL"/>
             </geometry>
         </collision>
         <inertial>
@@ -489,7 +489,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_21.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_21.STL"/>
             </geometry>
             <material name="cyan">
                 <color rgba="0.3137 0.6941 0.7843 1"/>
@@ -498,7 +498,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_21.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_21.STL"/>
             </geometry>
         </collision>
         <inertial>
@@ -527,7 +527,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_22.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_22.STL"/>
             </geometry>
             <material name="cyan">
                 <color rgba="0.3137 0.6941 0.7843 1"/>
@@ -536,7 +536,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_22.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_22.STL"/>
             </geometry>
         </collision>
         <inertial>
@@ -569,7 +569,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_30.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_30.STL"/>
             </geometry>
             <material name="cyan">
                 <color rgba="0.3137 0.6941 0.7843 1"/>
@@ -578,7 +578,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_30.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_30.STL"/>
             </geometry>
         </collision>
         <inertial>
@@ -607,7 +607,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_31.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_31.STL"/>
             </geometry>
             <material name="cyan">
                 <color rgba="0.3137 0.6941 0.7843 1"/>
@@ -616,7 +616,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_31.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_31.STL"/>
             </geometry>
         </collision>
         <inertial>
@@ -645,7 +645,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_32.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_32.STL"/>
             </geometry>
             <material name="cyan">
                 <color rgba="0.3137 0.6941 0.7843 1"/>
@@ -654,7 +654,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_32.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_32.STL"/>
             </geometry>
         </collision>
         <inertial>
@@ -687,7 +687,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_40.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_40.STL"/>
             </geometry>
             <material name="cyan">
                 <color rgba="0.3137 0.6941 0.7843 1"/>
@@ -696,7 +696,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_40.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_40.STL"/>
             </geometry>
         </collision>
         <inertial>
@@ -725,7 +725,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_41.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_41.STL"/>
             </geometry>
             <material name="cyan">
                 <color rgba="0.3137 0.6941 0.7843 1"/>
@@ -734,7 +734,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_41.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_41.STL"/>
             </geometry>
         </collision>
         <inertial>
@@ -763,7 +763,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_42.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_42.STL"/>
             </geometry>
             <material name="cyan">
                 <color rgba="0.3137 0.6941 0.7843 1"/>
@@ -772,7 +772,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/right_42.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/right_42.STL"/>
             </geometry>
         </collision>
         <inertial>

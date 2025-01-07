@@ -12,7 +12,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/lidar.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/lidar.STL"/>
             </geometry>
             <material name="cyan">
                 <color rgba="0.3137 0.6941 0.7843 1"/>
@@ -21,7 +21,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/lidar.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/lidar.STL"/>
             </geometry>
         </collision>
         <inertial>
@@ -48,7 +48,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/camera.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/camera.STL"/>
             </geometry>
             <material name="cyan">
                 <color rgba="0.3137 0.6941 0.7843 1"/>
@@ -57,7 +57,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://moria_description/meshes/camera.STL"/>
+                <mesh filename="file://$(find moria_description)/meshes/camera.STL"/>
             </geometry>
         </collision>
         <inertial>
