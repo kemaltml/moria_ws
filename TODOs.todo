@@ -1,7 +1,7 @@
 [ ] Moria Description
   [x] Add Meshes
   [x] Add rviz config
-  [ ] add URDF
+  [x] add URDF
     [x] robot_base.xacro
       [x] base_link
       [x] sarhos_base 
@@ -38,8 +38,8 @@
       [x] l middle 
       [x] l ring 
       [x] l pinky
-    [o] sensors.xacro
-      [ ] camera
+    [x] sensors.xacro
+      [x] camera
       [x] lidar
     [-] inertial.xacro
     [-] colors

@@ -1,0 +1,2534 @@
+<?xml version="1.0"?>
+<sdf version='1.7'>
+  <model name='moria'>
+    <link name="base_footprint"/>
+
+    <link name="base_link">
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>4.44</mass>
+        <inertia>
+          <ixx>0.02125</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.04177</iyy>
+          <iyz>0</iyz>
+          <izz>0.04948</izz>
+        </inertia>
+      </inertial>
+
+      <collision name="base_collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>/home/kemaltml/moria_ws/src/moria/moria_gazebo/models/meshes/base_link.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="base_visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>/home/kemaltml/moria_ws/src/moria/moria_gazebo/models/meshes/base_link.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name="base_joint" type="fixed">
+      <parent>base_footprint</parent>
+      <child>base_link</child>
+      <pose>0.0 0.0 0.010 0 0 0</pose>
+    </joint>
+
+    <!--
+    <link name='base_footprint'>
+      <inertial>
+        <pose>0.061181 6.3e-05 0.235061 0 -0 0</pose>
+        <mass>11.2752</mass>
+        <inertia>
+          <ixx>0.993362</ixx>
+          <ixy>-2.28933e-05</ixy>
+          <ixz>-0.0896732</ixz>
+          <iyy>1.04519</iyy>
+          <iyz>-6.87795e-06</iyz>
+          <izz>0.153952</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_footprint_fixed_joint_lump__base_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='base_footprint_fixed_joint_lump__front_base_collision_1'>
+        <pose>0.23 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/front_base.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='base_footprint_fixed_joint_lump__left_motor_collision_2'>
+        <pose>0 0.096 -0.02 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_motor.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='base_footprint_fixed_joint_lump__leg_collision_3'>
+        <pose>0.076 0 0.185 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/leg.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='base_footprint_fixed_joint_lump__body_collision_4'>
+        <pose>0.076 0 0.65 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/body.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='base_footprint_fixed_joint_lump__camera_collision_5'>
+        <pose>0.1599 0.0004 1.157 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/camera.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='base_footprint_fixed_joint_lump__lidar_collision_6'>
+        <pose>0.2095 0.0005 0.2006 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/lidar.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='base_footprint_fixed_joint_lump__right_motor_collision_7'>
+        <pose>0 -0.096 -0.02 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_motor.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='base_footprint_fixed_joint_lump__base_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_footprint_fixed_joint_lump__front_base_visual_1'>
+        <pose>0.23 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/front_base.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_footprint_fixed_joint_lump__left_motor_visual_2'>
+        <pose>0 0.096 -0.02 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_motor.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_footprint_fixed_joint_lump__leg_visual_3'>
+        <pose>0.076 0 0.185 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/leg.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_footprint_fixed_joint_lump__body_visual_4'>
+        <pose>0.076 0 0.65 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/body.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_footprint_fixed_joint_lump__camera_visual_5'>
+        <pose>0.1599 0.0004 1.157 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/camera.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_footprint_fixed_joint_lump__lidar_visual_6'>
+        <pose>0.2095 0.0005 0.2006 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/lidar.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='base_footprint_fixed_joint_lump__right_motor_visual_7'>
+        <pose>0 -0.096 -0.02 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_motor.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='front_radial_joint' type='revolute'>
+      <pose relative_to='base_footprint'>0.23 0 0 0 0 -1.5708</pose>
+      <parent>base_footprint</parent>
+      <child>front_radial</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='front_radial'>
+      <pose relative_to='front_radial_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>2.54e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2.17e-06</iyy>
+          <iyz>0</iyz>
+          <izz>3.02e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='front_radial_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/front_rad.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='front_radial_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/front_rad.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='front_wheel_joint' type='revolute'>
+      <pose relative_to='front_radial'>0 -0.022 -0.035 1.5708 -0 1.5708</pose>
+      <parent>front_radial</parent>
+      <child>front_wheel</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='front_wheel'>
+      <pose relative_to='front_wheel_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.006</mass>
+        <inertia>
+          <ixx>4.6e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>4.6e-07</iyy>
+          <iyz>0</iyz>
+          <izz>8.66e-07</izz>
+        </inertia>
+      </inertial>
+      <collision name='front_wheel_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/front_wheel.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='front_wheel_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/front_wheel.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='left_wheel_joint' type='revolute'>
+      <pose relative_to='base_footprint'>0 0.172 -0.02 1.5708 -0 0</pose>
+      <parent>base_footprint</parent>
+      <child>left_wheel</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='left_wheel'>
+      <pose relative_to='left_wheel_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.09111</mass>
+        <inertia>
+          <ixx>3e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>3e-05</iyy>
+          <iyz>0</iyz>
+          <izz>4e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_wheel_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_wheel.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='left_wheel_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_wheel.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='left_shoulder_rad_joint' type='revolute'>
+      <pose relative_to='base_footprint'>0.076 0.1564 1.155 1.5708 0 3.14159</pose>
+      <parent>base_footprint</parent>
+      <child>left_shoulder_rad</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='left_shoulder_rad'>
+      <pose relative_to='left_shoulder_rad_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.1109</mass>
+        <inertia>
+          <ixx>7e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>6e-05</iyy>
+          <iyz>0</iyz>
+          <izz>4e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_shoulder_rad_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_shoulder_rad.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='left_shoulder_rad_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_shoulder_rad.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='left_shoulder_joint' type='revolute'>
+      <pose relative_to='left_shoulder_rad'>0.0255 0.004 0.0575 -0.001593 -1.57079 3.14159</pose>
+      <parent>left_shoulder_rad</parent>
+      <child>left_shoulder</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>2.5</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='left_shoulder'>
+      <pose relative_to='left_shoulder_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.1576</mass>
+        <inertia>
+          <ixx>0.0001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>7e-05</iyy>
+          <iyz>0</iyz>
+          <izz>0.00011</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_shoulder_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_shoulder.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='left_shoulder_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_shoulder.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='left_upper_arm_joint' type='revolute'>
+      <pose relative_to='left_shoulder'>0 0.0875 -0.0255 1.57079 0.001593 3.14159</pose>
+      <parent>left_shoulder</parent>
+      <child>left_upper_arm</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='left_upper_arm'>
+      <pose relative_to='left_upper_arm_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.1608</mass>
+        <inertia>
+          <ixx>0.00021</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00023</iyy>
+          <iyz>0</iyz>
+          <izz>5e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_upper_arm_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_upper_arm.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='left_upper_arm_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_upper_arm.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='left_elbow_joint' type='revolute'>
+      <pose relative_to='left_upper_arm'>0.023 0 0.1412 1.5708 -0 1.5708</pose>
+      <parent>left_upper_arm</parent>
+      <child>left_elbow</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.5</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='left_elbow'>
+      <pose relative_to='left_elbow_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.1267</mass>
+        <inertia>
+          <ixx>0.0001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>5e-05</iyy>
+          <iyz>0</iyz>
+          <izz>8e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_elbow_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_elbow.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='left_elbow_visual'>
+        <pose>0 0 0.425 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_elbow.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='left_lower_arm_joint' type='revolute'>
+      <pose relative_to='left_elbow'>0 0.0866 -0.0234 1.57079 0.521593 3.14159</pose>
+      <parent>left_elbow</parent>
+      <child>left_lower_arm</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='left_lower_arm'>
+      <pose relative_to='left_lower_arm_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.3515</mass>
+        <inertia>
+          <ixx>0.00033</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00033</iyy>
+          <iyz>0</iyz>
+          <izz>0.00013</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_lower_arm_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_lower_arm.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='left_lower_arm_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_lower_arm.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='left_00_joint' type='revolute'>
+      <pose relative_to='left_lower_arm'>0.0211 0.0206 0.1878 2.8403 0.2562 -0.0785</pose>
+      <parent>left_lower_arm</parent>
+      <child>left_00</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='left_00'>
+      <pose relative_to='left_00_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.005</mass>
+        <inertia>
+          <ixx>3e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2e-07</iyy>
+          <iyz>0</iyz>
+          <izz>2e-07</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_00_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_00.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='left_00_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_00.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='left_01_joint' type='revolute'>
+      <pose relative_to='left_00'>0.0187 -0.0123 -0.0039 1.0739 0.0791 -0.3777</pose>
+      <parent>left_00</parent>
+      <child>left_01</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='left_01'>
+      <pose relative_to='left_01_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.002</mass>
+        <inertia>
+          <ixx>1e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1e-07</iyy>
+          <iyz>0</iyz>
+          <izz>8e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_01_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_01.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='left_01_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_01.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='left_02_joint' type='revolute'>
+      <pose relative_to='left_01'>0.024 -0.0072 0 -0.271 0.099 0.0951</pose>
+      <parent>left_01</parent>
+      <child>left_02</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='left_02'>
+      <pose relative_to='left_02_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.002</mass>
+        <inertia>
+          <ixx>6e-08</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>6e-08</iyy>
+          <iyz>0</iyz>
+          <izz>7e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_02_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_02.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='left_02_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_02.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='left_10_joint' type='revolute'>
+      <pose relative_to='left_lower_arm'>0.0192 0.0186 0.2457 -1.5708 -0 -0.7626</pose>
+      <parent>left_lower_arm</parent>
+      <child>left_10</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='left_10'>
+      <pose relative_to='left_10_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.002</mass>
+        <inertia>
+          <ixx>8e-08</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>6e-08</iyy>
+          <iyz>0</iyz>
+          <izz>6e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_10_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_10.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='left_10_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_10.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='left_11_joint' type='revolute'>
+      <pose relative_to='left_10'>0.001 -0.024 0 0 -0 0</pose>
+      <parent>left_10</parent>
+      <child>left_11</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='left_11'>
+      <pose relative_to='left_11_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.002</mass>
+        <inertia>
+          <ixx>6e-08</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>5e-08</iyy>
+          <iyz>0</iyz>
+          <izz>6e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_11_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_11.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='left_11_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_11.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='left_12_joint' type='revolute'>
+      <pose relative_to='left_11'>0.0009 -0.021 0 0 -0 0</pose>
+      <parent>left_11</parent>
+      <child>left_12</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='left_12'>
+      <pose relative_to='left_12_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.002</mass>
+        <inertia>
+          <ixx>4e-08</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>3e-08</iyy>
+          <iyz>0</iyz>
+          <izz>4e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_12_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_12.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='left_12_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_12.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='left_20_joint' type='revolute'>
+      <pose relative_to='left_lower_arm'>0.0071 0.006 0.2457 -1.5708 -0 -0.7626</pose>
+      <parent>left_lower_arm</parent>
+      <child>left_20</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='left_20'>
+      <pose relative_to='left_20_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.003</mass>
+        <inertia>
+          <ixx>1e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1e-07</iyy>
+          <iyz>0</iyz>
+          <izz>1e-07</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_20_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_20.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='left_20_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_20.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='left_21_joint' type='revolute'>
+      <pose relative_to='left_20'>0.0002 -0.0265 0 0 -0 0</pose>
+      <parent>left_20</parent>
+      <child>left_21</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='left_21'>
+      <pose relative_to='left_21_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.002</mass>
+        <inertia>
+          <ixx>6e-08</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>6e-08</iyy>
+          <iyz>0</iyz>
+          <izz>8e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_21_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_21.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='left_21_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_21.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='left_22_joint' type='revolute'>
+      <pose relative_to='left_21'>-0.0005 -0.0223 -0.0002 0 -0 0</pose>
+      <parent>left_21</parent>
+      <child>left_22</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='left_22'>
+      <pose relative_to='left_22_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.002</mass>
+        <inertia>
+          <ixx>6e-08</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>6e-08</iyy>
+          <iyz>0</iyz>
+          <izz>8e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_22_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_22.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='left_22_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_22.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='left_30_joint' type='revolute'>
+      <pose relative_to='left_lower_arm'>-0.0049 -0.0067 0.2457 -1.5708 -0 -0.7626</pose>
+      <parent>left_lower_arm</parent>
+      <child>left_30</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='left_30'>
+      <pose relative_to='left_30_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.002</mass>
+        <inertia>
+          <ixx>8e-08</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>6e-08</iyy>
+          <iyz>0</iyz>
+          <izz>7e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_30_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_30.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='left_30_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_30.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='left_31_joint' type='revolute'>
+      <pose relative_to='left_30'>0.0008 -0.024 0 0 -0.7626 0</pose>
+      <parent>left_30</parent>
+      <child>left_31</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='left_31'>
+      <pose relative_to='left_31_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.002</mass>
+        <inertia>
+          <ixx>6e-08</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>5e-08</iyy>
+          <iyz>0</iyz>
+          <izz>6e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_31_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_31.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='left_31_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_31.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='left_32_joint' type='revolute'>
+      <pose relative_to='left_31'>0.0005 -0.021 -0.0005 0 0.7626 0</pose>
+      <parent>left_31</parent>
+      <child>left_32</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='left_32'>
+      <pose relative_to='left_32_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.002</mass>
+        <inertia>
+          <ixx>4e-08</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>3e-08</iyy>
+          <iyz>0</iyz>
+          <izz>4e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_32_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_32.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='left_32_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_32.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='left_40_joint' type='revolute'>
+      <pose relative_to='left_lower_arm'>-0.017 -0.0193 0.2457 -1.5708 -0 -0.7626</pose>
+      <parent>left_lower_arm</parent>
+      <child>left_40</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='left_40'>
+      <pose relative_to='left_40_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.002</mass>
+        <inertia>
+          <ixx>6e-08</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>4e-08</iyy>
+          <iyz>0</iyz>
+          <izz>4e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_40_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_40.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='left_40_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_40.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='left_41_joint' type='revolute'>
+      <pose relative_to='left_40'>0.0039 -0.0228 0 0 -0 0</pose>
+      <parent>left_40</parent>
+      <child>left_41</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='left_41'>
+      <pose relative_to='left_41_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.002</mass>
+        <inertia>
+          <ixx>3e-08</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>3e-08</iyy>
+          <iyz>0</iyz>
+          <izz>3e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_41_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_41.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='left_41_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_41.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='left_42_joint' type='revolute'>
+      <pose relative_to='left_41'>0.0046 -0.0178 0 0 -0 0</pose>
+      <parent>left_41</parent>
+      <child>left_42</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='left_42'>
+      <pose relative_to='left_42_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.002</mass>
+        <inertia>
+          <ixx>1e-08</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1e-08</iyy>
+          <iyz>0</iyz>
+          <izz>1e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_42_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_42.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='left_42_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/left_42.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='neck_joint' type='revolute'>
+      <pose relative_to='base_footprint'>0.0852 0.0004 1.1971 0 -0 1.5708</pose>
+      <parent>base_footprint</parent>
+      <child>neck</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-0.5</lower>
+          <upper>0.5</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='neck'>
+      <pose relative_to='neck_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.046</mass>
+        <inertia>
+          <ixx>1e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1e-05</iyy>
+          <iyz>0</iyz>
+          <izz>1e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='neck_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/neck.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='neck_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/neck.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='head_joint' type='revolute'>
+      <pose relative_to='neck'>0.0224 0.004 0.0403 1.5708 -0 1.5708</pose>
+      <parent>neck</parent>
+      <child>head</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-0.2</lower>
+          <upper>0.2</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='head'>
+      <pose relative_to='head_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.7694</mass>
+        <inertia>
+          <ixx>0.0045</ixx>
+          <ixy>5e-05</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0029</iyy>
+          <iyz>0</iyz>
+          <izz>0.0023</izz>
+        </inertia>
+      </inertial>
+      <collision name='head_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/head.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='head_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/head.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='right_shoulder_rad_joint' type='revolute'>
+      <pose relative_to='base_footprint'>0.076 -0.1556 1.155 -1.5708 0 -3.14159</pose>
+      <parent>base_footprint</parent>
+      <child>right_shoulder_rad</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='right_shoulder_rad'>
+      <pose relative_to='right_shoulder_rad_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.1128</mass>
+        <inertia>
+          <ixx>7e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>6e-05</iyy>
+          <iyz>0</iyz>
+          <izz>4e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_shoulder_rad_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_shoulder_rad.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='right_shoulder_rad_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_shoulder_rad.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='right_shoulder_joint' type='revolute'>
+      <pose relative_to='right_shoulder_rad'>0.0258 0 0.0575 3.14159 1.57079 3.14159</pose>
+      <parent>right_shoulder_rad</parent>
+      <child>right_shoulder</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>2.5</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='right_shoulder'>
+      <pose relative_to='right_shoulder_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.1576</mass>
+        <inertia>
+          <ixx>0.0001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>7e-05</iyy>
+          <iyz>0</iyz>
+          <izz>0.00011</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_shoulder_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_shoulder.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='right_shoulder_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_shoulder.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='right_upper_arm_joint' type='revolute'>
+      <pose relative_to='right_shoulder'>0 0.0875 -0.0255 -1.5708 0 0</pose>
+      <parent>right_shoulder</parent>
+      <child>right_upper_arm</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='right_upper_arm'>
+      <pose relative_to='right_upper_arm_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.1608</mass>
+        <inertia>
+          <ixx>0.00021</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00023</iyy>
+          <iyz>0</iyz>
+          <izz>5e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_upper_arm_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_upper_arm.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='right_upper_arm_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_upper_arm.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='right_elbow_joint' type='revolute'>
+      <pose relative_to='right_upper_arm'>-0.0226 0 0.1412 1.5708 0 -1.5708</pose>
+      <parent>right_upper_arm</parent>
+      <child>right_elbow</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.5</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='right_elbow'>
+      <pose relative_to='right_elbow_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.1267</mass>
+        <inertia>
+          <ixx>0.0001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>5e-05</iyy>
+          <iyz>0</iyz>
+          <izz>8e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_elbow_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_elbow.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='right_elbow_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_elbow.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='right_lower_arm_joint' type='revolute'>
+      <pose relative_to='right_elbow'>0 0.0866 -0.0222 1.57079 1.57079 -3.14159</pose>
+      <parent>right_elbow</parent>
+      <child>right_lower_arm</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='right_lower_arm'>
+      <pose relative_to='right_lower_arm_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.3515</mass>
+        <inertia>
+          <ixx>0.00033</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00033</iyy>
+          <iyz>0</iyz>
+          <izz>0.00013</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_lower_arm_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_lower_arm.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='right_lower_arm_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_lower_arm.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='right_00_joint' type='revolute'>
+      <pose relative_to='right_lower_arm'>0.0063 0.0288 0.1857 2.7488 -0.0103 0.0043</pose>
+      <parent>right_lower_arm</parent>
+      <child>right_00</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='right_00'>
+      <pose relative_to='right_00_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.005</mass>
+        <inertia>
+          <ixx>3e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2e-07</iyy>
+          <iyz>0</iyz>
+          <izz>2e-07</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_00_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_00.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='right_00_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_00.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='right_01_joint' type='revolute'>
+      <pose relative_to='right_00'>-0.0005 -0.0254 -0.0026 0.5632 0.9741 0.4849</pose>
+      <parent>right_00</parent>
+      <child>right_01</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='right_01'>
+      <pose relative_to='right_01_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.002</mass>
+        <inertia>
+          <ixx>1e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1e-07</iyy>
+          <iyz>0</iyz>
+          <izz>8e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_01_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_01.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='right_01_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_01.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='right_02_joint' type='revolute'>
+      <pose relative_to='right_01'>0.0048 -0.0246 0 0 -0 0.176</pose>
+      <parent>right_01</parent>
+      <child>right_02</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='right_02'>
+      <pose relative_to='right_02_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.002</mass>
+        <inertia>
+          <ixx>6e-08</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>6e-08</iyy>
+          <iyz>0</iyz>
+          <izz>7e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_02_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_02.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='right_02_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_02.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='right_10_joint' type='revolute'>
+      <pose relative_to='right_lower_arm'>0.0063 0.0269 0.2457 -1.5708 -0 0.029</pose>
+      <parent>right_lower_arm</parent>
+      <child>right_10</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='right_10'>
+      <pose relative_to='right_10_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.002</mass>
+        <inertia>
+          <ixx>8e-08</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>6e-08</iyy>
+          <iyz>0</iyz>
+          <izz>6e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_10_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_10.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='right_10_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_10.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='right_11_joint' type='revolute'>
+      <pose relative_to='right_10'>0 -0.024 0 0 -0 0</pose>
+      <parent>right_10</parent>
+      <child>right_11</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='right_11'>
+      <pose relative_to='right_11_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.002</mass>
+        <inertia>
+          <ixx>6e-08</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>5e-08</iyy>
+          <iyz>0</iyz>
+          <izz>6e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_11_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_11.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='right_11_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_11.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='right_12_joint' type='revolute'>
+      <pose relative_to='right_11'>0 -0.021 0 0 -0 0</pose>
+      <parent>right_11</parent>
+      <child>right_12</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='right_12'>
+      <pose relative_to='right_12_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.002</mass>
+        <inertia>
+          <ixx>4e-08</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>3e-08</iyy>
+          <iyz>0</iyz>
+          <izz>4e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_12_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_12.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='right_12_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_12.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='right_20_joint' type='revolute'>
+      <pose relative_to='right_lower_arm'>0.0067 0.0095 0.2457 -1.5708 -0 0.029</pose>
+      <parent>right_lower_arm</parent>
+      <child>right_20</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='right_20'>
+      <pose relative_to='right_20_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.003</mass>
+        <inertia>
+          <ixx>1e-07</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1e-07</iyy>
+          <iyz>0</iyz>
+          <izz>1e-07</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_20_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_20.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='right_20_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_20.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='right_21_joint' type='revolute'>
+      <pose relative_to='right_20'>0 -0.027 0 0 -0 0</pose>
+      <parent>right_20</parent>
+      <child>right_21</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='right_21'>
+      <pose relative_to='right_21_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.002</mass>
+        <inertia>
+          <ixx>6e-08</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>6e-08</iyy>
+          <iyz>0</iyz>
+          <izz>8e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_21_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_21.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='right_21_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_21.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='right_22_joint' type='revolute'>
+      <pose relative_to='right_21'>0.0007 -0.023 0.0002 0 -0 0</pose>
+      <parent>right_21</parent>
+      <child>right_22</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='right_22'>
+      <pose relative_to='right_22_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.002</mass>
+        <inertia>
+          <ixx>6e-08</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>6e-08</iyy>
+          <iyz>0</iyz>
+          <izz>8e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_22_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_22.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='right_22_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_22.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='right_30_joint' type='revolute'>
+      <pose relative_to='right_lower_arm'>0.0073 -0.008 0.2457 -1.5708 -0 0.029</pose>
+      <parent>right_lower_arm</parent>
+      <child>right_30</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='right_30'>
+      <pose relative_to='right_30_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.002</mass>
+        <inertia>
+          <ixx>8e-08</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>6e-08</iyy>
+          <iyz>0</iyz>
+          <izz>7e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_30_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_30.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='right_30_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_30.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='right_31_joint' type='revolute'>
+      <pose relative_to='right_30'>0.0008 -0.024 0 0 -0 0</pose>
+      <parent>right_30</parent>
+      <child>right_31</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='right_31'>
+      <pose relative_to='right_31_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.002</mass>
+        <inertia>
+          <ixx>6e-08</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>5e-08</iyy>
+          <iyz>0</iyz>
+          <izz>6e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_31_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_31.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='right_31_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_31.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='right_32_joint' type='revolute'>
+      <pose relative_to='right_31'>0.0044 -0.0204 0.0048 0 -0 0</pose>
+      <parent>right_31</parent>
+      <child>right_32</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='right_32'>
+      <pose relative_to='right_32_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.002</mass>
+        <inertia>
+          <ixx>4e-08</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>3e-08</iyy>
+          <iyz>0</iyz>
+          <izz>4e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_32_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_32.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='right_32_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_32.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='right_40_joint' type='revolute'>
+      <pose relative_to='right_lower_arm'>0.0078 -0.0255 0.2457 -1.5708 -0 0.029</pose>
+      <parent>right_lower_arm</parent>
+      <child>right_40</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='right_40'>
+      <pose relative_to='right_40_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.002</mass>
+        <inertia>
+          <ixx>6e-08</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>4e-08</iyy>
+          <iyz>0</iyz>
+          <izz>4e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_40_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_40.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='right_40_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_40.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='right_41_joint' type='revolute'>
+      <pose relative_to='right_40'>0.003 -0.0229 0 0 -0 0</pose>
+      <parent>right_40</parent>
+      <child>right_41</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='right_41'>
+      <pose relative_to='right_41_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.002</mass>
+        <inertia>
+          <ixx>3e-08</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>3e-08</iyy>
+          <iyz>0</iyz>
+          <izz>3e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_41_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_41.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='right_41_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_41.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='right_42_joint' type='revolute'>
+      <pose relative_to='right_41'>0.0008 -0.0183 0 0 -0 0</pose>
+      <parent>right_41</parent>
+      <child>right_42</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.57</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='right_42'>
+      <pose relative_to='right_42_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.002</mass>
+        <inertia>
+          <ixx>1e-08</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1e-08</iyy>
+          <iyz>0</iyz>
+          <izz>1e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_42_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_42.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='right_42_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_42.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='right_wheel_joint' type='revolute'>
+      <pose relative_to='base_footprint'>0 -0.172 -0.02 -1.5708 0 0</pose>
+      <parent>base_footprint</parent>
+      <child>right_wheel</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='right_wheel'>
+      <pose relative_to='right_wheel_joint'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.09111</mass>
+        <inertia>
+          <ixx>3e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>3e-05</iyy>
+          <iyz>0</iyz>
+          <izz>4e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_wheel_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_wheel.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='right_wheel_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://moria_description/meshes/right_wheel.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+    -->
+  </model>
+</sdf>
