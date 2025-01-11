@@ -10,10 +10,25 @@ from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 
 def generate_launch_description():
-    pkg_share=os.path.join(get_package_share_directory('moria_gazebo'))
+    """
+    This function generates a launch description for a Gazebo simulation environment.
+    It sets up various components such as Gazebo server, Gazebo client, robot state publisher,
+    joystick, twist mux, spawner for the robot, and controller manager.
+
+    Parameters:
+    None
+
+    Returns:
+    LaunchDescription: A launch description object containing all the necessary actions for the simulation.
+    """
+    pkg_share=os.path.join(get_package_share_directory('moria_gazebo')) # Directory of this package
+    print(pkg_share)
     launch_file_dir = os.path.join(get_package_share_directory('moria_gazebo'), 'launch')
-    rsp_file_dir = os.path.join(get_package_share_directory('moria_bringup'), 'launch')
+    print(launch_file_dir) 
+    rsp_file_dir = os.path.join(get_package_share_directory('moria_bringup'), 'launch') # We run Robot State Publisher from moria_description because why not??
+    print(rsp_file_dir)
     pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
+    print(pkg_gazebo_ros)
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
     x_pose = LaunchConfiguration('x_pose', default='0.0')
@@ -23,11 +38,14 @@ def generate_launch_description():
                         'worlds',
                         'btu_real.world'
     )
-    
+    print(world)
+
+    # Exporting model path for gazebo 
     gazebo_models_path = os.path.join(pkg_share, 'models')
+    print(gazebo_models_path)
     os.environ["GAZEBO_MODEL_PATH"] = gazebo_models_path
 
-    
+
 
     gzserver_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -51,7 +69,7 @@ def generate_launch_description():
     robot_state_publisher_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(
-                rsp_file_dir, 
+                rsp_file_dir,
                 'state_publisher.launch.py')
         ),
         launch_arguments={'use_sim_time': use_sim_time}.items()

@@ -1,4 +1,4 @@
-[ ] Moria Description
+[x] Moria Description
   [x] Add Meshes
   [x] Add rviz config
   [x] add URDF
@@ -56,8 +56,8 @@
   [x] package.xml
   [x] README.md
 
-[ ] Moria Gazebo 
-  [ ] look for turtlebot
+[x] Moria Gazebo 
+  [x] look for turtlebot
 
 
 #113e68

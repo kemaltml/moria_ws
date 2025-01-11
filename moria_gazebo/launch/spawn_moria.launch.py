@@ -11,6 +11,10 @@ def generate_launch_description():
     urdf_file_path = os.path.join(get_package_share_directory('moria_gazebo'),
                                     model_folder, urdf_file_name)
     
+    pkg_share=os.path.join(get_package_share_directory('moria_gazebo'))    
+    gazebo_models_path = os.path.join(pkg_share, 'models')
+    os.environ["GAZEBO_MODEL_PATH"] = gazebo_models_path
+    
     x_pose = LaunchConfiguration('x_pose', default='0.0')
     y_pose = LaunchConfiguration('y_pose', default='0.0')
 
@@ -29,7 +33,8 @@ def generate_launch_description():
             '-entity', 'Moria',
             '-file', urdf_file_path,
             '-x', x_pose,
-            '-y', y_pose
+            '-y', y_pose,
+            '-Y', '1.57'
         ],
         output='screen'
     )

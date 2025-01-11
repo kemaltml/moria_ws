@@ -7,9 +7,9 @@ Panels:
         - /Global Options1
         - /RobotModel1
         - /RobotModel1/Description Topic1
-        - /RobotModel1/Links1
-        - /RobotModel1/Links1/camera_depth_frame1
         - /LaserScan2/Topic1
+        - /Axes1
+        - /Axes2
       Splitter Ratio: 0.651296854019165
     Tree Height: 666
   - Class: rviz_common/Selection
@@ -69,10 +69,6 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        base_footprint:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
         base_link:
           Alpha: 1
           Show Axes: false
@@ -90,7 +86,11 @@ Visualization Manager:
           Value: true
         camera_depth_frame:
           Alpha: 1
-          Show Axes: true
+          Show Axes: false
+          Show Trail: false
+        camera_point_frame:
+          Alpha: 1
+          Show Axes: false
           Show Trail: false
         camera_rgb_frame:
           Alpha: 1
@@ -461,10 +461,24 @@ Visualization Manager:
       Use Fixed Frame: true
       Use rainbow: true
       Value: true
+    - Class: rviz_default_plugins/Axes
+      Enabled: false
+      Length: 1
+      Name: Axes
+      Radius: 0.10000000149011612
+      Reference Frame: camera_point_frame
+      Value: false
+    - Class: rviz_default_plugins/Axes
+      Enabled: false
+      Length: 1
+      Name: Axes
+      Radius: 0.10000000149011612
+      Reference Frame: camera
+      Value: false
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: base_footprint
+    Fixed Frame: base_link
     Frame Rate: 30
   Name: root
   Tools:
@@ -507,7 +521,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 0.3484429121017456
+      Distance: 5.66829776763916
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1

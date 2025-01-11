@@ -10,6 +10,7 @@
   <license>Apache 2.0</license>
   <url type="repository">https://github.com/kemaltml/moria_ws</url>
   <author email="kemaltml@outlook.com">Kemal Temel</author>
+  <author email="onrsevdi@gmail.com">Onur Sevdi</author>
   <buildtool_depend>ament_cmake</buildtool_depend>
   <exec_depend>hls_lfcd_lds_driver</exec_depend>
   <exec_depend>robot_state_publisher</exec_depend>

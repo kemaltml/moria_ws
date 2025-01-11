@@ -349,16 +349,16 @@
 
 
     <!-- HEAD-->
-    <joint name="neck_joint" type="revolute">
+    <joint name="neck_joint" type="fixed"> <!-- rev-->
         <parent link="body"/>
         <child link="neck"/>
         <origin xyz="0.0092 0.0004 0.5471" rpy="0 0 1.5708"/>
-        <axis xyz="0 0 1"/>
+        <!--<axis xyz="0 0 1"/>
         <limit
             lower="-0.5"
             upper="0.5"
             effort="0"
-            velocity="0"/>
+            velocity="0"/>-->
     </joint>
 
     <link name="neck">
@@ -388,16 +388,16 @@
     </link>
 
 
-    <joint name="head_joint" type="revolute">
+    <joint name="head_joint" type="fixed"> <!-- rev-->
         <parent link="neck"/>
         <child link="head"/>
         <origin xyz="0.0224 0.004 0.0403" rpy="1.5708 0 1.5708"/>
-        <axis xyz="0 0 1"/>
+        <!--<axis xyz="0 0 1"/>
         <limit
             lower="-0.2"
             upper="0.2"
             effort="0"
-            velocity="0"/>        
+            velocity="0"/> -->       
     </joint>
 
     <link name="head">
@@ -427,6 +427,8 @@
     </link>
 
     <xacro:include filename="sensors.xacro"/>
+    <!-- <xacro:include filename="fixed_right_arm.xacro"/>
+    <xacro:include filename="fixed_left_arm.xacro"/> -->
     <xacro:include filename="right_arm.xacro"/>
     <xacro:include filename="left_arm.xacro"/>
     

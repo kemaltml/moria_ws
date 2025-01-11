@@ -41,7 +41,7 @@ def generate_launch_description():
         package='rviz2',
         executable='rviz2',
         name='rviz2',
-        #arguments=['-d', rviz_config_dir],
+        arguments=['-d', rviz_config_dir],
         parameters=[{'use_sim_time':use_sim_time}],
         output='screen'
     )
@@ -58,7 +58,7 @@ def generate_launch_description():
     ld.add_action(declare_use_sim_time_arg)
     ld.add_action(declare_slam_params_file_cmd)
     ld.add_action(start_async_slam_toolbox_node)
-    #ld.add_action(start_rviz_node)
+    ld.add_action(start_rviz_node)
     ld.add_action(start_wall_track_node)
 
     return ld

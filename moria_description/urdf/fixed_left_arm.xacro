@@ -1,0 +1,682 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- LEFT ARM-->
+    <joint name="left_shoulder_rad_joint" type="fixed"> <!-- con -->
+        <parent link="body"/>
+        <child link="left_shoulder_rad"/>
+        <origin xyz="0 0.1564 0.505" rpy="1.5708 0 -3.1416"/> 
+    </joint>
+
+    <link name="left_shoulder_rad">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh 
+                    filename="file://$(find moria_description)/meshes/left_shoulder_rad.STL"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0.0667 0.2431 0.4078 1"/>
+            </material>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_shoulder_rad.STL"/>
+            </geometry>
+        </collision>
+
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.224"/>
+            <inertia 
+                ixx="0.00007" ixy="0.0" ixz="0.0"
+                iyy="0.00006" iyz="0.0"
+                izz="0.00004"/>
+        </inertial>
+    </link>
+
+
+
+
+    <joint name="left_shoulder_joint" type="fixed"> <!-- rev -->
+        <parent link="left_shoulder_rad"/>
+        <child link="left_shoulder"/>
+        <origin xyz="0.0255 0.004 0.0575" rpy="3.14 -1.5708 0"/>
+    </joint>
+
+    <link name="left_shoulder">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_shoulder.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_shoulder.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.223"/>
+            <inertia 
+                ixx="0.00010" ixy="0.0" ixz="0.0"
+                iyy="0.00007" iyz="0.0"
+                izz="0.00011" />
+        </inertial>
+    </link>
+
+
+
+
+    <!-- UPPER ARM-->
+    <joint name="left_upper_arm_joint" type="fixed"> <!-- con -->
+        <parent link="left_shoulder"/>
+        <child link="left_upper_arm"/>
+        <origin xyz="0 0.0875 -0.0255" rpy="-1.5708 3.14 0"/>
+    </joint>
+
+    <link name="left_upper_arm">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_upper_arm.STL"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0.0667 0.2431 0.4078 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_upper_arm.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.209"/>
+            <inertia 
+                ixx="0.00021" ixy="0.0" ixz="0.0"
+                iyy="0.00023" iyz="0.0"
+                izz="0.00005" />
+        </inertial>
+    </link>
+
+
+
+
+    <!-- LEFT ELBOW-->
+    <joint name="left_elbow_joint" type="fixed"> <!-- rev -->
+        <parent link="left_upper_arm"/>
+        <child link="left_elbow"/>
+        <origin xyz="0.023 0 0.1412" rpy="1.5708 0 1.5708"/>
+    </joint>
+
+    <link name="left_elbow">
+        <visual>
+            <origin xyz="0 0 0.425" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_elbow.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_elbow.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.176"/>
+            <inertia 
+                ixx="0.00010" ixy="0.0" ixz="0.0"
+                iyy="0.00005" iyz="0.0"
+                izz="0.00008"/>
+        </inertial>
+    </link>
+
+
+
+
+    <!-- LEFT LOWER ARM-->
+    <joint name="left_lower_arm_joint" type="fixed"> <!-- con -->
+        <parent link="left_elbow"/>
+        <child link="left_lower_arm"/>
+        <origin xyz="0 0.0866 -0.0234" rpy="-1.5708 2.62 0"/>
+    </joint>
+
+    <link name="left_lower_arm">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_lower_arm.STL"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0.0667 0.2431 0.4078 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_lower_arm.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.882"/>
+            <inertia 
+                ixx="0.00033" ixy="0.0" ixz="0.0"
+                iyy="0.00033" iyz="0.0"
+                izz="0.00013" />
+        </inertial>
+    </link>
+
+
+
+
+    <!-- LEFT THUMB-->
+    <joint name="left_00_joint" type="fixed"> <!-- rev -->
+        <parent link="left_lower_arm"/>
+        <child link="left_00"/>
+        <origin xyz="0.0211 0.0206 0.1878" rpy="2.8403 0.2562 -0.0785"/>
+    </joint>
+
+    <link name="left_00">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_00.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_00.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.005"/>
+            <inertia 
+                ixx="3E-07" ixy="0.0" ixz="0.0"
+                iyy="2E-07" iyz="0.0"
+                izz="2E-07" />
+        </inertial>
+    </link>
+
+    <joint name="left_01_joint" type="fixed"> <!-- rev -->
+        <parent link="left_00"/>
+        <child link="left_01"/>
+        <origin xyz="0.0187 -0.0123 -0.0039" rpy="1.0739 0.0791 -0.3777"/>
+    </joint>
+
+    <link name="left_01">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_01.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_01.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="1E-07" ixy="0.0" ixz="0.0"
+                iyy="1E-07" iyz="0.0"
+                izz="8E-08" />
+        </inertial>
+    </link>
+
+    <joint name="left_02_joint" type="fixed"> <!-- rev -->
+        <parent link="left_01"/>
+        <child link="left_02"/>
+        <origin xyz="0.0240 -0.0072 0" rpy="-0.2710 0.0990 0.0951"/>
+    </joint>
+
+    <link name="left_02">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_02.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_02.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="6E-08" ixy="0.0" ixz="0.0"
+                iyy="6E-08" iyz="0.0"
+                izz="7E-08" />
+        </inertial>
+    </link>
+
+
+
+
+    <!--LEFT INDEX-->
+    <joint name="left_10_joint" type="fixed"> <!-- rev -->
+        <parent link="left_lower_arm"/>
+        <child link="left_10"/>
+        <origin xyz="0.0192 0.0186 0.2457" rpy="-1.5708 0 -0.7626"/>
+    </joint>
+
+    <link name="left_10">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_10.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_10.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="8E-08" ixy="0.0" ixz="0.0"
+                iyy="6E-08" iyz="0.0"
+                izz="6E-08" />
+        </inertial>
+    </link>
+
+    <joint name="left_11_joint" type="fixed"> <!-- rev -->
+        <parent link="left_10"/>
+        <child link="left_11"/>
+        <origin xyz="0.0010 -0.0240 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="left_11">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_11.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_11.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="6E-08" ixy="0.0" ixz="0.0"
+                iyy="5E-08" iyz="0.0"
+                izz="6E-08" />
+        </inertial>
+    </link>
+
+    <joint name="left_12_joint" type="fixed"> <!-- rev -->
+        <parent link="left_11"/>
+        <child link="left_12"/>
+        <origin xyz="0.0009 -0.0210 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="left_12">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_12.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_12.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="4E-08" ixy="0.0" ixz="0.0"
+                iyy="3E-08" iyz="0.0"
+                izz="4E-08" />
+        </inertial>
+    </link>
+
+
+
+
+    <!--LEFT MIDDLE-->
+    <joint name="left_20_joint" type="fixed"> <!-- rev -->
+        <parent link="left_lower_arm"/>
+        <child link="left_20"/>
+        <origin xyz="0.0071 0.0060 0.2457" rpy="-1.5708 0 -0.7626"/>
+    </joint>
+
+    <link name="left_20">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_20.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_20.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.003"/>
+            <inertia 
+                ixx="1E-07" ixy="0.0" ixz="0.0"
+                iyy="1E-07" iyz="0.0"
+                izz="1E-07" />
+        </inertial>
+    </link>
+
+    <joint name="left_21_joint" type="fixed"> <!-- rev -->
+        <parent link="left_20"/>
+        <child link="left_21"/>
+        <origin xyz="0.0002 -0.0265 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="left_21">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_21.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_21.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="6E-08" ixy="0.0" ixz="0.0"
+                iyy="6E-08" iyz="0.0"
+                izz="8E-08" />
+        </inertial>
+    </link>
+
+    <joint name="left_22_joint" type="fixed"> <!-- rev -->
+        <parent link="left_21"/>
+        <child link="left_22"/>
+        <origin xyz="-0.0005 -0.0223 -0.0002" rpy="0 0 0"/>
+    </joint>
+
+    <link name="left_22">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_22.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_22.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="6E-08" ixy="0.0" ixz="0.0"
+                iyy="6E-08" iyz="0.0"
+                izz="8E-08" />
+        </inertial>
+    </link>
+
+
+
+
+    <!--LEFT RING-->
+    <joint name="left_30_joint" type="fixed"> <!-- rev -->
+        <parent link="left_lower_arm"/>
+        <child link="left_30"/>
+        <origin xyz="-0.0049 -0.0067 0.2457" rpy="-1.5708 0 -0.7626"/>
+    </joint>
+
+    <link name="left_30">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_30.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_30.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="8E-08" ixy="0.0" ixz="0.0"
+                iyy="6E-08" iyz="0.0"
+                izz="7E-08" />
+        </inertial>
+    </link>
+
+    <joint name="left_31_joint" type="fixed"> <!-- rev -->
+        <parent link="left_30"/>
+        <child link="left_31"/>
+        <origin xyz="0.0008 -0.0240 0" rpy="0 -0.7626 0"/>
+    </joint>
+
+    <link name="left_31">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_31.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_31.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="6E-08" ixy="0.0" ixz="0.0"
+                iyy="5E-08" iyz="0.0"
+                izz="6E-08" />
+        </inertial>
+    </link>
+
+    <joint name="left_32_joint" type="fixed"> <!-- rev -->
+        <parent link="left_31"/>
+        <child link="left_32"/>
+        <origin xyz="0.0005 -0.0210 -0.0005" rpy="0 0.7626 0"/>
+    </joint>
+
+    <link name="left_32">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_32.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_32.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="4E-08" ixy="0.0" ixz="0.0"
+                iyy="3E-08" iyz="0.0"
+                izz="4E-08" />
+        </inertial>
+    </link>
+
+
+
+
+    <!-- LEFT PINKY-->
+    <joint name="left_40_joint" type="fixed"> <!-- rev -->
+        <parent link="left_lower_arm"/>
+        <child link="left_40"/>
+        <origin xyz="-0.0170 -0.0193 0.2457" rpy="-1.5708 0 -0.7626"/>
+    </joint>
+
+    <link name="left_40">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_40.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_40.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="6E-08" ixy="0.0" ixz="0.0"
+                iyy="4E-08" iyz="0.0"
+                izz="4E-08" />
+        </inertial>
+    </link>
+
+    <joint name="left_41_joint" type="fixed"> <!-- rev -->
+        <parent link="left_40"/>
+        <child link="left_41"/>
+        <origin xyz="0.0039 -0.0228 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="left_41">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_41.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_41.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="3E-08" ixy="0.0" ixz="0.0"
+                iyy="3E-08" iyz="0.0"
+                izz="3E-08" />
+        </inertial>
+    </link>
+
+    <joint name="left_42_joint" type="fixed"> <!-- rev -->
+        <parent link="left_41"/>
+        <child link="left_42"/>
+        <origin xyz="0.0046 -0.0178 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="left_42">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_42.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="file://$(find moria_description)/meshes/left_42.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="1E-08" ixy="0.0" ixz="0.0"
+                iyy="1E-08" iyz="0.0"
+                izz="1E-08" />
+        </inertial>
+    </link>
+</robot>

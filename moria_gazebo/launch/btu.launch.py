@@ -6,10 +6,13 @@ from launch import LaunchDescription
 from launch.actions import IncludeLaunchDescription, RegisterEventHandler
 from launch.event_handlers import OnProcessStart
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import LaunchConfiguration
+from launch.substitutions import LaunchConfiguration, FindExecutable, PathJoinSubstitution
 from launch_ros.actions import Node
+from launch_ros.substitutions import FindPackageShare
+from launch.event_handlers import OnProcessExit
 
 def generate_launch_description():
+    pkg_share=os.path.join(get_package_share_directory('moria_gazebo')) # Directory of this package
     launch_file_dir = os.path.join(get_package_share_directory('moria_gazebo'), 'launch')
     rsp_file_dir = os.path.join(get_package_share_directory('moria_bringup'), 'launch')
     pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
@@ -22,6 +25,13 @@ def generate_launch_description():
                         'worlds',
                         'btu.world'
     )
+
+    pkg_share=os.path.join(get_package_share_directory('moria_gazebo')) # Directory of this package
+
+    robot_controllers = os.path.join(pkg_share, 'config', 'robot_controller.yaml')
+    # Exporting model path for gazebo 
+    gazebo_models_path = os.path.join(pkg_share, 'models')
+    os.environ["GAZEBO_MODEL_PATH"] = gazebo_models_path
 
     gzserver_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -45,7 +55,7 @@ def generate_launch_description():
     robot_state_publisher_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(
-                rsp_file_dir, 
+                launch_file_dir, 
                 'state_publisher.launch.py')
         ),
         launch_arguments={'use_sim_time': use_sim_time}.items()
@@ -78,10 +88,48 @@ def generate_launch_description():
         }.items()
     )
 
+    
+    control_node = Node(
+        package="controller_manager",
+        executable="ros2_control_node",
+        parameters=[robot_controllers],
+        output="both",
+    )
+
+    joint_state_broadcaster_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["joint_state_broadcaster"],
+    )
+
+    robot_controller_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["forward_position_controller", "--param-file", robot_controllers],
+    )
+
+
+# --------------------------------------------------------------------------
+
+
+
+
     diff_drive_spawner = Node(
         package="controller_manager",
         executable="spawner",
         arguments=["diff_cont"],
+    )
+
+    joint_state_cont= Node(
+        package='controller_manager',
+        executable='spawner',
+        arguments=['joint_state_controller'],
+        )
+    
+    position_cont=Node(
+        package='controller_manager',
+        executable='spawner',
+        arguments=['position_controller'],
     )
 
     joint_broad_spawner = Node(
@@ -105,11 +153,15 @@ def generate_launch_description():
 
     ld = LaunchDescription()
     ld.add_action(robot_state_publisher_cmd)
-    ld.add_action(joystick)
+    #ld.add_action(joystick)
     ld.add_action(twist_mux)
     ld.add_action(gzserver_cmd)
     ld.add_action(gzclient_cmd)
     ld.add_action(spawn_moria_cmd)
+    ld.add_action(control_node)
+    ld.add_action(joint_state_broadcaster_spawner)
+    ld.add_action(robot_controller_spawner)
+    #ld.add_action(delay_joint_state_broadcaster_after_robot_controller_spawner)
     #ld.add_action(controller_manager)
     #ld.add_action(delayed_spawn_entity)
     #ld.add_action(diff_drive_spawner)
