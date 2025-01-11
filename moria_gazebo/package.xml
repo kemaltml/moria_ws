@@ -1,28 +1,26 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>moria_gazebo</name>
-  <version>2.2.6</version>
-  <description>
-    Gazebo simulation package for the moria
-  </description>
-  <maintainer email="willson@robotis.com">Will Son</maintainer>
-  <license>Apache 2.0</license>
-  <url type="website">http://turtlebot3.robotis.com</url>
-  <url type="repository">https://github.com/ROBOTIS-GIT/turtlebot3_simulations</url>
-  <url type="bugtracker">https://github.com/ROBOTIS-GIT/turtlebot3_simulations/issues</url>
-  <author email="thlim@robotis.com">Darby Lim</author>
-  <author email="pyo@robotis.com">Pyo</author>
-  <author>Ryan Shim</author>
-  <buildtool_depend>ament_cmake</buildtool_depend>
-  <depend>gazebo_ros_pkgs</depend>
-  <depend>geometry_msgs</depend>
-  <depend>nav_msgs</depend>
-  <depend>rclcpp</depend>
-  <depend>sensor_msgs</depend>
-  <depend>tf2</depend>
-  <export>
-    <build_type>ament_cmake</build_type>
-    <gazebo_ros gazebo_model_path="${prefix}/model"/>
-  </export>
+    <name>moria_gazebo</name>
+    <version>3.1.0</version>
+    <description>
+        Gazebo simulation package for moria
+    </description>
+    <maintainer email="kemaltml@outlook.com">Kemal Temel</maintainer>
+    <license>Apache 2.0</license>
+    <url type="repository">https://github.com/kemaltml/moria_ws</url>
+    <author email="kemaltml@outlook.com">Kemal Temel</author>
+    <author email="onrsevdi@gmail.com">Onur Sevdi</author>
+    <buildtool_depend>ament_cmake</buildtool_depend>
+    <depend>gazebo_ros_pkgs</depend>
+    <depend>geometry_msgs</depend>
+    <depend>nav_msgs</depend>
+    <depend>rclcpp</depend>
+    <depend>rclpy</depend>
+    <depend>sensor_msgs</depend>
+    <depend>tf2</depend>
+    <depend>moria_description</depend>
+    <export>
+        <build_type>ament_cmake</build_type>
+    </export>
 </package>

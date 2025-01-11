@@ -1,15 +1,16 @@
 
 import os
-
-from ament_index_python.packages import get_package_share_directory
+from launch_ros.actions import Node
 from launch import LaunchDescription
 from launch.actions import IncludeLaunchDescription
-from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
-from launch_ros.actions import Node
+from ament_index_python.packages import get_package_share_directory
+from launch.launch_description_sources import PythonLaunchDescriptionSource
 
 def generate_launch_description():
+    pkg_share=os.path.join(get_package_share_directory('moria_gazebo')) # Directory of this package
     launch_file_dir = os.path.join(get_package_share_directory('moria_gazebo'), 'launch')
+    rsp_file_dir = os.path.join(get_package_share_directory('moria_bringup'), 'launch')
     pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
@@ -20,6 +21,10 @@ def generate_launch_description():
                         'worlds',
                         'empty_world.world'
     )
+
+    # Exporting model path for gazebo 
+    gazebo_models_path = os.path.join(pkg_share, 'models')
+    os.environ["GAZEBO_MODEL_PATH"] = gazebo_models_path
 
     gzserver_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -45,8 +50,8 @@ def generate_launch_description():
     robot_state_publisher_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(
-                launch_file_dir,
-                'robot_state_publisher.launch.py'
+                rsp_file_dir,
+                'state_publisher.launch.py'
             )
         ),
         launch_arguments={'use_sim_time': use_sim_time}.items()

@@ -30,7 +30,7 @@ Panels:
     SyncSource: ""
 Visualization Manager:
   Class: ""
-  Displays:
+  Displays: 
     - Alpha: 0.5
       Cell Size: 1
       Class: rviz_default_plugins/Grid
