@@ -1,3 +1,4 @@
+
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, SetEnvironmentVariable
 from launch.substitutions import LaunchConfiguration
@@ -39,7 +40,7 @@ def generate_launch_description():
           'ICP/MaxTranslation': '0.3',       # Increase allowed translation (meters)
           'ICP/MaxRotation': '0.2',          # Increase allowed rotation (radians)
           'RGBD/LinearUpdate': '0.05',   # Reduce linear distance threshold (default 0.2)
-          'RGBD/AngularUpdate': '0.05' 
+          'RGBD/AngularUpdate': '0.05'
     }
 
     remappings=[
@@ -54,13 +55,13 @@ def generate_launch_description():
         DeclareLaunchArgument(
             'use_sim_time', default_value='true',
             description='Use simulation (Gazebo) clock if true'),
-        
+
         DeclareLaunchArgument(
             'localization', default_value='false',
             description='Launch in localization mode.'),
 
         # Nodes to launch
-        
+
         # SLAM mode:
         Node(
             condition=UnlessCondition(localization),
@@ -68,7 +69,7 @@ def generate_launch_description():
             parameters=[parameters],
             remappings=remappings,
             arguments=['-d']), # This will delete the previous database (~/.ros/rtabmap.db)
-            
+
         # Localization mode:
         Node(
             condition=IfCondition(localization),
@@ -82,7 +83,7 @@ def generate_launch_description():
             package='rtabmap_viz', executable='rtabmap_viz', output='screen',
             parameters=[parameters],
             remappings=remappings),
-        
+
         # Obstacle detection with the camera for nav2 local costmap.
         # First, we need to convert depth image to a point cloud.
         # Second, we segment the floor from the obstacles.

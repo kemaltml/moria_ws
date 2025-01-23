@@ -5,11 +5,8 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
-        - /RobotModel1
         - /RobotModel1/Description Topic1
         - /LaserScan2/Topic1
-        - /Axes1
-        - /Axes2
       Splitter Ratio: 0.651296854019165
     Tree Height: 666
   - Class: rviz_common/Selection
@@ -69,6 +66,10 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
+        base_footprint:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         base_link:
           Alpha: 1
           Show Axes: false
@@ -461,19 +462,33 @@ Visualization Manager:
       Use Fixed Frame: true
       Use rainbow: true
       Value: true
-    - Class: rviz_default_plugins/Axes
+    - Class: rviz_default_plugins/TF
       Enabled: false
-      Length: 1
-      Name: Axes
-      Radius: 0.10000000149011612
-      Reference Frame: camera_point_frame
+      Frame Timeout: 15
+      Frames:
+        All Enabled: true
+      Marker Scale: 0.30000001192092896
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: false
+      Tree:
+        {}
+      Update Interval: 0
       Value: false
     - Class: rviz_default_plugins/Axes
       Enabled: false
-      Length: 1
+      Length: 0.30000001192092896
       Name: Axes
-      Radius: 0.10000000149011612
-      Reference Frame: camera
+      Radius: 0.004999999888241291
+      Reference Frame: right_shoulder
+      Value: false
+    - Class: rviz_default_plugins/Axes
+      Enabled: false
+      Length: 0.30000001192092896
+      Name: Axes
+      Radius: 0.004999999888241291
+      Reference Frame: right_upper_arm
       Value: false
   Enabled: true
   Global Options:
@@ -521,25 +536,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 5.66829776763916
+      Distance: 1.8102693557739258
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.04304902255535126
-        Y: -0.05618937686085701
-        Z: 1.1015403270721436
+        X: 0.22757335007190704
+        Y: 0.05960528180003166
+        Z: 0.8895767331123352
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.309797078371048
+      Pitch: 0.489796906709671
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.4718034565448761
+      Yaw: 5.485005855560303
     Saved: ~
 Window Geometry:
   Displays:

@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <!-- LEFT ARM-->
-    <joint name="left_shoulder_rad_joint" type="fixed"> <!-- con -->
+    <!-- left ARM-->
+    <joint name="left_shoulder_rad_joint" type="fixed">
         <parent link="body"/>
         <child link="left_shoulder_rad"/>
-        <origin xyz="0 0.1564 0.505" rpy="1.5708 0 -3.1416"/> 
+        <origin xyz="0 0.1585 0.503" rpy="-1.5708 0 0"/>
     </joint>
 
     <link name="left_shoulder_rad">
@@ -29,21 +29,21 @@
 
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0"/>
-            <mass value="0.224"/>
+            <mass value="${shoulder_rad_mass}"/>
             <inertia 
-                ixx="0.00007" ixy="0.0" ixz="0.0"
-                iyy="0.00006" iyz="0.0"
-                izz="0.00004"/>
+                ixx="7.00E-05" ixy="3.08E-10" ixz="8.62E-07"
+                iyy="6.07E-05" iyz="-7.16E-07"
+                izz="3.73E-05" />
         </inertial>
     </link>
 
 
 
 
-    <joint name="left_shoulder_joint" type="fixed"> <!-- rev -->
+    <joint name="left_shoulder_joint" type="fixed">
         <parent link="left_shoulder_rad"/>
         <child link="left_shoulder"/>
-        <origin xyz="0.0255 0.004 0.0575" rpy="3.14 -1.5708 0"/>
+        <origin xyz="0.0252 -0.004 0.059" rpy="0 -1.5708 3.14"/>
     </joint>
 
     <link name="left_shoulder">
@@ -64,10 +64,10 @@
         </collision>
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0"/>
-            <mass value="0.223"/>
+            <mass value="${shoulder_mass}"/>
             <inertia 
-                ixx="0.00010" ixy="0.0" ixz="0.0"
-                iyy="0.00007" iyz="0.0"
+                ixx="0.00010" ixy="-5.82E-06" ixz="-3.09E-07"
+                iyy="7.10E-05" iyz="-3.22E-06"
                 izz="0.00011" />
         </inertial>
     </link>
@@ -76,10 +76,10 @@
 
 
     <!-- UPPER ARM-->
-    <joint name="left_upper_arm_joint" type="fixed"> <!-- con -->
+    <joint name="left_upper_arm_joint" type="fixed">
         <parent link="left_shoulder"/>
         <child link="left_upper_arm"/>
-        <origin xyz="0 0.0875 -0.0255" rpy="-1.5708 3.14 0"/>
+        <origin xyz="0 -0.0855 -0.0255" rpy="-1.5708 -1.5708 0"/>
     </joint>
 
     <link name="left_upper_arm">
@@ -100,27 +100,27 @@
         </collision>
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0"/>
-            <mass value="0.209"/>
+            <mass value="${upper_arm_mass}"/>
             <inertia 
-                ixx="0.00021" ixy="0.0" ixz="0.0"
-                iyy="0.00023" iyz="0.0"
-                izz="0.00005" />
+                ixx="0.00022" ixy="-4.98E-10" ixz="-5.62E-07"
+                iyy="0.00021" iyz="-1.80E-07"
+                izz="5.01E-05" />
         </inertial>
     </link>
 
 
 
 
-    <!-- LEFT ELBOW-->
-    <joint name="left_elbow_joint" type="fixed"> <!-- rev -->
+    <!-- left ELBOW-->
+    <joint name="left_elbow_joint" type="fixed">
         <parent link="left_upper_arm"/>
         <child link="left_elbow"/>
-        <origin xyz="0.023 0 0.1412" rpy="1.5708 0 1.5708"/>
+        <origin xyz="0 0.0228 -0.1432" rpy="-1.5708 0 0"/>
     </joint>
 
     <link name="left_elbow">
         <visual>
-            <origin xyz="0 0 0.425" rpy="0 0 0"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="file://$(find moria_description)/meshes/left_elbow.STL"/>
             </geometry>
@@ -136,22 +136,22 @@
         </collision>
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0"/>
-            <mass value="0.176"/>
+            <mass value="${elbow_mass}"/>
             <inertia 
-                ixx="0.00010" ixy="0.0" ixz="0.0"
-                iyy="0.00005" iyz="0.0"
-                izz="0.00008"/>
+                ixx="9.91E-05" ixy="-1.49E-06" ixz="2.12E-06"
+                iyy="5.33E-05" iyz="4.53E-06"
+                izz="8.43E-05" />
         </inertial>
     </link>
 
 
 
 
-    <!-- LEFT LOWER ARM-->
-    <joint name="left_lower_arm_joint" type="fixed"> <!-- con -->
+    <!-- left LOWER ARM-->
+    <joint name="left_lower_arm_joint" type="fixed">
         <parent link="left_elbow"/>
         <child link="left_lower_arm"/>
-        <origin xyz="0 0.0866 -0.0234" rpy="-1.5708 2.62 0"/>
+        <origin xyz="0 0.0846 -0.0232" rpy="1.5708 -0.050433 0"/>
     </joint>
 
     <link name="left_lower_arm">
@@ -172,22 +172,22 @@
         </collision>
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0"/>
-            <mass value="0.882"/>
+            <mass value="${lower_arm_mass}"/>
             <inertia 
-                ixx="0.00033" ixy="0.0" ixz="0.0"
-                iyy="0.00033" iyz="0.0"
-                izz="0.00013" />
+                ixx="0.00032" ixy="-7.01E-07" ixz="3.96E-07"
+                iyy="0.00032" iyz="1.98E-06"
+                izz="0.00012" />
         </inertial>
     </link>
 
 
 
 
-    <!-- LEFT THUMB-->
-    <joint name="left_00_joint" type="fixed"> <!-- rev -->
+    <!-- left THUMB-->
+    <joint name="left_00_joint" type="fixed">
         <parent link="left_lower_arm"/>
         <child link="left_00"/>
-        <origin xyz="0.0211 0.0206 0.1878" rpy="2.8403 0.2562 -0.0785"/>
+        <origin xyz="0.0286 0.001 -0.1877" rpy="-2.8828 0.29907 -2.4097"/>
     </joint>
 
     <link name="left_00">
@@ -216,10 +216,10 @@
         </inertial>
     </link>
 
-    <joint name="left_01_joint" type="fixed"> <!-- rev -->
+    <joint name="left_01_joint" type="fixed">
         <parent link="left_00"/>
         <child link="left_01"/>
-        <origin xyz="0.0187 -0.0123 -0.0039" rpy="1.0739 0.0791 -0.3777"/>
+        <origin xyz="0.0015 -0.0223 0.0062" rpy="1.0472 -0.31649 -1.5708"/>
     </joint>
 
     <link name="left_01">
@@ -248,10 +248,10 @@
         </inertial>
     </link>
 
-    <joint name="left_02_joint" type="fixed"> <!-- rev -->
+    <joint name="left_02_joint" type="fixed">
         <parent link="left_01"/>
         <child link="left_02"/>
-        <origin xyz="0.0240 -0.0072 0" rpy="-0.2710 0.0990 0.0951"/>
+        <origin xyz="0.01815 0.01722 0" rpy="-0.0802 0.5284 2.1259"/>
     </joint>
 
     <link name="left_02">
@@ -283,11 +283,11 @@
 
 
 
-    <!--LEFT INDEX-->
-    <joint name="left_10_joint" type="fixed"> <!-- rev -->
+    <!--left INDEX-->
+    <joint name="left_10_joint" type="fixed">
         <parent link="left_lower_arm"/>
         <child link="left_10"/>
-        <origin xyz="0.0192 0.0186 0.2457" rpy="-1.5708 0 -0.7626"/>
+        <origin xyz="0.0267 0.0010 -0.2477" rpy="-1.5708 0 -1.5708"/>
     </joint>
 
     <link name="left_10">
@@ -316,10 +316,10 @@
         </inertial>
     </link>
 
-    <joint name="left_11_joint" type="fixed"> <!-- rev -->
+    <joint name="left_11_joint" type="fixed">
         <parent link="left_10"/>
         <child link="left_11"/>
-        <origin xyz="0.0010 -0.0240 0" rpy="0 0 0"/>
+        <origin xyz="0 0.024 0" rpy="0 0 0"/>
     </joint>
 
     <link name="left_11">
@@ -348,10 +348,10 @@
         </inertial>
     </link>
 
-    <joint name="left_12_joint" type="fixed"> <!-- rev -->
+    <joint name="left_12_joint" type="fixed">
         <parent link="left_11"/>
         <child link="left_12"/>
-        <origin xyz="0.0009 -0.0210 0" rpy="0 0 0"/>
+        <origin xyz="0 0.0210 0" rpy="0 0 0.12237"/>
     </joint>
 
     <link name="left_12">
@@ -383,11 +383,11 @@
 
 
 
-    <!--LEFT MIDDLE-->
-    <joint name="left_20_joint" type="fixed"> <!-- rev -->
+    <!--left MIDDLE-->
+    <joint name="left_20_joint" type="fixed">
         <parent link="left_lower_arm"/>
         <child link="left_20"/>
-        <origin xyz="0.0071 0.0060 0.2457" rpy="-1.5708 0 -0.7626"/>
+        <origin xyz="0.0092 0.0010 -0.2477" rpy="-1.5708 0 -1.5708"/>
     </joint>
 
     <link name="left_20">
@@ -416,10 +416,10 @@
         </inertial>
     </link>
 
-    <joint name="left_21_joint" type="fixed"> <!-- rev -->
+    <joint name="left_21_joint" type="fixed">
         <parent link="left_20"/>
         <child link="left_21"/>
-        <origin xyz="0.0002 -0.0265 0" rpy="0 0 0"/>
+        <origin xyz="-0.0004 0.0265 0" rpy="0 0.0504 0"/>
     </joint>
 
     <link name="left_21">
@@ -448,10 +448,10 @@
         </inertial>
     </link>
 
-    <joint name="left_22_joint" type="fixed"> <!-- rev -->
+    <joint name="left_22_joint" type="fixed">
         <parent link="left_21"/>
         <child link="left_22"/>
-        <origin xyz="-0.0005 -0.0223 -0.0002" rpy="0 0 0"/>
+        <origin xyz="-0.0002 0.0229 -0.0002" rpy="0 -0.050433 0"/>
     </joint>
 
     <link name="left_22">
@@ -483,11 +483,11 @@
 
 
 
-    <!--LEFT RING-->
-    <joint name="left_30_joint" type="fixed"> <!-- rev -->
+    <!--left RING-->
+    <joint name="left_30_joint" type="fixed">
         <parent link="left_lower_arm"/>
         <child link="left_30"/>
-        <origin xyz="-0.0049 -0.0067 0.2457" rpy="-1.5708 0 -0.7626"/>
+        <origin xyz="-0.0082 0.0010 -0.2477" rpy="-1.5708 0 -1.5708"/>
     </joint>
 
     <link name="left_30">
@@ -516,10 +516,10 @@
         </inertial>
     </link>
 
-    <joint name="left_31_joint" type="fixed"> <!-- rev -->
+    <joint name="left_31_joint" type="fixed">
         <parent link="left_30"/>
         <child link="left_31"/>
-        <origin xyz="0.0008 -0.0240 0" rpy="0 -0.7626 0"/>
+        <origin xyz="-0.0002 0.0239 0" rpy="0 0 0"/>
     </joint>
 
     <link name="left_31">
@@ -548,10 +548,10 @@
         </inertial>
     </link>
 
-    <joint name="left_32_joint" type="fixed"> <!-- rev -->
+    <joint name="left_32_joint" type="fixed">
         <parent link="left_31"/>
         <child link="left_32"/>
-        <origin xyz="0.0005 -0.0210 -0.0005" rpy="0 0.7626 0"/>
+        <origin xyz="-0.0002 0.0210 0" rpy="0 0 0"/>
     </joint>
 
     <link name="left_32">
@@ -583,11 +583,11 @@
 
 
 
-    <!-- LEFT PINKY-->
-    <joint name="left_40_joint" type="fixed"> <!-- rev -->
+    <!-- left PINKY-->
+    <joint name="left_40_joint" type="fixed">
         <parent link="left_lower_arm"/>
         <child link="left_40"/>
-        <origin xyz="-0.0170 -0.0193 0.2457" rpy="-1.5708 0 -0.7626"/>
+        <origin xyz="-0.0257 0.0010 -0.2477" rpy="-1.5708 0 -1.5708"/>
     </joint>
 
     <link name="left_40">
@@ -616,10 +616,10 @@
         </inertial>
     </link>
 
-    <joint name="left_41_joint" type="fixed"> <!-- rev -->
+    <joint name="left_41_joint" type="fixed">
         <parent link="left_40"/>
         <child link="left_41"/>
-        <origin xyz="0.0039 -0.0228 0" rpy="0 0 0"/>
+        <origin xyz="0.0008 0.0231 0" rpy="0 0 0"/>
     </joint>
 
     <link name="left_41">
@@ -648,10 +648,10 @@
         </inertial>
     </link>
 
-    <joint name="left_42_joint" type="fixed"> <!-- rev -->
+    <joint name="left_42_joint" type="fixed">
         <parent link="left_41"/>
         <child link="left_42"/>
-        <origin xyz="0.0046 -0.0178 0" rpy="0 0 0"/>
+        <origin xyz="-0.00088 0.0183 0" rpy="0 0 0.0148"/>
     </joint>
 
     <link name="left_42">

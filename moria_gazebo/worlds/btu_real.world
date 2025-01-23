@@ -43,9 +43,14 @@
       </ode>
     </physics>
 
-    <include>
-      <uri>model://btu_real</uri>
-    </include>
+    <model name="btu_real">
+      <static>1</static>
+      <include>
+        <uri>model://btu_real</uri>
+      </include>
+    </model>
+
+    
 
   </world>
 </sdf>

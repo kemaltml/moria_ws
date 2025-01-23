@@ -11,7 +11,7 @@ import xacro
 def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
     use_ros2_control = LaunchConfiguration('use_ros2_control', default='true')
-    urdf_name = 'moria.urdf.xacro'
+    urdf_name = 'moria_fixed.urdf.xacro'
 
     urdf_file = os.path.join(
         get_package_share_directory('moria_description'),

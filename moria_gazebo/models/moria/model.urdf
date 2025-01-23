@@ -1,2107 +1,2126 @@
 <?xml version="1.0" ?>
 <robot name="moria">
+
+
     <!-- Footprint --> 
-  
-
-  <link name="base_link">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/base_link.STL"/>
-      </geometry>
-      <material name="blue">
-        <color rgba="0.0667 0.2431 0.4078 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/base_link.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="4.44"/>
-      <inertia ixx="0.02125" ixy="0.0" ixz="0.00001" iyy="0.04177" iyz="0.0" izz="0.04948"/>
-    </inertial>
-  </link>
-  <gazebo reference="base_link">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-
-
-
-
-  <!-- FRONT WHEEL -->
-  <joint name="front_base_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0.23 0 0"/>
-    <parent link="base_link"/>
-    <child link="front_base"/>
-  </joint>
-
-  <link name="front_base">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0.02"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/front_base.STL"/>
-      </geometry>
-      <material name="blue">
-        <color rgba="0.0667 0.2431 0.4078 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/front_base.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.003"/>
-      <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0002" iyz="0.0" izz="0.0001"/>
-    </inertial>
-  </link>
-
-  <joint name="front_radial_joint" type="continuous">
-    <parent link="front_base"/>
-    <child link="front_radial"/>
-    <origin rpy="0 0 -1.5708" xyz="0 0 0"/>
-    <axis xyz="0 0 1"/>
-  </joint>
-
-  <link name="front_radial">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/front_rad.STL"/>
-      </geometry>
-      <material name="blue">
-        <color rgba="0.0667 0.2431 0.4078 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/front_rad.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.01"/>
-      <inertia ixx="2.54E-06" ixy="0.0" ixz="0.0" iyy="2.17E-06" iyz="0.0" izz="3.02E-06"/>
-    </inertial>
-  </link>
-
-  <joint name="front_wheel_joint" type="continuous">
-    <parent link="front_radial"/>
-    <child link="front_wheel"/>
-    <origin rpy="1.5708 0 1.5708" xyz="0 -0.022 -0.035"/>
-    <axis xyz="0 0 -1"/>
-  </joint>
-
-  <link name="front_wheel">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/front_wheel.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/front_wheel.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.006"/>
-      <inertia ixx="4.60E-07" ixy="0.0" ixz="0.0" iyy="4.60E-07" iyz="0.0" izz="8.66E-07"/>
-    </inertial>
-  </link>
-  <gazebo reference="front_wheel">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-
-
-
-
-  <!-- RIGHT WHEEL-->
-  <joint name="right_motor_joint" type="fixed">
-    <parent link="base_link"/>
-    <child link="right_motor"/>
-    <origin rpy="0 0 0" xyz="0 -0.096 -0.02"/>
-  </joint>
-
-  <link name="right_motor">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_motor.STL"/>
-      </geometry>
-      <material name="blue">
-        <color rgba="0.0667 0.2431 0.4078 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_motor.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.11"/>
-      <inertia ixx="0.00003" ixy="0.0" ixz="0.0" iyy="0.00005" iyz="0.0" izz="0.00006"/>
-    </inertial>
-  </link>
-
-  <joint name="right_wheel_joint" type="continuous">
-    <parent link="right_motor"/>
-    <child link="right_wheel"/>
-    <origin rpy="-1.5708 0 0" xyz="0 -0.076 0"/>
-    <axis xyz="0 0 1"/>
-  </joint>
-
-  <link name="right_wheel">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_wheel.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_wheel.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.09111"/>
-      <inertia ixx="0.00003" ixy="0.0" ixz="0.0" iyy="0.00003" iyz="0.0" izz="0.00004"/>
-    </inertial>
-  </link>
-  <gazebo reference="right_wheel">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-
-
-
-
-  <!-- LEFT WHEEL-->
-  <joint name="left_motor_joint" type="fixed">
-    <parent link="base_link"/>
-    <child link="left_motor"/>
-    <origin rpy="0 0 0" xyz="0 0.096 -0.02"/>
-  </joint>
-
-  <link name="left_motor">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_motor.STL"/>
-      </geometry>
-      <material name="blue">
-        <color rgba="0.0667 0.2431 0.4078 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_motor.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.11"/>
-      <inertia ixx="0.00003" ixy="0.0" ixz="0.0" iyy="0.00005" iyz="0.0" izz="0.00006"/>
-    </inertial>
-  </link>
-
-  <joint name="left_wheel_joint" type="continuous">
-    <parent link="left_motor"/>
-    <child link="left_wheel"/>
-    <origin rpy="1.5708 0 0" xyz="0 0.076 0"/>
-    <axis xyz="0 0 -1"/>
-  </joint>
-
-  <link name="left_wheel">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_wheel.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_wheel.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.09111"/>
-      <inertia ixx="0.00003" ixy="0.0" ixz="0.0" iyy="0.00003" iyz="0.0" izz="0.00004"/>
-    </inertial>
-  </link>
-  <gazebo reference="left_wheel">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-
-
-
-
-  <!-- LEG -->
-  <joint name="leg_joint" type="fixed">
-    <parent link="base_link"/>
-    <child link="leg"/>
-    <origin rpy="0 0 0" xyz="0.076 0 0.185"/>
-  </joint>
-
-  <link name="leg">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/leg.STL"/>
-      </geometry>
-      <material name="blue">
-        <color rgba="0.0667 0.2431 0.4078 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/leg.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="2.366"/>
-      <inertia ixx="0.07510" ixy="0.00008" ixz="-0.00377" iyy="0.07190" iyz="0.00005" izz="0.02825"/>
-    </inertial>
-  </link>
-  <gazebo reference="leg">
-    <material>
-      <color rgba="0.0667 0.2431 0.4078 1"/>
-    </material>
-  </gazebo>
-
-
-
-
-  <!-- BODY-->
-  <joint name="body_link" type="fixed">
-    <parent link="leg"/>
-    <child link="body"/>
-    <origin rpy="0 0 0" xyz="0 0 0.465"/>
-  </joint>
-
-  <link name="body">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/body.STL"/>
-      </geometry>
-      <material name="blue">
-        <color rgba="0.0667 0.2431 0.4078 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/body.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="2.80832"/>
-      <inertia ixx="0.05159" ixy="0.0" ixz="-0.00006" iyy="0.03871" iyz="-0.00004" izz="0.02383"/>
-    </inertial>
-  </link>
-
-
-
-
-  <!-- HEAD-->
-  <joint name="neck_joint" type="revolute"> <!--rev-->
-    <parent link="body"/>
-    <child link="neck"/>
-    <origin rpy="0 0 1.5708" xyz="0.0092 0.0004 0.5471"/>
-    <axis xyz="0 0 1"/>
-    <limit effort="10" lower="-0.5" upper="0.5" velocity="2"/>
-  </joint>
-
-  <link name="neck">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/neck.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/neck.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.046"/>
-      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001"/>
-    </inertial>
-  </link>
-  <gazebo reference="neck">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-
-  <joint name="head_joint" type="revolute"> <!--rev-->
-    <parent link="neck"/>
-    <child link="head"/>
-    <origin rpy="1.5708 0 1.5708" xyz="0.0224 0.004 0.0403"/>
-    <axis xyz="0 0 1"/>
-    <limit effort="10" lower="-0.2" upper="0.2" velocity="2"/>
-  </joint>
-
-  <link name="head">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/head.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/head.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.7694"/>
-      <inertia ixx="0.0045" ixy="0.00005" ixz="0.0" iyy="0.0029" iyz="0.0" izz="0.0023"/>
-    </inertial>
-  </link>
-
-
-
-  
-  <!-- RIGHT ARM-->
-  <joint name="right_shoulder_rad_joint" type="revolute"> <!--rev-->
-    <parent link="body"/>
-    <child link="right_shoulder_rad"/>
-    <origin rpy="-1.5708 0 3.1416" xyz="0 -0.1556 0.505"/>
-    <axis xyz="0 0 1"/>
-    <limit 
-            lower="0"
-            upper="2.5"
-            effort="3.7"
-            velocity="0.22"/>
-  </joint>
-
-  <link name="right_shoulder_rad">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_shoulder_rad.STL"/>
-      </geometry>
-      <material name="blue">
-        <color rgba="0.0667 0.2431 0.4078 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_shoulder_rad.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.224"/>
-      <inertia ixx="0.00007" ixy="0.0" ixz="0.0" iyy="0.00006" iyz="0.0" izz="0.00004"/>
-    </inertial>
-  </link>
-
-  <joint name="right_shoulder_joint" type="revolute"> <!--rev-->
-    <parent link="right_shoulder_rad"/>
-    <child link="right_shoulder"/>
-    <origin rpy="0 1.5708 0" xyz="0.0258 0 0.0575"/>
-    <axis xyz="0 0 1"/>
-    <limit 
-            lower="0"
-            upper="2.5"
-            effort="3.7"
-            velocity="0.22"/>
-  </joint>
-
-  <link name="right_shoulder">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_shoulder.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_shoulder.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.223"/>
-      <inertia ixx="0.00010" ixy="0.0" ixz="0.0" iyy="0.00007" iyz="0.0" izz="0.00011"/>
-    </inertial>
-  </link>
-  <gazebo reference="right_shoulder">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-
-
-
-
-  <!-- UPPER ARM-->
-  <joint name="right_upper_arm_joint" type="revolute"> <!--rev-->
-    <parent link="right_shoulder"/>
-    <child link="right_upper_arm"/>
-    <origin rpy="-1.5708 0 0" xyz="0 0.0875 -0.0255"/>
-    <axis xyz="0 0 1"/>
-    <limit 
-            lower="0"
-            upper="2.5"
-            effort="6"
-            velocity="0.11"/>
-  </joint>
-
-  <link name="right_upper_arm">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_upper_arm.STL"/>
-      </geometry>
-      <material name="blue">
-        <color rgba="0.0667 0.2431 0.4078 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_upper_arm.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.209"/>
-      <inertia ixx="0.00021" ixy="0.0" ixz="0.0" iyy="0.00023" iyz="0.0" izz="0.00005"/>
-    </inertial>
-  </link>
-
-
-
-
-  <!-- RIGHT ELBOW-->
-  <joint name="right_elbow_joint" type="revolute"> <!--rev-->
-    <parent link="right_upper_arm"/>
-    <child link="right_elbow"/>
-    <origin rpy="1.5708 0 -1.5708" xyz="-0.0226 0 0.1412"/>
-    <axis xyz="0 0 1"/>
-    <limit 
-            lower="0"
-            upper="2.5"
-            effort="6"
-            velocity="0.11"/>
-  </joint>
-
-  <link name="right_elbow">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_elbow.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_elbow.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.176"/>
-      <inertia ixx="0.00010" ixy="0.0" ixz="0.0" iyy="0.00005" iyz="0.0" izz="0.00008"/>
-    </inertial>
-  </link>
-  <gazebo reference="right_elbow">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-
-
-
-
-  <!-- RIGHT LOWER ARM-->
-  <joint name="right_lower_arm_joint" type="fixed"> <!-- con-->
-    <parent link="right_elbow"/>
-    <child link="right_lower_arm"/>
-    <origin rpy="-1.5708 1.5708 0" xyz="0 0.0866 -0.0222"/>
-    <axis xyz="0 0 1"/>
-    <limit 
-            lower="0"
-            upper="2.5"
-            effort="6"
-            velocity="0.11"/>
-  </joint>
-
-  <link name="right_lower_arm">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_lower_arm.STL"/>
-      </geometry>
-      <material name="blue">
-        <color rgba="0.0667 0.2431 0.4078 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_lower_arm.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.882"/>
-      <inertia ixx="0.00033" ixy="0.0" ixz="0.0" iyy="0.00033" iyz="0.0" izz="0.00013"/>
-    </inertial>
-  </link>
-
-
-
-
-  <!-- RIGHT THUMB-->
-  <joint name="right_00_joint" type="revolute"> <!--rev-->
-    <parent link="right_lower_arm"/>
-    <child link="right_00"/>
-    <origin rpy="2.7488 -0.0103 0.0043" xyz="0.0063 0.0288 0.1857"/>
-    <axis xyz="0 0 1"/>
-    <limit effort="10" lower="0" upper="1.57" velocity="2"/>
-  </joint>
-
-  <link name="right_00">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_00.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_00.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.005"/>
-      <inertia ixx="3E-07" ixy="0.0" ixz="0.0" iyy="2E-07" iyz="0.0" izz="2E-07"/>
-    </inertial>
-  </link>
-
-  <joint name="right_01_joint" type="revolute"> <!--rev-->
-    <parent link="right_00"/>
-    <child link="right_01"/>
-    <origin rpy="0.5632 0.9741 0.4849" xyz="-0.0005 -0.0254 -0.0026"/>
-    <axis xyz="0 0 1"/>
-    <limit effort="10" lower="0" upper="1.57" velocity="2"/>
-  </joint>
-
-  <link name="right_01">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_01.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_01.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.002"/>
-      <inertia ixx="1E-07" ixy="0.0" ixz="0.0" iyy="1E-07" iyz="0.0" izz="8E-08"/>
-    </inertial>
-  </link>
-
-  <joint name="right_02_joint" type="revolute"> <!--rev-->
-    <parent link="right_01"/>
-    <child link="right_02"/>
-    <origin rpy="0 0 0.176" xyz="0.0048 -0.0246 0"/>
-    <axis xyz="0 0 1"/>
-    <limit effort="10" lower="0" upper="1.57" velocity="2"/>
-  </joint>
-
-  <link name="right_02">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_02.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_02.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.002"/>
-      <inertia ixx="6E-08" ixy="0.0" ixz="0.0" iyy="6E-08" iyz="0.0" izz="7E-08"/>
-    </inertial>
-  </link>
-  <gazebo reference="right_01">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-  <gazebo reference="right_02">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-  <gazebo reference="right_03">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-
-
-
-  <!--RIGHT INDEX-->
-  <joint name="right_10_joint" type="revolute"> <!--rev-->
-    <parent link="right_lower_arm"/>
-    <child link="right_10"/>
-    <origin rpy="-1.5708 0 0.0290" xyz="0.0063 0.0269 0.2457"/>
-    <axis xyz="0 0 1"/>
-    <limit effort="10" lower="0" upper="1.57" velocity="2"/>
-  </joint>
-
-  <link name="right_10">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_10.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_10.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.002"/>
-      <inertia ixx="8E-08" ixy="0.0" ixz="0.0" iyy="6E-08" iyz="0.0" izz="6E-08"/>
-    </inertial>
-  </link>
-
-  <joint name="right_11_joint" type="revolute"> <!--rev-->
-    <parent link="right_10"/>
-    <child link="right_11"/>
-    <origin rpy="0 0 0" xyz="0 -0.024 0"/>
-    <axis xyz="0 0 1"/>
-    <limit effort="10" lower="0" upper="1.57" velocity="2"/>
-  </joint>
-
-  <link name="right_11">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_11.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_11.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.002"/>
-      <inertia ixx="6E-08" ixy="0.0" ixz="0.0" iyy="5E-08" iyz="0.0" izz="6E-08"/>
-    </inertial>
-  </link>
-
-  <joint name="right_12_joint" type="revolute"> <!--rev-->
-    <parent link="right_11"/>
-    <child link="right_12"/>
-    <origin rpy="0 0 0" xyz="0 -0.0210 0"/>
-    <axis xyz="0 0 1"/>
-    <limit effort="10" lower="0" upper="1.57" velocity="2"/>
-  </joint>
-
-  <link name="right_12">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_12.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_12.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.002"/>
-      <inertia ixx="4E-08" ixy="0.0" ixz="0.0" iyy="3E-08" iyz="0.0" izz="4E-08"/>
-    </inertial>
-  </link>
-  <gazebo reference="right_10">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-  <gazebo reference="right_11">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-  <gazebo reference="right_12">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-
-
-
-  <!--RIGHT MIDDLE-->
-  <joint name="right_20_joint" type="revolute"> <!--rev-->
-    <parent link="right_lower_arm"/>
-    <child link="right_20"/>
-    <origin rpy="-1.5708 0 0.0290" xyz="0.0067 0.0095 0.2457"/>
-    <axis xyz="0 0 1"/>
-    <limit effort="10" lower="0" upper="1.57" velocity="2"/>
-  </joint>
-
-  <link name="right_20">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_20.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_20.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.003"/>
-      <inertia ixx="1E-07" ixy="0.0" ixz="0.0" iyy="1E-07" iyz="0.0" izz="1E-07"/>
-    </inertial>
-  </link>
-
-  <joint name="right_21_joint" type="revolute"> <!--rev-->
-    <parent link="right_20"/>
-    <child link="right_21"/>
-    <origin rpy="0 0 0" xyz="0 -0.027 0"/>
-    <axis xyz="0 0 1"/>
-    <limit effort="10" lower="0" upper="1.57" velocity="2"/>
-  </joint>
-
-  <link name="right_21">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_21.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_21.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.002"/>
-      <inertia ixx="6E-08" ixy="0.0" ixz="0.0" iyy="6E-08" iyz="0.0" izz="8E-08"/>
-    </inertial>
-  </link>
-
-  <joint name="right_22_joint" type="revolute"> <!--rev-->
-    <parent link="right_21"/>
-    <child link="right_22"/>
-    <origin rpy="0 0 0" xyz="0.0007 -0.0230 0.0002"/>
-    <axis xyz="0 0 1"/>
-    <limit effort="10" lower="0" upper="1.57" velocity="2"/>
-  </joint>
-
-  <link name="right_22">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_22.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_22.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.002"/>
-      <inertia ixx="6E-08" ixy="0.0" ixz="0.0" iyy="6E-08" iyz="0.0" izz="8E-08"/>
-    </inertial>
-  </link>
-  <gazebo reference="right_20">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-  <gazebo reference="right_21">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-  <gazebo reference="right_22">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-
-
-
-
-  <!--RIGHT RING-->
-  <joint name="right_30_joint" type="revolute"> <!--rev-->
-    <parent link="right_lower_arm"/>
-    <child link="right_30"/>
-    <origin rpy="-1.5708 0 0.0290" xyz="0.0073 -0.0080 0.2457"/>
-    <axis xyz="0 0 1"/>
-    <limit effort="10" lower="0" upper="1.57" velocity="2"/>
-  </joint>
-
-  <link name="right_30">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_30.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_30.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.002"/>
-      <inertia ixx="8E-08" ixy="0.0" ixz="0.0" iyy="6E-08" iyz="0.0" izz="7E-08"/>
-    </inertial>
-  </link>
-
-  <joint name="right_31_joint" type="revolute"> <!--rev-->
-    <parent link="right_30"/>
-    <child link="right_31"/>
-    <origin rpy="0 0 0" xyz="0.0008 -0.0240 0"/>
-    <axis xyz="0 0 1"/>
-    <limit effort="10" lower="0" upper="1.57" velocity="2"/>
-  </joint>
-
-  <link name="right_31">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_31.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_31.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.002"/>
-      <inertia ixx="6E-08" ixy="0.0" ixz="0.0" iyy="5E-08" iyz="0.0" izz="6E-08"/>
-    </inertial>
-  </link>
-
-  <joint name="right_32_joint" type="revolute"> <!--rev-->
-    <parent link="right_31"/>
-    <child link="right_32"/>
-    <origin rpy="0 0 0" xyz="0.0044 -0.0204 0.0048"/>
-    <axis xyz="0 0 1"/>
-    <limit effort="10" lower="0" upper="1.57" velocity="2"/>
-  </joint>
-
-  <link name="right_32">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_32.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_32.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.002"/>
-      <inertia ixx="4E-08" ixy="0.0" ixz="0.0" iyy="3E-08" iyz="0.0" izz="4E-08"/>
-    </inertial>
-  </link>
-  <gazebo reference="right_30">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-  <gazebo reference="right_31">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-  <gazebo reference="right_32">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-
-
-
-
-  <!-- RIGHT PINKY-->
-  <joint name="right_40_joint" type="revolute"> <!--rev-->
-    <parent link="right_lower_arm"/>
-    <child link="right_40"/>
-    <origin rpy="-1.5708 0 0.0290" xyz="0.0078 -0.0255 0.2457"/>
-    <axis xyz="0 0 1"/>
-    <limit effort="10" lower="0" upper="1.57" velocity="2"/>
-  </joint>
-
-  <link name="right_40">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_40.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_40.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.002"/>
-      <inertia ixx="6E-08" ixy="0.0" ixz="0.0" iyy="4E-08" iyz="0.0" izz="4E-08"/>
-    </inertial>
-  </link>
-  
-  <joint name="right_41_joint" type="revolute"> <!--rev-->
-    <parent link="right_40"/>
-    <child link="right_41"/>
-    <origin rpy="0 0 0" xyz="0.0030 -0.0229 0"/>
-    <axis xyz="0 0 1"/>
-    <limit effort="10" lower="0" upper="1.57" velocity="2"/>
-  </joint>
-
-  <link name="right_41">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_41.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_41.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.002"/>
-      <inertia ixx="3E-08" ixy="0.0" ixz="0.0" iyy="3E-08" iyz="0.0" izz="3E-08"/>
-    </inertial>
-  </link>
-
-  <joint name="right_42_joint" type="revolute"> <!--rev-->
-    <parent link="right_41"/>
-    <child link="right_42"/>
-    <origin rpy="0 0 0" xyz="0.0008 -0.0183 -0"/>
-    <axis xyz="0 0 1"/>
-    <limit effort="10" lower="0" upper="1.57" velocity="2"/>
-  </joint>
-
-  <link name="right_42">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_42.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/right_42.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.002"/>
-      <inertia ixx="1E-08" ixy="0.0" ixz="0.0" iyy="1E-08" iyz="0.0" izz="1E-08"/>
-    </inertial>
-  </link>
-  <gazebo reference="right_40">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-  <gazebo reference="right_41">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-  <gazebo reference="right_42">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-
-
-
-
-  <!-- LEFT ARM-->
-  <joint name="left_shoulder_rad_joint" type="fixed"> <!-- con-->
-    <parent link="body"/>
-    <child link="left_shoulder_rad"/>
-    <origin rpy="1.5708 0 -3.1416" xyz="0 0.1564 0.505"/>
-    <!-- <axis xyz="0 0 -1"/>
-    <limit 
-            lower="0"
-            upper="2.5"
-            effort="3.7"
-            velocity="0.22"/> -->
-  </joint>
-
-  <link name="left_shoulder_rad">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_shoulder_rad.STL"/>
-      </geometry>
-      <material name="blue">
-        <color rgba="0.0667 0.2431 0.4078 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_shoulder_rad.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.224"/>
-      <inertia ixx="0.00007" ixy="0.0" ixz="0.0" iyy="0.00006" iyz="0.0" izz="0.00004"/>
-    </inertial>
-  </link>
-
-  <joint name="left_shoulder_joint" type="revolute"> <!--rev-->
-    <parent link="left_shoulder_rad"/>
-    <child link="left_shoulder"/>
-    <origin rpy="3.14 -1.5708 0" xyz="0.0255 0.004 0.0575"/>
-    <axis xyz="0 0 -1"/>
-    <limit 
-            lower="0"
-            upper="2.5"
-            effort="3.7"
-            velocity="0.22"/>
-  </joint>
-
-  <link name="left_shoulder">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_shoulder.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_shoulder.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.223"/>
-      <inertia ixx="0.00010" ixy="0.0" ixz="0.0" iyy="0.00007" iyz="0.0" izz="0.00011"/>
-    </inertial>
-  </link>
-  <gazebo reference="left_shoulder">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-
-
-
-
-
-  <!-- UPPER ARM-->
-  <joint name="left_upper_arm_joint" type="revolute"> <!--rev-->
-    <parent link="left_shoulder"/>
-    <child link="left_upper_arm"/>
-    <origin rpy="-1.5708 3.14 0" xyz="0 0.0875 -0.0255"/>
-    <axis xyz="0 0 -1"/>
-    <limit 
-            lower="0"
-            upper="2.5"
-            effort="6"
-            velocity="0.11"/>
-  </joint>
-
-  <link name="left_upper_arm">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_upper_arm.STL"/>
-      </geometry>
-      <material name="blue">
-        <color rgba="0.0667 0.2431 0.4078 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_upper_arm.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.209"/>
-      <inertia ixx="0.00021" ixy="0.0" ixz="0.0" iyy="0.00023" iyz="0.0" izz="0.00005"/>
-    </inertial>
-  </link>
-
-
-
-
-
-  <!-- LEFT ELBOW-->
-  <joint name="left_elbow_joint" type="revolute"> <!--rev-->
-    <parent link="left_upper_arm"/>
-    <child link="left_elbow"/>
-    <origin rpy="1.5708 0 1.5708" xyz="0.023 0 0.1412"/>
-    <axis xyz="0 0 1"/>
-    <limit 
-            lower="0"
-            upper="2.5"
-            effort="6"
-            velocity="0.11"/>
-  </joint>
-
-  <link name="left_elbow">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0.425"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_elbow.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_elbow.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.176"/>
-      <inertia ixx="0.00010" ixy="0.0" ixz="0.0" iyy="0.00005" iyz="0.0" izz="0.00008"/>
-    </inertial>
-  </link>
-  <gazebo reference="left_elbow">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-
-
-
-
-  <!-- LEFT LOWER ARM-->
-  <joint name="left_lower_arm_joint" type="revolute"> <!--rev-->
-    <parent link="left_elbow"/>
-    <child link="left_lower_arm"/>
-    <origin rpy="-1.5708 2.62 0" xyz="0 0.0866 -0.0234"/>
-    <axis xyz="0 0 -1"/>
-    <limit 
-            lower="0"
-            upper="2.5"
-            effort="6"
-            velocity="0.11"/>
-  </joint>
-
-  <link name="left_lower_arm">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_lower_arm.STL"/>
-      </geometry>
-      <material name="blue">
-        <color rgba="0.0667 0.2431 0.4078 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_lower_arm.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.882"/>
-      <inertia ixx="0.00033" ixy="0.0" ixz="0.0" iyy="0.00033" iyz="0.0" izz="0.00013"/>
-    </inertial>
-  </link>
-
-
-
-
-
-  <!-- LEFT THUMB-->
-  <joint name="left_00_joint" type="revolute"> <!--rev-->
-    <parent link="left_lower_arm"/>
-    <child link="left_00"/>
-    <origin rpy="2.8403 0.2562 -0.0785" xyz="0.0211 0.0206 0.1878"/>
-    <axis xyz="0 0 1"/>
-    <limit effort="10" lower="0" upper="1.57" velocity="2"/>
-  </joint>
-
-  <link name="left_00">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_00.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_00.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.005"/>
-      <inertia ixx="3E-07" ixy="0.0" ixz="0.0" iyy="2E-07" iyz="0.0" izz="2E-07"/>
-    </inertial>
-  </link>
-
-  <joint name="left_01_joint" type="revolute"> <!--rev-->
-    <parent link="left_00"/>
-    <child link="left_01"/>
-    <origin rpy="1.0739 0.0791 -0.3777" xyz="0.0187 -0.0123 -0.0039"/>
-    <axis xyz="0 0 1"/>
-    <limit effort="10" lower="0" upper="1.57" velocity="2"/>
-  </joint>
-
-  <link name="left_01">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_01.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_01.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.002"/>
-      <inertia ixx="1E-07" ixy="0.0" ixz="0.0" iyy="1E-07" iyz="0.0" izz="8E-08"/>
-    </inertial>
-  </link>
-
-  <joint name="left_02_joint" type="revolute"> <!--rev-->
-    <parent link="left_01"/>
-    <child link="left_02"/>
-    <origin rpy="-0.2710 0.0990 0.0951" xyz="0.0240 -0.0072 0"/>
-    <axis xyz="0 0 1"/>
-    <limit effort="10" lower="0" upper="1.57" velocity="2"/>
-  </joint>
-
-  <link name="left_02">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_02.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_02.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.002"/>
-      <inertia ixx="6E-08" ixy="0.0" ixz="0.0" iyy="6E-08" iyz="0.0" izz="7E-08"/>
-    </inertial>
-  </link>
-  <gazebo reference="left_00">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-  <gazebo reference="left_01">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-  <gazebo reference="left_02">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-
-
-
-
-  <!--LEFT INDEX-->
-  <joint name="left_10_joint" type="revolute"> <!--rev-->
-    <parent link="left_lower_arm"/>
-    <child link="left_10"/>
-    <origin rpy="-1.5708 0 -0.7626" xyz="0.0192 0.0186 0.2457"/>
-    <axis xyz="0 0 -1"/>
-    <limit effort="10" lower="0" upper="1.57" velocity="2"/>
-  </joint>
-
-  <link name="left_10">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_10.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_10.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.002"/>
-      <inertia ixx="8E-08" ixy="0.0" ixz="0.0" iyy="6E-08" iyz="0.0" izz="6E-08"/>
-    </inertial>
-  </link>
-
-  <joint name="left_11_joint" type="revolute"> <!--rev-->
-    <parent link="left_10"/>
-    <child link="left_11"/>
-    <origin rpy="0 0 0" xyz="0.0010 -0.0240 0"/>
-    <axis xyz="0 0 -1"/>
-    <limit effort="10" lower="0" upper="1.57" velocity="2"/>
-  </joint>
-
-  <link name="left_11">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_11.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_11.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.002"/>
-      <inertia ixx="6E-08" ixy="0.0" ixz="0.0" iyy="5E-08" iyz="0.0" izz="6E-08"/>
-    </inertial>
-  </link>
-
-  <joint name="left_12_joint" type="revolute"> <!--rev-->
-    <parent link="left_11"/>
-    <child link="left_12"/>
-    <origin rpy="0 0 0" xyz="0.0009 -0.0210 0"/>
-    <axis xyz="0 0 -1"/>
-    <limit effort="10" lower="0" upper="1.57" velocity="2"/>
-  </joint>
-
-  <link name="left_12">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_12.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_12.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.002"/>
-      <inertia ixx="4E-08" ixy="0.0" ixz="0.0" iyy="3E-08" iyz="0.0" izz="4E-08"/>
-    </inertial>
-  </link>
-  <gazebo reference="left_10">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-  <gazebo reference="left_11">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-  <gazebo reference="left_12">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-
-
-
-
-  <!--LEFT MIDDLE-->
-  <joint name="left_20_joint" type="revolute"> <!--rev-->
-    <parent link="left_lower_arm"/>
-    <child link="left_20"/>
-    <origin rpy="-1.5708 0 -0.7626" xyz="0.0071 0.0060 0.2457"/>
-    <axis xyz="0 0 -1"/>
-    <limit effort="10" lower="0" upper="1.57" velocity="2"/>
-  </joint>
-
-  <link name="left_20">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_20.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_20.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.003"/>
-      <inertia ixx="1E-07" ixy="0.0" ixz="0.0" iyy="1E-07" iyz="0.0" izz="1E-07"/>
-    </inertial>
-  </link>
-
-  <joint name="left_21_joint" type="revolute"> <!--rev-->
-    <parent link="left_20"/>
-    <child link="left_21"/>
-    <origin rpy="0 0 0" xyz="0.0002 -0.0265 0"/>
-    <axis xyz="0 0 -1"/>
-    <limit effort="10" lower="0" upper="1.57" velocity="2"/>
-  </joint>
-
-  <link name="left_21">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_21.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_21.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.002"/>
-      <inertia ixx="6E-08" ixy="0.0" ixz="0.0" iyy="6E-08" iyz="0.0" izz="8E-08"/>
-    </inertial>
-  </link>
-
-  <joint name="left_22_joint" type="revolute"> <!--rev-->
-    <parent link="left_21"/>
-    <child link="left_22"/>
-    <origin rpy="0 0 0" xyz="-0.0005 -0.0223 -0.0002"/>
-    <axis xyz="0 0 -1"/>
-    <limit effort="10" lower="0" upper="1.57" velocity="2"/>
-  </joint>
-
-  <link name="left_22">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_22.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_22.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.002"/>
-      <inertia ixx="6E-08" ixy="0.0" ixz="0.0" iyy="6E-08" iyz="0.0" izz="8E-08"/>
-    </inertial>
-  </link>
-  <gazebo reference="left_20">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-  <gazebo reference="left_21">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-  <gazebo reference="left_22">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-
-
-
-
-  <!--LEFT RING-->
-  <joint name="left_30_joint" type="revolute"> <!--rev-->
-    <parent link="left_lower_arm"/>
-    <child link="left_30"/>
-    <origin rpy="-1.5708 0 -0.7626" xyz="-0.0049 -0.0067 0.2457"/>
-    <axis xyz="0 0 -1"/>
-    <limit effort="10" lower="0" upper="1.57" velocity="2"/>
-  </joint>
-
-  <link name="left_30">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_30.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_30.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.002"/>
-      <inertia ixx="8E-08" ixy="0.0" ixz="0.0" iyy="6E-08" iyz="0.0" izz="7E-08"/>
-    </inertial>
-  </link>
-
-  <joint name="left_31_joint" type="revolute"> <!--rev-->
-    <parent link="left_30"/>
-    <child link="left_31"/>
-    <origin rpy="0 -0.7626 0" xyz="0.0008 -0.0240 0"/>
-    <axis xyz="0 0 -1"/>
-    <limit effort="10" lower="0" upper="1.57" velocity="2"/>
-  </joint>
-
-  <link name="left_31">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_31.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_31.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.002"/>
-      <inertia ixx="6E-08" ixy="0.0" ixz="0.0" iyy="5E-08" iyz="0.0" izz="6E-08"/>
-    </inertial>
-  </link>
-
-  <joint name="left_32_joint" type="revolute"> <!--rev-->
-    <parent link="left_31"/>
-    <child link="left_32"/>
-    <origin rpy="0 0.7626 0" xyz="0.0005 -0.0210 -0.0005"/>
-    <axis xyz="0 0 -1"/>
-    <limit effort="10" lower="0" upper="1.57" velocity="2"/>
-  </joint>
-
-  <link name="left_32">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_32.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_32.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.002"/>
-      <inertia ixx="4E-08" ixy="0.0" ixz="0.0" iyy="3E-08" iyz="0.0" izz="4E-08"/>
-    </inertial>
-  </link>
-  <gazebo reference="left_30">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-  <gazebo reference="left_31">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-  <gazebo reference="left_32">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-
-
-
-
-  <!-- LEFT PINKY-->
-  <joint name="left_40_joint" type="revolute"> <!--rev-->
-    <parent link="left_lower_arm"/>
-    <child link="left_40"/>
-    <origin rpy="-1.5708 0 -0.7626" xyz="-0.0170 -0.0193 0.2457"/>
-    <axis xyz="0 0 -1"/>
-    <limit effort="10" lower="0" upper="1.57" velocity="2"/>
-  </joint>
-
-  <link name="left_40">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_40.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_40.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.002"/>
-      <inertia ixx="6E-08" ixy="0.0" ixz="0.0" iyy="4E-08" iyz="0.0" izz="4E-08"/>
-    </inertial>
-  </link>
-
-  <joint name="left_41_joint" type="revolute"> <!--rev-->
-    <parent link="left_40"/>
-    <child link="left_41"/>
-    <origin rpy="0 0 0" xyz="0.0039 -0.0228 0"/>
-    <axis xyz="0 0 -1"/>
-    <limit effort="10" lower="0" upper="1.57" velocity="2"/>
-  </joint>
-
-  <link name="left_41">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_41.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_41.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.002"/>
-      <inertia ixx="3E-08" ixy="0.0" ixz="0.0" iyy="3E-08" iyz="0.0" izz="3E-08"/>
-    </inertial>
-  </link>
-
-  <joint name="left_42_joint" type="revolute"> <!--rev-->
-    <parent link="left_41"/>
-    <child link="left_42"/>
-    <origin rpy="0 0 0" xyz="0.0046 -0.0178 0"/>
-    <axis xyz="0 0 -1"/>
-    <limit effort="10" lower="0" upper="1.57" velocity="2"/>
-  </joint>
-
-  <link name="left_42">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_42.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/left_42.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.002"/>
-      <inertia ixx="1E-08" ixy="0.0" ixz="0.0" iyy="1E-08" iyz="0.0" izz="1E-08"/>
-    </inertial>
-  </link>
-  <gazebo reference="left_40">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-  <gazebo reference="left_41">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-  <gazebo reference="left_42">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-
-
-
-
-  <!--::::::::::::::::::::SENSOR DEFINITIONS::::::::::::::::::::-->
-  <!-- ::::::::::LIDAR::::::::::-->
-  <joint name="lidar_joint" type="fixed">
-    <parent link="leg"/>
-    <child link="lidar"/>
-    <origin rpy="0 0 0" xyz="0.1335 0.0005 0.0156"/>
-  </joint>
-
-  <link name="lidar">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/lidar.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/lidar.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="1.33"/>
-      <inertia ixx="0.00061" ixy="0.0" ixz="-0.00015" iyy="0.00097" iyz="0.0" izz="0.00110"/>
-    </inertial>
-  </link>
-  <gazebo reference="lidar">
-    <material>Gazebo/Blue</material>
-    <sensor name="lidar" type="ray">
-      <pose>0.1335 0.0005 0.0156 0 0 0</pose>
-      <visualize>true</visualize>
-      <update_rate>10</update_rate>
-      <ray>
-        <scan>
-          <horizontal>
-            <samples>180</samples>
-            <min_angle>-1.57</min_angle>
-            <max_angle>1.57</max_angle>
-          </horizontal>
-        </scan>
-        <range>
-          <min>0.2</min>
-          <max>12</max>
-        </range>
-      </ray>
-      <plugin filename="libgazebo_ros_ray_sensor.so" name="laser_controller">
+    <joint name="base_joint" type="fixed">
+		<parent link="base_footprint"/>
+		<child link="base_link"/>
+		<origin xyz="0 0 0" rpy="0 0 0"/>
+	</joint>
+
+	<link name="base_footprint"></link>
+
+
+    
+    <!-- BASE -->
+    <link name="base_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/base_link.STL"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0.0667 0.2431 0.4078 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/base_link.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="15.0"/>
+            <inertia 
+                ixx="0.04490" ixy="8.82E-06" ixz="5.15E-05"
+                iyy="0.06578" iyz="-1.21E-05"
+                izz="0.09095" />
+        </inertial>
+    </link>
+    <gazebo reference="base_link">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+
+
+
+    <!-- FRONT WHEEL -->
+    <joint name="front_base_joint" type="fixed">
+        <origin xyz="0.3025 0 -0.011" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="front_base"/>
+    </joint>
+
+    <link name="front_base">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/front_base.STL"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0.0667 0.2431 0.4078 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/front_base.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.03"/>
+            <inertia 
+                ixx="1.48E-07" ixy="0.00" ixz="0.00"
+                iyy="1.48E-07" iyz="0.00"
+                izz="2.95E-07" />
+        </inertial>
+    </link>
+
+    <joint name="front_radial_joint" type="continuous">
+        <parent link="front_base"/>
+        <child link="front_radial"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <link name="front_radial">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/front_rad.STL"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0.0667 0.2431 0.4078 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/front_rad.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.05"/>
+            <inertia 
+                ixx="1.95E-06" ixy="-1.75E-11" ixz="4.62E-07"
+                iyy="2.27E-06" iyz="0.00"
+                izz="2.70E-06" />
+        </inertial>
+    </link>
+
+    <joint name="front_wheel_joint" type="continuous">
+        <parent link="front_radial"/>
+        <child link="front_wheel"/>
+        <origin xyz="0.0223 0 -0.0335" rpy="1.5708 0 0"/>
+        <axis xyz="0 0 -1"/>
+    </joint>
+
+    <link name="front_wheel">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/front_wheel.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/front_wheel.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.06"/>
+            <inertia 
+                ixx="1.08E-06" ixy="0.0" ixz="0.0"
+                iyy="1.08E-06" iyz="0.0"
+                izz="1.73E-06" />
+        </inertial>
+    </link>
+    <gazebo reference="front_wheel">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+
+
+
+    <!-- RIGHT WHEEL-->
+    <joint name="right_motor_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="right_motor"/>
+        <origin xyz="0.0 -0.1145 -0.03" rpy="0 0 0"/>
+    </joint>
+
+    <link name="right_motor">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_motor.STL"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0.0667 0.2431 0.4078 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_motor.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.11"/>
+            <inertia 
+                ixx="2.72E-05" ixy="-1.08E-06" ixz="2.27E-08"
+                iyy="5.03E-05" iyz="3.21E-08"
+                izz="5.52E-05" />
+        </inertial>
+    </link>
+
+    <joint name="right_wheel_joint" type="continuous">
+        <parent link="right_motor"/>
+        <child link="right_wheel"/>
+        <origin xyz="0 -0.0795 0" rpy="1.5708 0 0"/>
+        <axis xyz="0 0 -1"/>
+    </joint>
+
+    <link name="right_wheel">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_wheel.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_wheel.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.09111"/>
+            <inertia 
+                ixx="9.34E-05" ixy="0.0" ixz="0.0"
+                iyy="9.34E-05" iyz="0.0"
+                izz="0.00015" />
+        </inertial>
+    </link>
+    <gazebo reference="right_wheel">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+
+
+
+    <!-- LEFT WHEEL-->
+    <joint name="left_motor_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="left_motor"/>
+        <origin xyz="0 0.1145 -0.0300" rpy="0 0 -3.1416"/>
+    </joint>
+
+    <link name="left_motor">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_motor.STL"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0.0667 0.2431 0.4078 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_motor.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.11"/>
+            <inertia 
+                ixx="2.72E-05" ixy="1.08E-06" ixz="-1.98E-08"
+                iyy="5.02E-05" iyz="3.70E-08"
+                izz="5.52E-05" />
+        </inertial>
+    </link>
+
+    <joint name="left_wheel_joint" type="continuous">
+        <parent link="left_motor"/>
+        <child link="left_wheel"/>
+        <origin xyz="0 -0.0795 0" rpy="1.5708 0 0"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <link name="left_wheel">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_wheel.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_wheel.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.09111"/>
+            <inertia 
+                ixx="9.34E-05" ixy="1.34E-20" ixz="5.83E-17"
+                iyy="9.34E-05" iyz="-2.18E-21"
+                izz="0.00014" />
+        </inertial>
+    </link>
+    <gazebo reference="left_wheel">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+
+
+
+    <!-- LEG -->
+    <joint name="leg_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="leg"/>
+        <origin xyz="0.1 0 0.195" rpy="0 0 0"/>
+    </joint>
+
+    <link name="leg">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/leg.STL"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0.0667 0.2431 0.4078 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/leg.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="5.0"/>
+            <inertia 
+                ixx="0.05454" ixy="-1.01E-06" ixz="-4.36E-06"
+                iyy="0.04937" iyz="1.05E-06"
+                izz="0.00671" />
+        </inertial>
+    </link>
+    <gazebo reference="leg">
+        <material>
+            <color rgba="0.0667 0.2431 0.4078 1"/>
+        </material>
+    </gazebo>
+
+
+
+
+    <!-- BODY-->
+    <joint name="body_link" type="fixed">
+        <parent link="leg"/>
+        <child link="body"/>
+        <origin xyz="0 0 0.482" rpy="0 0 0"/>
+    </joint>
+
+    <link name="body">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/body.STL"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0.0667 0.2431 0.4078 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/body.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="1.0"/>
+            <inertia 
+                ixx="0.05158" ixy="8.05E-06" ixz="-0.00031"
+                iyy="0.03763" iyz="-3.04E-05"
+                izz="0.02480" />
+        </inertial>
+    </link>
+
+
+
+
+    <!-- HEAD-->
+    <joint name="neck_joint" type="fixed"> <!-- rev-->
+        <parent link="body"/>
+        <child link="neck"/>
+        <origin xyz="0.0091941 0 0.5456" rpy="0 0 0"/>
+    </joint>
+
+    <link name="neck">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/neck.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/neck.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.046"/>
+            <inertia 
+                ixx="1.24E-05" ixy="-5.24E-12" ixz="2.28E-09"
+                iyy="1.04E-05" iyz="-1.81E-07"
+                izz="7.77E-06" />
+        </inertial>
+    </link>
+    <gazebo reference="neck">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+    <joint name="head_joint" type="fixed"> <!-- rev-->
+        <parent link="neck"/>
+        <child link="head"/>
+        <origin xyz="-0.004 0.0004 0.0418" rpy="1.5708 0 0"/>     
+    </joint>
+
+    <link name="head">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/head.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/head.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.5"/>
+            <inertia 
+                ixx="0.00448" ixy="-5.13E-05" ixz="4.01E-07"
+                iyy="0.00293" iyz="1.42E-06"
+                izz="0.00227" />
+        </inertial>
+    </link>
+
+
+
+
+    <!-- RIGHT ARM-->
+    <joint name="right_shoulder_rad_joint" type="fixed">
+        <parent link="body"/>
+        <child link="right_shoulder_rad"/>
+        <origin xyz="0 -0.1585 0.503" rpy="1.5708 0 0"/>
+    </joint>
+
+    <link name="right_shoulder_rad">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh 
+                    filename="model://moria/meshes/right_shoulder_rad.STL"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0.0667 0.2431 0.4078 1"/>
+            </material>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_shoulder_rad.STL"/>
+            </geometry>
+        </collision>
+
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.224"/>
+            <inertia 
+                ixx="7.14E-05" ixy="-2.01E-09" ixz="9.48E-07"
+                iyy="6.21E-05" iyz="7.42E-07"
+                izz="3.74E-05" />
+        </inertial>
+    </link>
+
+    <joint name="right_shoulder_joint" type="fixed">
+        <parent link="right_shoulder_rad"/>
+        <child link="right_shoulder"/>
+        <origin xyz="0.0252 0 0.059" rpy="1.5708 0 1.5708"/>
+    </joint>
+
+    <link name="right_shoulder">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_shoulder.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_shoulder.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.223"/>
+            <inertia 
+                ixx="7.07E-05" ixy="-5.76E-06" ixz="-3.18E-06"
+                iyy="0.00010" iyz="-3.29E-07"
+                izz="0.00011" />
+        </inertial>
+    </link>
+    <gazebo reference="right_shoulder">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+
+
+
+    <!-- UPPER ARM-->
+    <joint name="right_upper_arm_joint" type="fixed">
+        <parent link="right_shoulder"/>
+        <child link="right_upper_arm"/>
+        <origin xyz="-0.0855 0 -0.0255" rpy="0 -1.57 3.14"/>
+    </joint>
+
+    <link name="right_upper_arm">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_upper_arm.STL"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0.0667 0.2431 0.4078 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_upper_arm.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.2"/>
+            <inertia 
+                ixx="0.00023" ixy="-4.99E-10" ixz="-5.62E-07"
+                iyy="0.00021" iyz="-1.80E-07"
+                izz="5.01E-05" />
+        </inertial>
+    </link>
+
+
+
+
+    <!-- RIGHT ELBOW-->
+    <joint name="right_elbow_joint" type="fixed">
+        <parent link="right_upper_arm"/>
+        <child link="right_elbow"/>
+        <origin xyz="0 0.0228 -0.1432" rpy="-1.5708 0 0"/>
+    </joint>
+
+    <link name="right_elbow">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_elbow.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_elbow.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.176"/>
+            <inertia 
+                ixx="9.91E-05" ixy="-1.49E-06" ixz="2.12E-06"
+                iyy="5.33E-05" iyz="4.53E-06"
+                izz="8.43E-05" />
+        </inertial>
+    </link>
+    <gazebo reference="right_elbow">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+
+
+
+    <!-- RIGHT LOWER ARM-->
+    <joint name="right_lower_arm_joint" type="fixed">
+        <parent link="right_elbow"/>
+        <child link="right_lower_arm"/>
+        <origin xyz="0 0.0846 -0.0232" rpy="1.5708 0 0"/>
+    </joint>
+
+    <link name="right_lower_arm">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_lower_arm.STL"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0.0667 0.2431 0.4078 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_lower_arm.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.882"/>
+            <inertia 
+                ixx="0.00032" ixy="7.23E-07" ixz="4.06E-07"
+                iyy="0.00033" iyz="-3.36E-06"
+                izz="0.00012" />
+        </inertial>
+    </link>
+
+
+
+
+    <!-- RIGHT THUMB-->
+    <joint name="right_00_joint" type="fixed">
+        <parent link="right_lower_arm"/>
+        <child link="right_00"/>
+        <origin xyz="0.02860 -0.0019 -0.1878" rpy="2.7486 0.0097 1.5668"/>
+    </joint>
+
+    <link name="right_00">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_00.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_00.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.005"/>
+            <inertia 
+                ixx="3E-07" ixy="0.0" ixz="0.0"
+                iyy="2E-07" iyz="0.0"
+                izz="2E-07" />
+        </inertial>
+    </link>
+
+    <joint name="right_01_joint" type="fixed">
+        <parent link="right_00"/>
+        <child link="right_01"/>
+        <origin xyz="-0.0020 0.0250 0.0034" rpy="0.3730 -0.4871 -0.1847"/>
+    </joint>
+
+    <link name="right_01">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_01.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_01.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="1E-07" ixy="0.0" ixz="0.0"
+                iyy="1E-07" iyz="0.0"
+                izz="8E-08" />
+        </inertial>
+    </link>
+
+    <joint name="right_02_joint" type="fixed">
+        <parent link="right_01"/>
+        <child link="right_02"/>
+        <origin xyz="0.017949 0.01744 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="right_02">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_02.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_02.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="6E-08" ixy="0.0" ixz="0.0"
+                iyy="6E-08" iyz="0.0"
+                izz="7E-08" />
+        </inertial>
+    </link>
+    <gazebo reference="right_01">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+    <gazebo reference="right_02">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+    <gazebo reference="right_03">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+
+
+    <!--RIGHT INDEX-->
+    <joint name="right_10_joint" type="fixed">
+        <parent link="right_lower_arm"/>
+        <child link="right_10"/>
+        <origin xyz="0.0267 -0.0027 -0.2479" rpy="1.5708 0 1.5708"/>
+    </joint>
+
+    <link name="right_10">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_10.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_10.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="8E-08" ixy="0.0" ixz="0.0"
+                iyy="6E-08" iyz="0.0"
+                izz="6E-08" />
+        </inertial>
+    </link>
+
+    <joint name="right_11_joint" type="fixed">
+        <parent link="right_10"/>
+        <child link="right_11"/>
+        <origin xyz="-0.0003 -0.0239 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="right_11">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_11.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_11.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="6E-08" ixy="0.0" ixz="0.0"
+                iyy="5E-08" iyz="0.0"
+                izz="6E-08" />
+        </inertial>
+    </link>
+
+    <joint name="right_12_joint" type="fixed">
+        <parent link="right_11"/>
+        <child link="right_12"/>
+        <origin xyz="0.0039 -0.0208 0.0015" rpy="0 0 0"/>
+    </joint>
+
+    <link name="right_12">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_12.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_12.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="4E-08" ixy="0.0" ixz="0.0"
+                iyy="3E-08" iyz="0.0"
+                izz="4E-08" />
+        </inertial>
+    </link>
+    <gazebo reference="right_10">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+    <gazebo reference="right_11">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+    <gazebo reference="right_12">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+
+
+    <!--RIGHT MIDDLE-->
+    <joint name="right_20_joint" type="fixed">
+        <parent link="right_lower_arm"/>
+        <child link="right_20"/>
+        <origin xyz="0.0092 -0.0026 -0.2478" rpy="1.5708 0 1.5708"/>
+    </joint>
+
+    <link name="right_20">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_20.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_20.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.003"/>
+            <inertia 
+                ixx="1E-07" ixy="0.0" ixz="0.0"
+                iyy="1E-07" iyz="0.0"
+                izz="1E-07" />
+        </inertial>
+    </link>
+
+    <joint name="right_21_joint" type="fixed">
+        <parent link="right_20"/>
+        <child link="right_21"/>
+        <origin xyz="-0.0002 -0.0265 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="right_21">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_21.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_21.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="6E-08" ixy="0.0" ixz="0.0"
+                iyy="6E-08" iyz="0.0"
+                izz="8E-08" />
+        </inertial>
+    </link>
+
+    <joint name="right_22_joint" type="fixed">
+        <parent link="right_21"/>
+        <child link="right_22"/>
+        <origin xyz="0 -0.023 0.0002" rpy="0 0 0"/>
+    </joint>
+
+    <link name="right_22">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_22.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_22.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="6E-08" ixy="0.0" ixz="0.0"
+                iyy="6E-08" iyz="0.0"
+                izz="8E-08" />
+        </inertial>
+    </link>
+    <gazebo reference="right_20">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+    <gazebo reference="right_21">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+    <gazebo reference="right_22">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+
+
+
+    <!--RIGHT RING-->
+    <joint name="right_30_joint" type="fixed">
+        <parent link="right_lower_arm"/>
+        <child link="right_30"/>
+        <origin xyz="-0.0082 -0.0026 -0.247" rpy="1.5708 0 1.5708"/>
+    </joint>
+
+    <link name="right_30">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_30.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_30.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="8E-08" ixy="0.0" ixz="0.0"
+                iyy="6E-08" iyz="0.0"
+                izz="7E-08" />
+        </inertial>
+    </link>
+
+    <joint name="right_31_joint" type="fixed">
+        <parent link="right_30"/>
+        <child link="right_31"/>
+        <origin xyz="0.0006 -0.0239 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="right_31">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_31.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_31.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="6E-08" ixy="0.0" ixz="0.0"
+                iyy="5E-08" iyz="0.0"
+                izz="6E-08" />
+        </inertial>
+    </link>
+
+    <joint name="right_32_joint" type="fixed">
+        <parent link="right_31"/>
+        <child link="right_32"/>
+        <origin xyz="0.0005 -0.0210 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="right_32">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_32.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_32.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="4E-08" ixy="0.0" ixz="0.0"
+                iyy="3E-08" iyz="0.0"
+                izz="4E-08" />
+        </inertial>
+    </link>
+    <gazebo reference="right_30">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+    <gazebo reference="right_31">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+    <gazebo reference="right_32">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+
+
+
+    <!-- RIGHT PINKY-->
+    <joint name="right_40_joint" type="fixed">
+        <parent link="right_lower_arm"/>
+        <child link="right_40"/>
+        <origin xyz="-0.0257 -0.0027 -0.2480" rpy="1.5708 0 1.5708"/>
+    </joint>
+
+    <link name="right_40">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_40.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_40.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="6E-08" ixy="0.0" ixz="0.0"
+                iyy="4E-08" iyz="0.0"
+                izz="4E-08" />
+        </inertial>
+    </link>
+
+    <joint name="right_41_joint" type="fixed">
+        <parent link="right_40"/>
+        <child link="right_41"/>
+        <origin xyz="0 -0.0231 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="right_41">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_41.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_41.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="3E-08" ixy="0.0" ixz="0.0"
+                iyy="3E-08" iyz="0.0"
+                izz="3E-08" />
+        </inertial>
+    </link>
+
+    <joint name="right_42_joint" type="fixed">
+        <parent link="right_41"/>
+        <child link="right_42"/>
+        <origin xyz="-0.0014883 -0.018288 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="right_42">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_42.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/right_42.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="1E-08" ixy="0.0" ixz="0.0"
+                iyy="1E-08" iyz="0.0"
+                izz="1E-08" />
+        </inertial>
+    </link>
+    <gazebo reference="right_40">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+    <gazebo reference="right_41">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+    <gazebo reference="right_42">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+
+
+
+    <!-- LEFT ARM-->
+    <joint name="left_shoulder_rad_joint" type="fixed">
+        <parent link="body"/>
+        <child link="left_shoulder_rad"/>
+        <origin xyz="0 0.1585 0.503" rpy="-1.5708 0 0"/>
+    </joint>
+
+    <link name="left_shoulder_rad">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh 
+                    filename="model://moria/meshes/left_shoulder_rad.STL"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0.0667 0.2431 0.4078 1"/>
+            </material>
+        </visual>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_shoulder_rad.STL"/>
+            </geometry>
+        </collision>
+
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.224"/>
+            <inertia 
+                ixx="7.00E-05" ixy="3.08E-10" ixz="8.62E-07"
+                iyy="6.07E-05" iyz="-7.16E-07"
+                izz="3.73E-05" />
+        </inertial>
+    </link>
+
+
+
+
+    <joint name="left_shoulder_joint" type="fixed">
+        <parent link="left_shoulder_rad"/>
+        <child link="left_shoulder"/>
+        <origin xyz="0.0252 -0.004 0.059" rpy="0 -1.5708 3.14"/>
+    </joint>
+
+    <link name="left_shoulder">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_shoulder.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_shoulder.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.223"/>
+            <inertia 
+                ixx="0.00010" ixy="-5.82E-06" ixz="-3.09E-07"
+                iyy="7.10E-05" iyz="-3.22E-06"
+                izz="0.00011" />
+        </inertial>
+    </link>
+    <gazebo reference="left_shoulder">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+
+
+
+
+    <!-- UPPER ARM-->
+    <joint name="left_upper_arm_joint" type="fixed">
+        <parent link="left_shoulder"/>
+        <child link="left_upper_arm"/>
+        <origin xyz="0 -0.0855 -0.0255" rpy="-1.5708 -1.5708 0"/>
+    </joint>
+
+    <link name="left_upper_arm">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_upper_arm.STL"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0.0667 0.2431 0.4078 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_upper_arm.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.2"/>
+            <inertia 
+                ixx="0.00022" ixy="-4.98E-10" ixz="-5.62E-07"
+                iyy="0.00021" iyz="-1.80E-07"
+                izz="5.01E-05" />
+        </inertial>
+    </link>
+
+
+
+
+
+    <!-- LEFT ELBOW-->
+    <joint name="left_elbow_joint" type="fixed">
+        <parent link="left_upper_arm"/>
+        <child link="left_elbow"/>
+        <origin xyz="0 0.0228 -0.1432" rpy="-1.5708 0 0"/>
+    </joint>
+
+    <link name="left_elbow">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_elbow.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_elbow.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.176"/>
+            <inertia 
+                ixx="9.91E-05" ixy="-1.49E-06" ixz="2.12E-06"
+                iyy="5.33E-05" iyz="4.53E-06"
+                izz="8.43E-05" />
+        </inertial>
+    </link>
+    <gazebo reference="left_elbow">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+
+
+
+    <!-- LEFT LOWER ARM-->
+    <joint name="left_lower_arm_joint" type="fixed">
+        <parent link="left_elbow"/>
+        <child link="left_lower_arm"/>
+        <origin xyz="0 0.0846 -0.0232" rpy="1.5708 -0.050433 0"/>
+    </joint>
+
+    <link name="left_lower_arm">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_lower_arm.STL"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0.0667 0.2431 0.4078 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_lower_arm.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.882"/>
+            <inertia 
+                ixx="0.00032" ixy="-7.01E-07" ixz="3.96E-07"
+                iyy="0.00032" iyz="1.98E-06"
+                izz="0.00012" />
+        </inertial>
+    </link>
+
+
+
+
+
+    <!-- LEFT THUMB-->
+    <joint name="left_00_joint" type="fixed">
+        <parent link="left_lower_arm"/>
+        <child link="left_00"/>
+        <origin xyz="0.0286 0.001 -0.1877" rpy="-2.8828 0.29907 -2.4097"/>
+    </joint>
+
+    <link name="left_00">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_00.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_00.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.005"/>
+            <inertia 
+                ixx="3E-07" ixy="0.0" ixz="0.0"
+                iyy="2E-07" iyz="0.0"
+                izz="2E-07" />
+        </inertial>
+    </link>
+
+    <joint name="left_01_joint" type="fixed">
+        <parent link="left_00"/>
+        <child link="left_01"/>
+        <origin xyz="0.0015 -0.0223 0.0062" rpy="1.0472 -0.31649 -1.5708"/>
+    </joint>
+
+    <link name="left_01">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_01.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_01.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="1E-07" ixy="0.0" ixz="0.0"
+                iyy="1E-07" iyz="0.0"
+                izz="8E-08" />
+        </inertial>
+    </link>
+
+    <joint name="left_02_joint" type="fixed">
+        <parent link="left_01"/>
+        <child link="left_02"/>
+        <origin xyz="0.01815 0.01722 0" rpy="-0.0802 0.5284 2.1259"/>
+    </joint>
+
+    <link name="left_02">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_02.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_02.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="6E-08" ixy="0.0" ixz="0.0"
+                iyy="6E-08" iyz="0.0"
+                izz="7E-08" />
+        </inertial>
+    </link>
+    <gazebo reference="left_00">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+    <gazebo reference="left_01">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+    <gazebo reference="left_02">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+
+
+
+    <!--LEFT INDEX-->
+    <joint name="left_10_joint" type="fixed">
+        <parent link="left_lower_arm"/>
+        <child link="left_10"/>
+        <origin xyz="0.0267 0.0010 -0.2477" rpy="-1.5708 0 -1.5708"/>
+    </joint>
+
+    <link name="left_10">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_10.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_10.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="8E-08" ixy="0.0" ixz="0.0"
+                iyy="6E-08" iyz="0.0"
+                izz="6E-08" />
+        </inertial>
+    </link>
+
+    <joint name="left_11_joint" type="fixed">
+        <parent link="left_10"/>
+        <child link="left_11"/>
+        <origin xyz="0 0.024 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="left_11">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_11.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_11.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="6E-08" ixy="0.0" ixz="0.0"
+                iyy="5E-08" iyz="0.0"
+                izz="6E-08" />
+        </inertial>
+    </link>
+
+    <joint name="left_12_joint" type="fixed">
+        <parent link="left_11"/>
+        <child link="left_12"/>
+        <origin xyz="0 0.0210 0" rpy="0 0 0.12237"/>
+    </joint>
+
+    <link name="left_12">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_12.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_12.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="4E-08" ixy="0.0" ixz="0.0"
+                iyy="3E-08" iyz="0.0"
+                izz="4E-08" />
+        </inertial>
+    </link>
+    <gazebo reference="left_10">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+    <gazebo reference="left_11">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+    <gazebo reference="left_12">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+
+
+
+    <!--LEFT MIDDLE-->
+    <joint name="left_20_joint" type="fixed">
+        <parent link="left_lower_arm"/>
+        <child link="left_20"/>
+        <origin xyz="0.0092 0.0010 -0.2477" rpy="-1.5708 0 -1.5708"/>
+    </joint>
+
+    <link name="left_20">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_20.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_20.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.003"/>
+            <inertia 
+                ixx="1E-07" ixy="0.0" ixz="0.0"
+                iyy="1E-07" iyz="0.0"
+                izz="1E-07" />
+        </inertial>
+    </link>
+
+    <joint name="left_21_joint" type="fixed">
+        <parent link="left_20"/>
+        <child link="left_21"/>
+        <origin xyz="-0.0004 0.0265 0" rpy="0 0.0504 0"/>
+    </joint>
+
+    <link name="left_21">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_21.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_21.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="6E-08" ixy="0.0" ixz="0.0"
+                iyy="6E-08" iyz="0.0"
+                izz="8E-08" />
+        </inertial>
+    </link>
+
+    <joint name="left_22_joint" type="fixed">
+        <parent link="left_21"/>
+        <child link="left_22"/>
+        <origin xyz="-0.0002 0.0229 -0.0002" rpy="0 -0.050433 0"/>
+    </joint>
+
+    <link name="left_22">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_22.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_22.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="6E-08" ixy="0.0" ixz="0.0"
+                iyy="6E-08" iyz="0.0"
+                izz="8E-08" />
+        </inertial>
+    </link>
+    <gazebo reference="left_20">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+    <gazebo reference="left_21">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+    <gazebo reference="left_22">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+
+
+
+    <!--LEFT RING-->
+    <joint name="left_30_joint" type="fixed">
+        <parent link="left_lower_arm"/>
+        <child link="left_30"/>
+        <origin xyz="-0.0082 0.0010 -0.2477" rpy="-1.5708 0 -1.5708"/>
+    </joint>
+
+    <link name="left_30">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_30.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_30.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="8E-08" ixy="0.0" ixz="0.0"
+                iyy="6E-08" iyz="0.0"
+                izz="7E-08" />
+        </inertial>
+    </link>
+
+    <joint name="left_31_joint" type="fixed">
+        <parent link="left_30"/>
+        <child link="left_31"/>
+        <origin xyz="-0.0002 0.0239 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="left_31">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_31.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_31.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="6E-08" ixy="0.0" ixz="0.0"
+                iyy="5E-08" iyz="0.0"
+                izz="6E-08" />
+        </inertial>
+    </link>
+
+    <joint name="left_32_joint" type="fixed">
+        <parent link="left_31"/>
+        <child link="left_32"/>
+        <origin xyz="-0.0002 0.0210 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="left_32">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_32.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_32.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="4E-08" ixy="0.0" ixz="0.0"
+                iyy="3E-08" iyz="0.0"
+                izz="4E-08" />
+        </inertial>
+    </link>
+    <gazebo reference="left_30">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+    <gazebo reference="left_31">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+    <gazebo reference="left_32">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+
+
+
+    <!-- LEFT PINKY-->
+    <joint name="left_40_joint" type="fixed">
+        <parent link="left_lower_arm"/>
+        <child link="left_40"/>
+        <origin xyz="-0.0257 0.0010 -0.2477" rpy="-1.5708 0 -1.5708"/>
+    </joint>
+
+    <link name="left_40">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_40.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_40.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="6E-08" ixy="0.0" ixz="0.0"
+                iyy="4E-08" iyz="0.0"
+                izz="4E-08" />
+        </inertial>
+    </link>
+
+    <joint name="left_41_joint" type="fixed">
+        <parent link="left_40"/>
+        <child link="left_41"/>
+        <origin xyz="0.0008 0.0231 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="left_41">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_41.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_41.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="3E-08" ixy="0.0" ixz="0.0"
+                iyy="3E-08" iyz="0.0"
+                izz="3E-08" />
+        </inertial>
+    </link>
+
+    <joint name="left_42_joint" type="fixed">
+        <parent link="left_41"/>
+        <child link="left_42"/>
+        <origin xyz="-0.00088 0.0183 0" rpy="0 0 0.0148"/>
+    </joint>
+
+    <link name="left_42">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_42.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/left_42.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.002"/>
+            <inertia 
+                ixx="1E-08" ixy="0.0" ixz="0.0"
+                iyy="1E-08" iyz="0.0"
+                izz="1E-08" />
+        </inertial>
+    </link>
+    <gazebo reference="left_40">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+    <gazebo reference="left_41">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+    <gazebo reference="left_42">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+
+
+
+    <!--::::::::::::::::::::SENSOR DEFINITIONS::::::::::::::::::::-->
+    <!-- ::::::::::LIDAR::::::::::-->
+    <joint name="lidar_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="lidar"/>
+        <origin xyz="0.2222 0 0.2129" rpy="0 0 0"/>
+    </joint>
+
+    <link name="lidar">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/lidar.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/lidar.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="1.33"/>
+            <inertia 
+                ixx="0.00061" ixy="0.0" ixz="-0.00015"
+                iyy="0.00097" iyz="0.0"
+                izz="0.00110" />
+        </inertial>
+    </link>
+
+    <gazebo reference="lidar">
+        <material>Gazebo/Blue</material>
+        <sensor name="lidar" type="ray">
+            <pose>0.1335 0.0005 0.0156 0 0 0</pose>
+            <visualize>true</visualize>
+            <update_rate>10</update_rate>
+            <ray>
+                <scan>
+                    <horizontal>
+                        <samples>180</samples>
+                        <min_angle>-1.57</min_angle>
+                        <max_angle>1.57</max_angle>
+                    </horizontal>
+                </scan>
+                <range>
+                    <min>0.2</min>
+                    <max>8</max>
+                </range>
+            </ray>
+            <plugin filename="libgazebo_ros_ray_sensor.so" name="laser_controller">
+                <ros>
+                    <remapping>~/out:=scan</remapping>
+                </ros>
+                <output_type>sensor_msgs/LaserScan</output_type>
+                <frame_name>lidar</frame_name>
+            </plugin>
+        </sensor>
+    </gazebo>
+
+
+
+
+    <!-- ::::::::::CAMERA::::::::::-->
+    <joint name="camera_joint" type="fixed">
+        <parent link="body"/>
+        <child link="camera"/>
+        <origin xyz="0.0739 0 0.5085" rpy="0 0 0"/>
+    </joint>
+
+    <link name="camera">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/camera.STL"/>
+            </geometry>
+            <material name="cyan">
+                <color rgba="0.3137 0.6941 0.7843 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="model://moria/meshes/camera.STL"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.10791"/>
+            <inertia 
+                ixx="0.00007" ixy="0.0" ixz="0.0"
+                iyy="0.000008" iyz="0.0"
+                izz="0.00007" />
+        </inertial>
+    </link>
+    <gazebo reference="camera">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
+
+
+
+    <!-- ::::::::::CAMERA RGB FRAME::::::::::-->
+    <joint name="camera_rgb_joint" type="fixed">
+        <parent link="camera"/>
+        <child link="camera_rgb_frame"/>
+        <origin xyz="0 0.02 0.015" rpy="0 0 0"/>
+    </joint>
+    <link name="camera_rgb_frame"/>
+
+    <joint name="camera_point_joint" type="fixed">
+        <parent link="camera"/>
+        <child link="camera_point_frame"/>
+        <origin rpy="1.57 3.14 0" xyz="0 0.02 0.015"/>
+    </joint>
+    <link name="camera_point_frame"/>
+
+    <gazebo reference="camera_rgb_frame">
+        <sensor name="camera_rgb" type="camera">
+            <pose>0 0 0 0 0 0</pose>
+            <visualize>true</visualize>
+            <update_rate>30</update_rate>
+            <camera>
+                <horizontal_fov>1.5</horizontal_fov>
+                <image>
+                    <format>R8G8B8</format>
+                    <width>640</width>
+                    <height>480</height>
+                </image>
+                <clip>
+                    <near>0.3</near>
+                    <far>12.0</far>
+                </clip>
+            </camera>
+            <plugin filename="libgazebo_ros_camera.so" name="camera_controller_rgb">
+                <frame_name>camera_rgb_frame</frame_name>
+            </plugin>
+        </sensor>
+    </gazebo>
+
+    <joint name="camera_depth_joint" type="fixed">
+        <parent link="camera"/>
+        <child link="camera_depth_frame"/>
+        <origin xyz="0 -0.02 0.015" rpy="0 0 0"/>
+    </joint>
+    <link name="camera_depth_frame"/>
+
+    <gazebo reference="camera_depth_frame">
+        <sensor name="camera_depth" type="depth">
+            <pose>0 0 0 0 0 0</pose>
+            <visualize>true</visualize>
+            <update_rate>30</update_rate>
+            <camera>
+                <horizontal_fov>1.5</horizontal_fov>
+                <image>
+                    <format>R8G8B8</format>
+                    <width>640</width>
+                    <height>480</height>
+                </image>
+                <clip>
+                    <near>0.3</near>
+                    <far>3.0</far>
+                </clip>
+            </camera>
+            <plugin filename="libgazebo_ros_camera.so" name="camera_controller_depth">
+                <frame_name>camera_depth_frame</frame_name>
+                <min_depth>0.3</min_depth>
+                <max_depth>3.0</max_depth>
+            </plugin>
+        </sensor>
+    </gazebo>
+
+
+
+
+    <!-- ::::::::::::::::::::DRIVER DEFINITIONS FOR GAZEBO::::::::::::::::::::-->
+    <!-- ::::::::::DIFF DRIVE::::::::::-->
+    <gazebo>
+        <plugin filename="libgazebo_ros_diff_drive.so" name="moria_diff_drive">
+            <update_rate>30</update_rate>
+
+            <left_joint>left_wheel_joint</left_joint>
+            <right_joint>right_wheel_joint</right_joint>
+
+            <wheel_separation>0.388</wheel_separation>
+            <wheel_diameter>0.06</wheel_diameter>
+
+            <max_wheel_torque>8.4</max_wheel_torque>
+
+            <odometry_frame>odom</odometry_frame>
+            <robot_base_frame>base_footprint</robot_base_frame>
+
+            <publish_odom>true</publish_odom>
+            <publish_odom_tf>true</publish_odom_tf>
+            <publish_wheel_tf>true</publish_wheel_tf>
+        </plugin>
+    </gazebo>
+
+    <!-- ::::::::::JOINT STATE::::::::::-->
+    <gazebo>
+        <plugin filename="libgazebo_ros_joint_state_publisher.so" name="moria_joint_states">
         <ros>
-          <remapping>~/out:=scan</remapping>
+            <remapping>~/out:=joint_states</remapping>
         </ros>
-        <output_type>sensor_msgs/LaserScan</output_type>
-        <frame_name>lidar</frame_name>
-      </plugin>
-    </sensor>
-  </gazebo>
+        <update_rate>30</update_rate>
+        <joint_name>front_radial_joint</joint_name>
+        <joint_name>front_wheel_joint</joint_name>
+        <joint_name>right_wheel_joint</joint_name>
+        <joint_name>left_wheel_joint</joint_name>
+        </plugin>
+    </gazebo>
 
 
-
-
-  <!-- ::::::::::CAMERA::::::::::-->
-  <joint name="camera_joint" type="fixed">
-    <parent link="body"/>
-    <child link="camera"/>
-    <origin rpy="0 0 0" xyz="0.0839 0.0004 0.507"/>
-  </joint>
-
-  <link name="camera">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/camera.STL"/>
-      </geometry>
-      <material name="cyan">
-        <color rgba="0.3137 0.6941 0.7843 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="model://moria/meshes/camera.STL"/>
-      </geometry>
-    </collision>
-    <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.10791"/>
-      <inertia ixx="0.00007" ixy="0.0" ixz="0.0" iyy="0.000008" iyz="0.0" izz="0.00007"/>
-    </inertial>
-  </link>
-  <gazebo reference="camera">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-
-
-
-
-  <!-- ::::::::::CAMERA RGB FRAME::::::::::-->
-  <joint name="camera_rgb_joint" type="fixed">
-    <parent link="camera"/>
-    <child link="camera_rgb_frame"/>
-    <origin rpy="0 0 0" xyz="0 0.02 0.015"/>
-  </joint>
-  <link name="camera_rgb_frame"/>
-
-  <joint name="camera_point_joint" type="fixed">
-    <parent link="camera"/>
-    <child link="camera_point_frame"/>
-    <origin rpy="1.57 3.14 0" xyz="0 0.02 0.015"/>
-  </joint>
-  <link name="camera_point_frame"/>
-  
-  <gazebo reference="camera_rgb_frame">
-    <sensor name="camera_rgb" type="camera">
-      <pose>0 0 0 0 0 0</pose>
-      <visualize>true</visualize>
-      <update_rate>30</update_rate>
-      <camera>
-        <horizontal_fov>1.5</horizontal_fov>
-        <image>
-          <format>R8G8B8</format>
-          <width>640</width>
-          <height>480</height>
-        </image>
-        <clip>
-          <near>0.3</near>
-          <far>12.0</far>
-        </clip>
-      </camera>
-      <plugin filename="libgazebo_ros_camera.so" name="camera_controller_rgb">
-        <frame_name>camera_rgb_frame</frame_name>
-      </plugin>
-    </sensor>
-  </gazebo>
-
-  <joint name="camera_depth_joint" type="fixed">
-    <parent link="camera"/>
-    <child link="camera_depth_frame"/>
-    <origin rpy="0 0 0" xyz="0 -0.02 0.015"/>
-  </joint>
-  <link name="camera_depth_frame"/>
-
-  <gazebo reference="camera_depth_frame">
-    <sensor name="camera_depth" type="depth">
-      <pose>0 0 0 0 0 0</pose>
-      <visualize>true</visualize>
-      <update_rate>30</update_rate>
-      <camera>
-        <horizontal_fov>1.5</horizontal_fov>
-        <image>
-          <format>R8G8B8</format>
-          <width>640</width>
-          <height>480</height>
-        </image>
-        <clip>
-          <near>0.3</near>
-          <far>3.0</far>
-        </clip>
-      </camera>
-      <plugin filename="libgazebo_ros_camera.so" name="camera_controller_depth">
-        <frame_name>camera_depth_frame</frame_name>
-        <min_depth>0.3</min_depth>
-        <max_depth>3.0</max_depth>
-      </plugin>
-    </sensor>
-  </gazebo>
-
-
-
-
-  <!-- ::::::::::::::::::::DRIVER DEFINITIONS FOR GAZEBO::::::::::::::::::::-->
-  <!-- ::::::::::DIFF DRIVE::::::::::-->
-  <gazebo>
-    <plugin filename="libgazebo_ros_diff_drive.so" name="moria_diff_drive">
-      <update_rate>30</update_rate>
-
-      <left_joint>left_wheel_joint</left_joint>
-      <right_joint>right_wheel_joint</right_joint>
-
-      <wheel_separation>0.344</wheel_separation>
-      <wheel_diameter>0.06</wheel_diameter>
-
-      <max_wheel_torque>8.4</max_wheel_torque>
-
-      <odometry_frame>odom</odometry_frame>
-      <robot_base_frame>base_link</robot_base_frame>
-
-      <publish_odom>true</publish_odom>
-      <publish_odom_tf>true</publish_odom_tf>
-      <publish_wheel_tf>true</publish_wheel_tf>
-    </plugin>
-  </gazebo>
-
-  <!-- ::::::::::JOINT STATE::::::::::-->
-  <gazebo>
-    <plugin filename="libgazebo_ros_joint_state_publisher.so" name="moria_joint_states">
-    <ros>
-        <remapping>~/out:=joint_states</remapping>
-      </ros>
-      <update_rate>30</update_rate>
-      <joint_name>front_radial_joint</joint_name>
-      <joint_name>front_wheel_joint</joint_name>
-      <joint_name>right_wheel_joint</joint_name>
-      <joint_name>left_wheel_joint</joint_name>
-    </plugin>
-  </gazebo>
-
-<!--::::::::::ROS2 CONTROL::::::::::-->
-  <ros2_control name="GazeboSystem" type="system">
-    <hardware>
-      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
-    </hardware>
-    <joint name="left_wheel_joint">
-      <command_interface name="velocity">
-        <param name="min">-10</param>
-        <param name="max">10</param>
-      </command_interface>
-      <state_interface name="velocity"/>
-      <state_interface name="position"/>
-    </joint>
-
-    <joint name="right_wheel_joint">
-      <command_interface name="velocity">
-        <param name="min">-10</param>
-        <param name="max">10</param>
-      </command_interface>
-      <state_interface name="velocity"/>
-      <state_interface name="position"/>
-    </joint>
-
-    <joint name="front_radial_joint">
-      <command_interface name="velocity">
-        <param name="min">-10</param>
-        <param name="max">10</param>
-      </command_interface>
-      <state_interface name="velocity"/>
-      <state_interface name="position"/>
-    </joint>
-
-    <joint name="front_wheel_joint">
-      <command_interface name="velocity">
-        <param name="min">-10</param>
-        <param name="max">10</param>
-      </command_interface>
-      <state_interface name="velocity"/>
-      <state_interface name="position"/>
-    </joint>
-  </ros2_control>
 </robot>

@@ -77,7 +77,7 @@ def generate_launch_description():
             parameters=[parameters],
             remappings=remappings,
             arguments=['-d']),
-            
+
         # Localization mode:
         Node(
             condition=IfCondition(localization),
@@ -91,7 +91,7 @@ def generate_launch_description():
             package='rtabmap_viz', executable='rtabmap_viz', output='screen',
             parameters=[parameters],
             remappings=remappings),
-        
+
         # Obstacle detection with the camera for nav2 local costmap.
         # First, we need to convert depth image to a point cloud.
         # Second, we segment the floor from the obstacles.

@@ -103,7 +103,7 @@ def generate_launch_description():
     ld.add_action(spawn_moria_cmd)
     ld.add_action(joystick)
     ld.add_action(twist_mux)
-    ld.add_action(diff_drive_spawner)
-    ld.add_action(joint_broad_spawner)
+    #ld.add_action(diff_drive_spawner)
+    #ld.add_action(joint_broad_spawner)
 
     return ld

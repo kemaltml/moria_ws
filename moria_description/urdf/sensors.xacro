@@ -3,9 +3,9 @@
 
     <!-- LIDAR-->
     <joint name="lidar_joint" type="fixed">
-        <parent link="leg"/>
+        <parent link="base_link"/>
         <child link="lidar"/>
-        <origin xyz="0.1335 0.0005 0.0156" rpy="0 0 0"/>
+        <origin xyz="0.2222 0 0.2129" rpy="0 0 0"/>
     </joint>
 
     <link name="lidar">
@@ -41,7 +41,7 @@
     <joint name="camera_joint" type="fixed">
         <parent link="body"/>
         <child link="camera"/>
-        <origin xyz="0.0839 0.0004 0.507" rpy="0 0 0"/>
+        <origin xyz="0.0739 0 0.5085" rpy="0 0 0"/>
     </joint>
 
     <link name="camera">

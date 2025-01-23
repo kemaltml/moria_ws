@@ -17,6 +17,17 @@ import time
 
 class WallTrackNode(Node):
     def __init__(self):
+        """
+        Initialize the WallTrackNode class.
+
+        This function initializes the ROS node, subscriptions, publishers, parameters, and other necessary components for the wall tracking algorithm.
+
+        Parameters:
+        None
+
+        Returns:
+        None
+        """
         super().__init__('wall_track')
 
         # Subscriptions
@@ -25,8 +36,7 @@ class WallTrackNode(Node):
         self.map_sub = self.create_subscription(OccupancyGrid, '/map', self.map_callback, 10)
         self.timer = self.create_timer(0.25, self.get_robot_position)
         self.lidar_sub = self.create_subscription(LaserScan, 'scan', self.lidar_callback, 10 )
-        
-    
+
         # Publishers
         self.goal_pub = self.create_publisher(PoseStamped, '/goal_pose', 10)
         self.twist_pub = self.create_publisher(Twist, 'cmd_vel', 10)
@@ -37,10 +47,8 @@ class WallTrackNode(Node):
         #self.map_resolution = None
         #self.map_origin = None
         self.vertical_appr = 0
-        self.arr = []
         self.start_flag = 0
         self.err = 0
-        self.wall_track = 0
         self.prev_error = 0.0
         self.integral = 0.0
         self.kp = 1
@@ -49,8 +57,8 @@ class WallTrackNode(Node):
         self.map_call = 0
         self.value = 0
         self.directions = [0, 1.57, 3.14, -1.57 ]
-        self.steer_ctl = 0
-        
+        self.front_wall = 0
+
         # Log
         self.get_logger().info("WALL TRACK NODE INITIALIZED")
 
@@ -58,6 +66,19 @@ class WallTrackNode(Node):
         self.twist_msg = Twist()
 
     def map_callback(self, msg):
+        """
+        Callback function for processing the received map message.
+
+        This function is called when a new map message is received. It extracts
+        and stores relevant map information, reshapes the map data, updates the
+        robot's position, and sets a flag to indicate that the map has been received.
+
+        Parameters:
+        msg (OccupancyGrid): The received map message containing map information.
+
+        Returns:
+        None
+        """
         print("MAP CALLBACK")
         self.map_resolution = msg.info.resolution
         self.map_origin = msg.info.origin
@@ -68,10 +89,23 @@ class WallTrackNode(Node):
         self.get_robot_position()
         self.map_call = 1 # lidar_callback will start after map_callback
 
-        
-        
+
+
 
     def lidar_callback(self, msg):
+        """
+        Process the LiDAR scan data and update robot's state.
+
+        This function is called when new LiDAR scan data is received. It processes
+        the scan data, updates various distance measurements, calculates the minimum
+        range, determines the robot's orientation, and initiates the start procedure.
+
+        Parameters:
+        msg (sensor_msgs.msg.LaserScan): The LiDAR scan message containing range data.
+
+        Returns:
+        None
+        """
         print("LIDAR CALLBACK")
         if self.map_call == 1:
             self.ranges = msg.ranges
@@ -114,18 +148,9 @@ class WallTrackNode(Node):
             elif -1.8 < self.yaw < -1.4:
                 self.value = 3
 
-            
             self.direction = self.directions[self.value%4]
             print(f"DIRECTION: {self.direction}, VALUE: {self.value}")
-            
-            
-            # Checking right of the robot, 
-            # If wall stop appearing robot will turn right. 
-            # For that always compare lidars current value with previus value
-            self.arr.append(self.ranges[45])
-            if len(self.arr) == 3:
-                del self.arr[0]
-            print(self.arr)
+
             self.start()
         else:
             print("WAITING MAP_CALLBACK")
@@ -133,7 +158,7 @@ class WallTrackNode(Node):
 
     def start(self):
         if self.start_flag == 0: # In the beginning map wont be as expected so we will move and turn robot for better and bigger start map
-            self.align_wall() 
+            self.align_wall()
         else:
             if self.front<0.7:
                 print("front is close")
@@ -142,7 +167,7 @@ class WallTrackNode(Node):
                     twist_msg.linear.x = 0.05
                     twist_msg.angular.z = 0.2
                     self.twist_pub.publish(twist_msg)
-                else: 
+                else:
                     self.steer()
             else:
                 self.move()
@@ -152,22 +177,30 @@ class WallTrackNode(Node):
         twist_msg = Twist()
         print("ALIGNING WALL")
         if self.vertical_appr == 0 and (self.min_index > 30 or self.min_range > 2.0):
-            
-            print("VERTICAL APPROACHING")
-            if self.min_range> 1.5:
-                print("V SPEED IS 0.35")
-                twist_msg.linear.x = 0.35
-                twist_msg.angular.z = 0.0
-            elif 1.0< self.min_range < 1.5:
-                print("V SPEED IS 0.2")
-                twist_msg.linear.x = 0.2
-                twist_msg.angular.z = 0.0
+            if self.front_wall == 0:
+                if not 85< self.min_index< 95:
+                    twist_msg.linear.x = 0.0
+                    twist_msg.angular.z = 0.2
+                    self.twist_pub.publish(twist_msg)
+                else:
+                    self.front_wall = 1
+
             else:
-                print("DISTANCE IS AVAILABLE")
-                twist_msg.linear.x = 0.0
-                twist_msg.angular.z = self.pid_compute(90, -self.min_index)
-                self.vertical_appr = 1
-            self.twist_pub.publish(self.twist_msg)
+                print("VERTICAL APPROACHING")
+                if self.min_range> 1.5:
+                    print("V SPEED IS 0.35")
+                    twist_msg.linear.x = 0.35
+                    twist_msg.angular.z = 0.0
+                elif 1.0< self.min_range < 1.5:
+                    print("V SPEED IS 0.2")
+                    twist_msg.linear.x = 0.2
+                    twist_msg.angular.z = 0.0
+                else:
+                    print("DISTANCE IS AVAILABLE")
+                    twist_msg.linear.x = 0.0
+                    twist_msg.angular.z = self.pid_compute(90, -self.min_index)
+                    self.vertical_appr = 1
+                self.twist_pub.publish(self.twist_msg)
         else:
             #if not round(self.yaw,2) == 3.14:
             if not self.min_index < 5:
@@ -183,45 +216,44 @@ class WallTrackNode(Node):
 
     def steer(self):
         print("steer() called")
-        if self.ranges[80] < 4.0:
-            os.system('clear')
-            print("conditions for steer are OK")
-            if self.d30 > 2:
-                print("steering right")
-                self.twist_msg.linear.x = 0.1
-                self.twist_msg.angular.z = -0.3
-                self.twist_pub.publish(self.twist_msg)
-            else:
+        if self.d30 > 2:
+            print("steering right")
+            self.twist_msg.linear.x = 0.1
+            self.twist_msg.angular.z = -0.3
+            self.twist_pub.publish(self.twist_msg)
+        else:
+            print("steering left")
+            self.twist_msg.linear.x = 0.05
+            self.twist_msg.angular.z = 0.3
+            self.twist_pub.publish(self.twist_msg)
+            if self.ranges[80] < 4.0:
                 print("steering left")
-                self.twist_msg.linear.x = 0.05
-                self.twist_msg.angular.z = 0.3
-                self.twist_pub.publish(self.twist_msg)
-    
+
 
     def move(self):
         #os.system('clear')
         print("moving")
         print("following wall")
-        
+
 
 
         if self.d45 < 2.5:
-            angular = self.pid_compute(0.9, self.d45)
+            angular = self.pid_compute(1.0, self.d45)
             print(f"index 45: {self.d45} PID")
         elif self.d10 < 1.5:
-            angular = self.pid_compute(0.7, self.d10)
+            angular = self.pid_compute(0.85, self.d10)
             print(f"index 10: {self.d10} PID")
         elif self.d45 > 2.5 and self.d10 > 2.5 and self.d30 > 2.5:
-            angular = -0.4
+            angular = -0.3
         else:
-            angular = self.pid_compute(0.9, self.d45)
+            angular = self.pid_compute(1.0, self.d45)
 
-        
-        
+
+
 
         self.twist_msg.angular.z = angular
 
-        # Checking for If robot will turn fast or slow. 
+        # Checking for If robot will turn fast or slow.
         # If robot will turning fast it will be slow in linear so change of position will be minimum.
         # And it will make easy to apply PID and set the position about wall
         if abs(angular) > 0.35:
@@ -231,10 +263,10 @@ class WallTrackNode(Node):
 
         self.twist_pub.publish(self.twist_msg)
 
-    def pid_compute(self, target, current): # I is not using right know. Will add time 
+    def pid_compute(self, target, current): # I is not using right know. Will add time
         print("pid calculating...")
-        error = target - current 
-        self.integral += error 
+        error = target - current
+        self.integral += error
         derivative = error - self.prev_error
         p = round(self.kp * error,4)
         i = round(self.ki * self.integral,4)
@@ -245,24 +277,24 @@ class WallTrackNode(Node):
             i = 0.5
         if i < -1.0:
             i = -0.5
-        
+
         output = p + d
         output = round(output, 4)
         print(f"error: {error}    output: {output}")
 
 
-        if output > 0.4:
-            output = 0.4
+        if output > 0.5:
+            output = 0.5
 
         if output < -0.4:
-            output = -0.4
+            output = -0.3
 
         self.prev_error = error
         print(f"P: {p}\nI: {i}\nD: {d}")
         print(f"error: {error}    output: {output}")
         print(f"RETURNING PID {float(output)}")
         return float(output)
-        
+
 
     def get_robot_position(self):
         #os.system('clear')
@@ -271,7 +303,7 @@ class WallTrackNode(Node):
             transform: TransformStamped = self.tf_buffer.lookup_transform('map', 'base_link', rclpy.time.Time())
             self.position = transform.transform.translation
             self.orientation = transform.transform.rotation
-            
+
             # Round the position values to 1 decimal place
             self.position.x = round(self.position.x, 1)
             self.position.y = round(self.position.y, 1)
@@ -290,23 +322,23 @@ class WallTrackNode(Node):
                 self.orientation.w
             )
 
-                
+
             #self.get_logger().info(f"Robot position: x={self.position.x}, y={self.position.y}, z={self.position.z}")
             #self.get_logger().info(f"Robot orientation (quaternion): z={self.orientation.z}, w={self.orientation.w}")
         except Exception as e:
             self.get_logger().error(f"Failed to get transform: {str(e)}")
 
-    
+
 
     def quaternion_to_yaw(self, x, y, z, w):
         self.yaw = math.atan2(2.0 * (w * z + x * y), 1.0 - 2.0 * (y * y + z * z))
-    
+
 
 
 def main(args=None):
     rclpy.init(args=args)
     node = WallTrackNode()
-    
+
     try:
         rclpy.spin(node)
     except KeyboardInterrupt:
@@ -317,3 +349,4 @@ def main(args=None):
 
 if __name__ == '__main__':
     main()
+
