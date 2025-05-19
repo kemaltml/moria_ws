@@ -16,6 +16,8 @@ install(
 
 install(PROGRAMS
     run/wall_track.py
+    run/wall_track_fz.py
+    run/align_wall.py
     run/frontier_exploration.py
     DESTINATION lib/${PROJECT_NAME}
 )
