@@ -19,6 +19,7 @@ install(PROGRAMS
     run/wall_track_fz.py
     run/align_wall.py
     run/frontier_exploration.py
+    run/fuzzy_obstacle_avoidance.py
     DESTINATION lib/${PROJECT_NAME}
 )
 
