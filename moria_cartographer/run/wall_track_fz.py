@@ -58,6 +58,7 @@ class WallTrackNode(Node):
         self.value = 0
         self.directions = [0, 1.57, 3.14, -1.57 ]
         self.front_wall = 0
+        self.state = 'ALIGN_WALL'
 
         # Log
         self.get_logger().info("WALL TRACK NODE INITIALIZED")
@@ -118,17 +119,23 @@ class WallTrackNode(Node):
             self.integral = 0.0
 
             self.front = round(self.ranges[89],2)
-            self.right = round(self.ranges[0],2)
+            self.right = round(self.ranges[0],4)
             self.left = round(self.ranges[179],2)
             self.d45 = round(self.ranges[45],2)
             self.d30 = round(self.ranges[30],2)
             self.d20 = round(self.ranges[20],2)
             self.d15 = round(self.ranges[15],2)
             self.d10 = round(self.ranges[10],2)
+            self.front_area = np.mean(self.ranges[79:110])
+            self.right_area = np.mean(self.ranges[0:9])
+            self.left_area = np.mean(self.ranges[159:179])
 
             self.min_range = min(self.ranges)
             self.min_index = self.ranges.index(self.min_range)
             self.min_range = round(self.min_range, 2)
+
+            with open('scan.csv', 'a') as f:
+                f.write(f'{self.right}\n')
 
             print("---------------------------------------------------------------")
             print(f'RIGHT: {self.right}')
@@ -150,7 +157,8 @@ class WallTrackNode(Node):
 
             self.direction = self.directions[self.value%4]
             print(f"DIRECTION: {self.direction}, VALUE: {self.value}")
-
+            print(f'Linear: {self.twist_msg.linear.x:.4f}, Angular: {self.twist_msg.angular.z:.4f}')
+            print(f'STATE: {self.state}')
             self.start()
         else:
             print("WAITING MAP_CALLBACK")
@@ -158,98 +166,182 @@ class WallTrackNode(Node):
 
     def start(self):
         if self.start_flag == 0: # In the beginning map wont be as expected so we will move and turn robot for better and bigger start map
-            self.align_wall()
+            self.move()
         else:
             if self.front<0.7:
                 print("front is close")
-                if abs(self.yaw) < 0.1 and not self.yaw == 1.57:
-                    twist_msg = Twist()
-                    twist_msg.linear.x = 0.05
-                    twist_msg.angular.z = 0.2
-                    self.twist_pub.publish(twist_msg)
-                else:
-                    self.steer()
+                self.twist_msg.linear.x = 0.05
+                self.twist_msg.angular.z = 0.2
+                self.twist_pub.publish(self.twist_msg)
             else:
                 self.move()
 
-    def align_wall(self):
-        #os.system('clear')
-        twist_msg = Twist()
-        print("ALIGNING WALL")
-
-        speed, turn = get_fuzzy_outputs(self.min_index, self.min_range)
-        print(f"Fuzzy Outputs - Speed: {speed}, Turn: {turn}")
-
-        if self.vertical_appr == 0 and (self.min_index > 30 or self.min_range > 2.0):
-            print('VERTICAL APPROACHING')
-            twist_msg.linear.x = speed
-            twist_msg.angular.z = turn
-            self.twist_pub.publish(self.twist_msg)
-            
-            if self.min_range < 1.1:
-                self.vertical_appr = 1
-            
-        else:
-            #if not round(self.yaw,2) == 3.14:
-            if not self.min_index < 5:
-                print("TURNING ROBOT FOR BE PARALLEL")
-                twist_msg.linear.x = 0.0
-                twist_msg.angular.z = 0.2
-            else:
-                print("ALIGN PRECEDURE IS DONE...")
-                self.start_flag = 1
-            self.twist_pub.publish(twist_msg)
-        self.twist_pub.publish(twist_msg)
-
-
-    def steer(self):
-        print("steer() called")
-        if self.d30 > 2:
-            print("steering right")
-            self.twist_msg.linear.x = 0.1
-            self.twist_msg.angular.z = -0.3
-            self.twist_pub.publish(self.twist_msg)
-        else:
-            print("steering left")
-            self.twist_msg.linear.x = 0.05
-            self.twist_msg.angular.z = 0.3
-            self.twist_pub.publish(self.twist_msg)
-            if self.ranges[80] < 4.0:
-                print("steering left")
-
-
     def move(self):
-        #os.system('clear')
-        print("moving")
-        print("following wall")
+        
+        twist_msg = Twist()
+        speed, turn = get_fuzzy_outputs(self.min_index, self.min_range)
+        #print(f"Fuzzy Outputs - Speed: {speed}, Turn: {turn}")
 
+        if self.state == 'ALIGN_WALL':
+            self.state = 'VERTICAL_APPROACH'
 
+        elif self.state == 'VERTICAL_APPROACH':
+            if self.min_range > 1.1:
+                self.twist_msg.linear.x = speed
+                self.twist_msg.angular.z = turn
+                self.twist_pub.publish(self.twist_msg)
+            elif 0.7 < self.min_range <= 1.1:
+                self.state = 'PARALLEL_APPROACH'
+            else:
+                self.twist_msg.linear.x = -0.1
+                self.twist_msg.angular.z = turn
+                self.twist_pub.publish(self.twist_msg)
 
-        if self.d45 < 2.5:
-            angular = self.pid_compute(1.0, self.d45)
-            print(f"index 45: {self.d45} PID")
-        elif self.d10 < 1.5:
-            angular = self.pid_compute(0.85, self.d10)
-            print(f"index 10: {self.d10} PID")
-        elif self.d45 > 2.5 and self.d10 > 2.5 and self.d30 > 2.5:
-            angular = -0.3
+        elif self.state == 'PARALLEL_APPROACH':
+            if self.min_index > 15 and self.min_range > 0.7:
+                self.twist_msg.linear.x = 0.1
+                self.twist_msg.angular.z = 0.2
+                self.twist_pub.publish(self.twist_msg)
+            # elif self.min_index > 15 and self.min_range < 0.7:
+            #     self.twist_msg.linear.x = -0.1
+            #     self.twist_msg.angular.z = 0.2
+            #     self.twist_pub.publish(self.twist_msg)
+            else:
+                self.state = 'TRACK_WALL'
+
+        elif self.state == 'TRACK_WALL':
+            angular = 0.0
+            
+            if self.right_area > 2.5 or self.front_area < 1.1:
+                self.state = 'TURN'
+            elif self.d45 < 3:
+                angular = self.pid_compute(1.0, self.d45)
+                print(f"index 45: {self.d45} PID")
+                self.twist_msg.angular.z = angular
+                self.twist_msg.linear.x = 0.2
+                self.twist_pub.publish(self.twist_msg)
+            elif self.d10 < 1.5:
+                angular = self.pid_compute(0.85, self.d10)
+                self.twist_msg.linear.x = 0.2
+                self.twist_pub.publish(self.twist_msg)
+            
+
+        elif self.state == 'TURN':
+            if self.right_area > 2.5:
+                if self.min_index < 20:
+                    remaining = math.radians(self.min_index - 20)
+                    angular = self.sugeno_output(remaining)
+                    print(f'remaining: {remaining}, angluar: {angular}')
+                    self.twist_msg.angular.z = angular
+                    self.twist_msg.linear.x = 0.2
+                    self.twist_pub.publish(self.twist_msg)
+                else:
+                    self.twist_msg.linear.x = 0.1
+                    self.twist_msg.angular.z = -0.2
+                    self.twist_pub.publish(self.twist_msg)
+            elif self.right_area < 2.5 and self.front_area < 0.8:
+                if self.min_index > 20:
+                    remaining = math.radians(self.min_index - 20)
+                    angular = self.sugeno_output(remaining)
+                    self.twist_msg.angular.z = angular
+                    self.twist_msg.linear.x = 0.1
+                    self.twist_pub.publish(self.twist_msg)
+                else:
+                    self.twist_msg.linear.x = 0.1
+                    self.twist_msg.angular.z = 0.2
+                    self.twist_pub.publish(self.twist_msg)
+            else:
+                self.state = 'TRACK_WALL'
+
+    def sugeno_output(self, delta_yaw):
+        abs_yaw = abs(delta_yaw)
+        
+        small = max(0, min(1, (0.3 - abs_yaw) / 0.3))
+        medium = max(0, 1- abs(abs_yaw - 0.6) / 0.3)
+        large =max(0, min(1, (abs_yaw - 0.3) / (np.pi - 0.3)))
+
+        w1 = small * 0.1
+        w2 = medium * 0.3
+        w3 = large * 0.5
+
+        total_weight = small + medium + large 
+
+        if total_weight == 0:
+            angular = 0.0
         else:
-            angular = self.pid_compute(1.0, self.d45)
+            angular = (w1 + w2 + w3) / total_weight
+
+        return angular * np.sign(delta_yaw)
+
+    
+    def yaw_diff(self, current, initial):
+        diff = current - initial
+        diff = (diff + math.pi) % (2 * math.pi) - math.pi
+        return diff
+
+    # def align_wall(self):
+    #     #os.system('clear')
+    #     twist_msg = Twist()
+    #     print("ALIGNING WALL")
+
+    #     speed, turn = get_fuzzy_outputs(self.min_index, self.min_range)
+    #     print(f"Fuzzy Outputs - Speed: {speed}, Turn: {turn}")
+
+    #     if self.vertical_appr == 0 and (self.min_index > 30 or self.min_range > 2.0):
+    #         print('VERTICAL APPROACHING')
+    #         twist_msg.linear.x = speed
+    #         twist_msg.angular.z = turn
+    #         self.twist_pub.publish(self.twist_msg)
+            
+    #         if self.min_range < 1.1:
+    #             self.vertical_appr = 1
+            
+    #     else:
+    #         #if not round(self.yaw,2) == 3.14:
+    #         if not self.min_index < 5:
+    #             print("TURNING ROBOT FOR BE PARALLEL")
+    #             twist_msg.linear.x = 0.0
+    #             twist_msg.angular.z = 0.2
+    #         else:
+    #             print("ALIGN PRECEDURE IS DONE...")
+    #             self.start_flag = 1
+    #         self.twist_pub.publish(twist_msg)
+    #     self.twist_pub.publish(twist_msg)
+
+
+    # def track_wall(self):
+    #     #os.system('clear')
+    #     self.front_area = np.mean(self.ranges[79:110])
+    #     print("moving")
+    #     print("following wall")
+
+
+
+    #     if self.d45 < 2.5:
+    #         angular = self.pid_compute(1.0, self.d45)
+    #         print(f"index 45: {self.d45} PID")
+    #     elif self.d10 < 1.5:
+    #         angular = self.pid_compute(0.85, self.d10)
+    #         print(f"index 10: {self.d10} PID")
+    #     elif self.d45 > 2.5 and self.d10 > 2.5 and self.d30 > 2.5:
+    #         angular = -0.3
+    #     else:
+    #         angular = self.pid_compute(1.0, self.d45)
 
 
 
 
-        self.twist_msg.angular.z = angular
+    #     self.twist_msg.angular.z = angular
 
-        # Checking for If robot will turn fast or slow.
-        # If robot will turning fast it will be slow in linear so change of position will be minimum.
-        # And it will make easy to apply PID and set the position about wall
-        if abs(angular) > 0.35:
-            self.twist_msg.linear.x = 0.2
-        else:
-            self.twist_msg.linear.x = 0.2
+    #     # Checking for If robot will turn fast or slow.
+    #     # If robot will turning fast it will be slow in linear so change of position will be minimum.
+    #     # And it will make easy to apply PID and set the position about wall
+    #     if abs(angular) > 0.35:
+    #         self.twist_msg.linear.x = 0.2
+    #     else:
+    #         self.twist_msg.linear.x = 0.2
 
-        self.twist_pub.publish(self.twist_msg)
+    #     self.twist_pub.publish(self.twist_msg)
 
     def pid_compute(self, target, current): # I is not using right know. Will add time
         print("pid calculating...")
@@ -321,7 +413,11 @@ class WallTrackNode(Node):
     def quaternion_to_yaw(self, x, y, z, w):
         self.yaw = math.atan2(2.0 * (w * z + x * y), 1.0 - 2.0 * (y * y + z * z))
 
-
+    def stop_robot(self):
+        stop_twist = Twist()
+        stop_twist.linear.x = 0.0
+        stop_twist.angular.z = 0.0
+        self.twist_pub.publish(stop_twist)
 
 def main(args=None):
     rclpy.init(args=args)
@@ -332,6 +428,7 @@ def main(args=None):
     except KeyboardInterrupt:
         node.get_looger().info('Keyboard Interrupt (SIGINT)')
     finally:
+        node.stop_robot()
         node.destroy_node()
         rclpy.shutdown()
 

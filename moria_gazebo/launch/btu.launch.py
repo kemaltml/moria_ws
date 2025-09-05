@@ -21,6 +21,11 @@ def generate_launch_description():
     x_pose = LaunchConfiguration('x_pose', default='0.0')
     y_pose = LaunchConfiguration('y_pose', default='0.0')
 
+    pkg_share=os.path.join(get_package_share_directory('moria_gazebo'))  
+    
+    gazebo_models_path = os.path.join(pkg_share, 'models')
+    os.environ["GAZEBO_MODEL_PATH"] = gazebo_models_path
+
     world = os.path.join(get_package_share_directory('moria_gazebo'),
                         'worlds',
                         'btu.world'
